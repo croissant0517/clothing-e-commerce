@@ -29,7 +29,7 @@ $main-color: black;
     &:focus {
         outline: none;
     }
-
+    // focus指的是當滑鼠點擊在某處或是瀏覽器滑到某處時，類似於hover的用途
     &:focus ~ .form-input-label {
         // 使用上面 @mixin shrinkLabel的css樣式區塊
         @include shrinkLabel();

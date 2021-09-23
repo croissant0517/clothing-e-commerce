@@ -23,6 +23,13 @@
   
       .option {
         padding: 10px 15px;
+        text-decoration: none;
+        color: white;
+        font-size: larger;
+
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
 }
