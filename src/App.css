@@ -1,9 +1,10 @@
 body {
   font-family: 'Open Sans Condensed', sans-serif;
-  padding: 1vw 4vw 1vw 5vw;
+  /* padding: 1vw 4vw 1vw 5vw; */
 }
 
 a {
   text-decoration: none;
-  color: black;
+  color: white;
+  font-size: larger;
 }
