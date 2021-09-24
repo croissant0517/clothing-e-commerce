@@ -1,15 +1,19 @@
-.sign-in {
+.sign-up {
     width: 500px;
     margin: 5vw;
     display: flex;
     flex-direction: column;
     align-self: center;
     justify-self: center;
+
+    .title {
+        margin: 10px 0;
+    }
 }
 
 
 @media (max-width: 700px) {
-    .sign-in {
+    .sign-up {
         width: 420px;
         padding: 1vw;
         display: flex;
@@ -18,3 +22,4 @@
         justify-self: center;
     }
 }
+
