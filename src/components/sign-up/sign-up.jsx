@@ -29,7 +29,7 @@ class SignUp extends Component {
         try {
             // createUserProfileDocument成功後會回傳一個userAuth的object其中有user
             const { user } = await auth.createUserWithEmailAndPassword(email, password)
-            createUserProfileDocument(user, displayName);
+            createUserProfileDocument(user, {displayName});
             this.setState({
                 displayName: "",
                 email: "",
