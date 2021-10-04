@@ -1,6 +1,7 @@
 .sign-in-sign-up {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(650px, 1fr));
+    padding-bottom: 90px;
     // grid-template-columns: 1fr 1fr;
 }
 
