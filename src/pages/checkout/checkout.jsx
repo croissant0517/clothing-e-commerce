@@ -9,6 +9,7 @@ import { selectCartItems, selectCartTotal } from "../../redux/cart/cart.selector
 import "./checkout.scss";
 
 const checkOutPage = (props) => {
+    console.log(props);
     return (
         <div className = "checkout-page" >
             <div className = "checkout-header" >
