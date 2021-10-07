@@ -43,8 +43,8 @@ const SHOP_DATA = [
             },
             {
             id: 6,
-            name: 'Black T-Shirt',
-            imageUrl: 'https://images.pexels.com/photos/4066293/pexels-photo-4066293.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+            name: 'White T-Shirt',
+            imageUrl: 'https://images.pexels.com/photos/4066288/pexels-photo-4066288.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
             price: 299
             },
             {

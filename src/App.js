@@ -6,7 +6,6 @@ import './App.css';
 import HomePage from './pages/homepage/homepage';
 import ShopPage from './pages/shop/shop';
 import Header from './components/header/header';
-import Footer from './components/footer/footer';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up';
 import checkOutPage from './pages/checkout/checkout';
 
@@ -20,9 +19,6 @@ class App extends Component {
   handleRedirectToHomePage = () => {
     return this.props.currentUser ? <Redirect to = "/" /> : <SignInAndSignUpPage />
   }
-    
-
-  unsubscribeFromAuth = null;
 
   componentDidMount() {
     this.unsubscribeFromAuth = auth.onAuthStateChanged( async (userAuth) => {
@@ -40,11 +36,6 @@ class App extends Component {
       } 
     });
   }
-
-  componentWillUnmount() {
-    this.unsubscribeFromAuth();
-    console.log("componentWillUnmount");
-  }
   
   render() {
     return (
@@ -56,7 +47,6 @@ class App extends Component {
           <Route exact path = "/signin" render = {this.handleRedirectToHomePage} />
           <Route exact path = "/checkout" component = { checkOutPage } />
         </Switch>
-        <Footer />
       </div>
     );
   }
