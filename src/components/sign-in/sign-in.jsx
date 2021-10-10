@@ -49,7 +49,7 @@ class SignIn extends Component {
                         type = "email" 
                         value = {this.state.email} 
                         label = "email"
-                        required 
+                        required
                     />
                     {/* <label>Email</label> */}
                     <FormInput 

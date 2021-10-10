@@ -6,27 +6,17 @@
     align-items: center;
     justify-content: center;
     margin: 0 7.5px 15px;
+    // border: 1px solid black;
+    overflow: hidden;   
 
     &:hover {
         cursor: pointer;
 
         & .background-image {
-            // transform: scale(1.1);
-            // transition: transform 2s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+            transform: scale(1.1);
+            transition: transform 2s cubic-bezier(0.25, 0.45, 0.45, 0.95);
             opacity: 0.5;
-        }
-
-        // & .content {
-        //     opacity: 0.9;
-        // }
-    }
-    
-    &:first-child {
-      margin-right: 7.5px;
-    }
-  
-    &:last-child {
-      margin-left: 7.5px;
+        }   
     }
 
     .background-image {
@@ -37,7 +27,7 @@
     }
   
     .content {
-        height: 90px;
+        height: 100px;
         padding: 0 25px;
         display: flex;
         flex-direction: column;
