@@ -1,36 +1,3 @@
-// import React from "react";
-// import StripeCheckout from "react-stripe-checkout";
-
-// import "./stripe-button.scss";
-
-// const StripeCheckoutButton = (props) => {
-//     const priceForStripe = props.price;
-//     const publishableKey = "pk_test_51JjUcqGBBygI9WOWYOMqL4LtNeKUZnno4QsffQjvPXztVhIT14xCqoGPBA0d4LGxEzagVYPEsVNxyWfv9jU9ROgc00QM8w0obm"
-
-//     const onToken = (token) => {
-//         console.log(token)
-//         alert("Payment Successful")
-//     }
-
-//     return (
-//         <StripeCheckout
-//             label = "Pay Now"
-//             name = "Clothing-E-Commerce Co.,Ltd"
-//             billingAddress
-//             shippingAddress
-//             description = {`Your total is $${priceForStripe}`}
-//             amount = {priceForStripe}
-//             panelLabel = "Pay Now"
-//             token = {onToken}
-//             stripeKey = {publishableKey}
-//         />
-//     );
-// }
-
-// export default StripeCheckoutButton
-
-
-
 // This example shows you how to set up React Stripe.js and use Elements.
 // Learn how to accept a payment using the official Stripe docs.
 // https://www.stripe.com/docs/payments/integration-builder
