@@ -1,5 +1,5 @@
 .header {
-    height: 90px;
+    height: 70px;
     width: 100%;
     position: fixed;
     display: flex;
@@ -9,30 +9,40 @@
     z-index: 1;
   
     .logo-container {
-      height: 100%;
-      width: 70px;
-      margin: 25px;
+      display: flex;
+      align-items: center;
+      padding: 10px 15px;
+      text-decoration: none;
+      color: white;
+      font-size: 25px;
     }
   
     .options {
-      width: 50%;
-      height: 90px;
+      height: 70px;
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      margin-right: 25px;
-      // padding: 25px;
+      padding: 10px 15px;
   
       .option {
         padding: 10px 15px;
         text-decoration: none;
         color: white;
-        font-size: larger;
+        font-size: large;
 
         &:hover {
           cursor: pointer;
         }
       }
     }
+}
+
+@media (max-width: 700px) {
+  .header {
+    justify-content: flex-end;
+    .logo-container {
+      display: none;
+    }
+  }
 }
   
