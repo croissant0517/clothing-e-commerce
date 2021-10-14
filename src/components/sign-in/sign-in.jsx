@@ -48,7 +48,7 @@ class SignIn extends Component {
                         name = "email" 
                         type = "email" 
                         value = {this.state.email} 
-                        label = "email"
+                        label = "Email"
                         required
                     />
                     {/* <label>Email</label> */}
@@ -57,7 +57,7 @@ class SignIn extends Component {
                         name = "password" 
                         type = "password" 
                         value = {this.state.password}
-                        label = "email" 
+                        label = "Password" 
                         required
                     />
                     {/* <label>Password</label> */}

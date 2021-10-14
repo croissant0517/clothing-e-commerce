@@ -13,7 +13,7 @@ const FormInput = (props) => {
                 required = {props.required}
             />
             {/* 是否有label的傳入？ 如果有的話則回傳一個label的HTML tag 並且將className命名為"shrink" 並且始終都有"form-input-label"這個className */}
-            {props.label ? (<label className = {`${props.value ? "shrink" : ""} form-input-label`} >{props.name}</label>) : null}
+            {props.label ? (<label className = {`${props.value ? "shrink" : ""} form-input-label`} >{props.label}</label>) : null}
         </div>
     );
 }
