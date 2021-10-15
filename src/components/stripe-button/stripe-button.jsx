@@ -145,7 +145,6 @@ const CheckoutForm = (props) => {
       billing_details: billingDetails
     });
     console.log(payload);
-
     setProcessing(false);
 
     if (payload.error) {
