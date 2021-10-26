@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
@@ -8,9 +7,10 @@ import CartDropdown from "../cart-dropdown/cart-dropdown";
 import { selectCartHidden } from "../../redux/cart/cart.selectors";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 
-import "./header.scss";
+import "./header.scss"
 
 import { auth } from "../../firebase/firebase.utils";
+import { Link } from "react-router-dom";
 
 const Header = (props) => {
 
@@ -38,8 +38,7 @@ const Header = (props) => {
                     : 
                     <Link className = "option" to = "/signin" >SIGN IN</Link> 
                 }
-                <CartIcon />
-
+                <CartIcon/>
             </div>
             {props.hidden ? null : <CartDropdown />}
         </div>

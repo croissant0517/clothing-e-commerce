@@ -16,7 +16,7 @@ const CollectionItem = (props) => {
                 <span className = "name" >{name}</span>
                 <span className = "price" >NT${price}</span>
             </div>
-            <CustomButton onClick = {() => props.handleAddItem(props.item)} >Add to cart</CustomButton>
+            <CustomButton itemButton onClick = {() => props.handleAddItem(props.item)} >Add to cart</CustomButton>
         </div>
     );
 }

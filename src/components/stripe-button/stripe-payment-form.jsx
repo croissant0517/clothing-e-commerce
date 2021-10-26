@@ -10,7 +10,8 @@ import {
   useElements,
   useStripe
 } from "@stripe/react-stripe-js";
-import "./stripe-button.scss";
+
+import "./stripe-payment-form.scss"
 
 const CARD_OPTIONS = {
   iconStyle: "solid",
@@ -265,7 +266,7 @@ const ELEMENTS_OPTIONS = {
 // recreating the `Stripe` object on every render.
 const stripePromise = loadStripe("pk_test_51JjUcqGBBygI9WOWYOMqL4LtNeKUZnno4QsffQjvPXztVhIT14xCqoGPBA0d4LGxEzagVYPEsVNxyWfv9jU9ROgc00QM8w0obm");
 
-const StripeCheckoutButton = (props) => {
+const StripeCheckoutForm = (props) => {
   return (
     <div className="AppWrapper">
       <Elements stripe={stripePromise} options={ELEMENTS_OPTIONS}>
@@ -275,4 +276,4 @@ const StripeCheckoutButton = (props) => {
   );
 };
 
-export default StripeCheckoutButton;
+export default StripeCheckoutForm;

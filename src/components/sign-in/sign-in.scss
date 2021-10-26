@@ -5,16 +5,12 @@
     flex-direction: column;
     align-self: center;
     justify-self: center;
-}
 
+    @media (max-width: 700px) {
+        width: 90%;
+    }
 
-@media (max-width: 700px) {
-    .sign-in {
-        width: 420px;
-        padding: 1vw;
-        display: flex;
-        flex-direction: column;
-        align-self: center;
-        justify-self: center;
+    @media (max-width: 400px) {
+        width: 80%;
     }
 }

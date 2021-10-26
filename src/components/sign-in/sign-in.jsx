@@ -17,7 +17,7 @@ class SignIn extends Component {
 
     handleSubit = async (event) => {
         event.preventDefault();
-
+        
         const {email, password} = this.state
 
         try {

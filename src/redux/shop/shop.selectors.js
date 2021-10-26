@@ -18,6 +18,6 @@ export const selectShopCollectionsForPreview = createSelector(
 
 export const selectShopCollection = memoize((collectionParams) => createSelector(
     [selectShopCollections],
-    // 原本使用filter的方式會使整個尋找正確商品項目的速度變慢，因此將shop.data原本的array改成object
+    // 原本使用find的方式會使整個尋找正確商品項目的速度變慢，因此將shop.data原本的array改成object
     (collections) => (collections[collectionParams])
 ))

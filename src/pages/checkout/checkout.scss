@@ -1,5 +1,5 @@
 .checkout-page {
-    width: 55%;
+    width: 1050px;
     min-height: 90vh;
     display: flex;
     flex-direction: column;
@@ -24,9 +24,9 @@
     }
   
     .total {
-      margin-top: 30px;
-      margin-left: auto;
-      font-size: 36px;
+        margin-top: 30px;
+        margin-left: auto;
+        font-size: 36px;
     }
 
     .stripe-checkoutForm {
