@@ -6,6 +6,21 @@ import "./checkout-item.scss";
 
 const CheckOutItem = (props) => {
     const { name, price, imageUrl, quantity } = props.item;
+
+    const handleRemoveItemFromCartOnClick = () => {
+        if (props.item.quantity === 1) {
+            props.handleRemoveItem(props.item);
+            alert("Remove 1 item from the shopping cart")
+        } else {
+            props.handleRemoveItem(props.item);
+        }     
+    }
+
+    const handleClearItemFromCartOnClick = () => {
+        props.handleClearItemFromCart(props.item)
+        alert("Remove 1 item from the shopping cart")
+    }
+
     return (
         <div className = "checkout-item" >
             <div className = "image-container" >
@@ -13,12 +28,12 @@ const CheckOutItem = (props) => {
             </div>
             <span className = "name" >{name}</span>
             <span className = "quantity" >
-                <div className = "arrow" onClick = {() => props.handleRemoveItem(props.item)} >&#10094;</div>
+                <div className = "arrow" onClick = {handleRemoveItemFromCartOnClick} >&#10094;</div>
                 <span className = "value" >{quantity}</span>
                 <div className = "arrow" onClick = {() => props.handleAddItem(props.item)} >&#10095;</div>
             </span>
             <span className = "price" >NT${price}</span>
-            <div className = "remove-button" onClick = {() => {props.handleClearItemFromCart(props.item)}} >&#10005;</div>
+            <div className = "remove-button" onClick = {handleClearItemFromCartOnClick} >&#10005;</div>
         </div>
     );
 }

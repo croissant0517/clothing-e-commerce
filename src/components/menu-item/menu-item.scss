@@ -7,16 +7,25 @@
     justify-content: center;
     margin: 0 7.5px 15px;
     overflow: hidden;   
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
     &:hover {
         cursor: pointer;
+        transform: scale(1.01);
+        transition: transform 0.5s;
 
         & .background-image {
-            transform: scale(1.05);
-            transition: transform 0.5s;
-            transition: transform 2s cubic-bezier(0.25, 0.45, 0.45, 0.95);
-            opacity: 0.5;
+            // transform: scale(1.05);
+            // transition: transform 2s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+            opacity: 0.7;
         }   
+    }
+
+    &:active {
+        transform: scale(0.99);
     }
 
     .background-image {
@@ -33,7 +42,6 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        // border: 1px solid black;
         background-color: rgba($color: white, $alpha: 0.7);
         position: absolute;
   

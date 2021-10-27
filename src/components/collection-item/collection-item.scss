@@ -3,6 +3,7 @@
     flex-direction: column;
     height: 550px;
     padding-bottom: 3vw;
+    overflow: hidden;
     margin: 0 15px;
 
     .image {
@@ -11,6 +12,10 @@
         background-size: cover;
         background-position: center;
         margin-bottom: 5px;
+        overflow: hidden;
+        border-radius: 10px;
+        box-sizing: border-box;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     }
 
     .collection-footer {
