@@ -8,6 +8,7 @@ import ShopPage from './pages/shop/shop';
 import Header from './components/header/header';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up';
 import checkOutPage from './pages/checkout/checkout';
+import Footer from './components/footer/footer';
 
 import { auth, createUserProfileDocument, addCollectionAndDocuments } from './firebase/firebase.utils';
 import { setCurrentUser } from './redux/user/user.action';
@@ -51,6 +52,7 @@ class App extends Component {
           <Route exact path = "/signin" render = {this.handleRedirectToHomePage} />
           <Route exact path = "/checkout" component = { checkOutPage } />
         </Switch>
+        <Footer />
       </div>
     );
   }
