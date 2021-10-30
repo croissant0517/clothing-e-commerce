@@ -32,6 +32,9 @@ const Header = (props) => {
                 <Link className = "option" to = "/shop" >
                     SHOP
                 </Link>
+                <a className = "option" href="https://www.linkedin.com/in/vicchang0517/" target="_blank" rel="noreferrer" >
+                    CONTACT ME
+                </a>
                 { 
                     props.currentUser ? 
                     <div className = "option" onClick = {handleSignOut} >SIGN OUT</div>
