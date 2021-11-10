@@ -204,6 +204,7 @@ const CheckoutForm = (props) => {
           autoComplete="email"
           value={billingDetails.email}
           onChange={(e) => {
+            setError(null);
             setBillingDetails({ ...billingDetails, email: e.target.value });
           }}
         />
