@@ -13,7 +13,7 @@ const CheckOutItem = (props) => {
             alert("Remove 1 item from the shopping cart")
         } else {
             props.handleRemoveItem(props.item);
-        }     
+        }
     }
 
     const handleClearItemFromCartOnClick = () => {

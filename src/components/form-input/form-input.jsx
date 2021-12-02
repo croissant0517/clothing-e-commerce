@@ -4,7 +4,7 @@ import "./form-input.scss";
 const FormInput = (props) => {
     return (
         <div className = "group" >
-        <input
+            <input
                 className = "form-input"
                 name = {props.name}
                 onChange = {props.handleChange}
