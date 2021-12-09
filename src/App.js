@@ -10,19 +10,22 @@ import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up
 import checkOutPage from './pages/checkout/checkout';
 import Footer from './components/footer/footer';
 
-import { auth, createUserProfileDocument, addCollectionAndDocuments } from './firebase/firebase.utils';
+import { 
+  auth, 
+  createUserProfileDocument,
+  // addCollectionAndDocuments 
+} from './firebase/firebase.utils';
+
 import { setCurrentUser } from './redux/user/user.action';
 import { selectCurrentUser } from './redux/user/user.selectors';
 import { createStructuredSelector } from 'reselect';
-import { selectShopCollectionsForPreview } from "./redux/shop/shop.selectors";
+// import { selectShopCollectionsForPreview } from "./redux/shop/shop.selectors";
 
 class App extends Component {
-
+  
   handleRedirectToHomePage = () => {
     return this.props.currentUser ? <Redirect to = "/" /> : <SignInAndSignUpPage />
   }
-
-  unsubscribeFromAuth = null;
 
   componentDidMount() {
     this.unsubscribeFromAuth = auth.onAuthStateChanged( async (userAuth) => {
@@ -37,9 +40,17 @@ class App extends Component {
         })
       } 
       this.props.handlesetCurrentUser(userAuth);
-      addCollectionAndDocuments("collections", this.props.collectionsArray);
-      
+      // addCollectionAndDocuments("collections", this.props.collectionsArray.map((collectionArray) => {
+      //   return ({
+      //     title: collectionArray.title,
+      //     items: collectionArray.items
+      //   })
+      // }));
     });
+  }
+
+  componentWillUnmount() {
+    this.unsubscribeFromAuth = null;
   }
   
   render() {
@@ -60,7 +71,7 @@ class App extends Component {
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
-  collectionsArray: selectShopCollectionsForPreview
+  // collectionsArray: selectShopCollectionsForPreview
 })
 
 const mapDispatchToProps = (dispatch) => {

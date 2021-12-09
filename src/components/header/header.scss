@@ -10,8 +10,7 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
     .logo-container {
-        display: flex;
-        align-items: center;
+        justify-self: flex-end;
         padding: 10px 15px;
         text-decoration: none;
         color: white;
@@ -25,10 +24,10 @@
     }
 
     .options {
+        justify-self: flex-end;
         height: 70px;
         display: flex;
         align-items: center;
-        justify-content: flex-end;
 
         .option {
             padding: 10px 15px;

@@ -17,12 +17,12 @@ const CollectionItem = (props) => {
     return (
         <div className = "collection-item" >
             <div className = "image" style = {{ backgroundImage : `url(${imageUrl})` }} >
+                <CustomButton itemButton onClick = {handleOnClick} >Add to cart</CustomButton>
             </div>
             <div className = "collection-footer" >
                 <span className = "name" >{name}</span>
                 <span className = "price" >NT${price}</span>
             </div>
-            <CustomButton itemButton onClick = {handleOnClick} >Add to cart</CustomButton>
         </div>
     );
 }

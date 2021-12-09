@@ -1,21 +1,35 @@
 .collection-item {
     display: flex;
     flex-direction: column;
-    height: 550px;
+    height: 500px;
     padding-bottom: 3vw;
     overflow: hidden;
     margin: 0 15px;
 
     .image {
+        display: flex;
         width: 100%;
-        height: 95%;
+        height: 90%;
         background-size: cover;
         background-position: center;
         margin-bottom: 5px;
         overflow: hidden;
         border-radius: 10px;
         box-sizing: border-box;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+        &:hover {
+            button {
+                height: 25%;
+                opacity: 0.85;
+            }
+        }
+
+        button {
+            align-self: flex-end;
+            opacity: 0;
+            width: 100%;
+            transition: .5s;
+        }
     }
 
     .collection-footer {
