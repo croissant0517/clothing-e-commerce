@@ -7,7 +7,7 @@
     margin-bottom: 25px;
     background-color: black;
     z-index: 1;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: .5s;
 
     .logo-container {
         justify-self: flex-end;
@@ -37,4 +37,8 @@
             cursor: pointer;
         }
     }
+}
+
+.shadow-header {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }

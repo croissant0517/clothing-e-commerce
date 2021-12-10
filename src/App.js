@@ -57,12 +57,14 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <Switch>
-          <Route exact path = "/" component = {HomePage} />
-          <Route path = "/shop" component = {ShopPage} />
-          <Route exact path = "/signin" render = {this.handleRedirectToHomePage} />
-          <Route exact path = "/checkout" component = { checkOutPage } />
-        </Switch>
+        <div className="body-container">
+          <Switch>
+            <Route exact path = "/" component = {HomePage} />
+            <Route path = "/shop" component = {ShopPage} />
+            <Route exact path = "/signin" render = {this.handleRedirectToHomePage} />
+            <Route exact path = "/checkout" component = { checkOutPage } />
+          </Switch>
+        </div>
         <Footer />
       </div>
     );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import logo  from "../../assets/logo.png"
@@ -14,14 +14,30 @@ import { auth } from "../../firebase/firebase.utils";
 import { Link } from "react-router-dom";
 
 const Header = (props) => {
+    const [scrollTop, setScrollTop] = useState(true);
 
     // 將用戶登出
     const handleSignOut = () => {
         auth.signOut()
     }
 
+    // 監聽滾動事件
+    useEffect(() => {
+        window.addEventListener("scroll", () => {
+            const isTop = window.scrollY > 0;
+            if (isTop) {
+                setScrollTop(false);
+            } else {
+                setScrollTop(true);
+            }
+        });
+        return () => {
+            window.removeEventListener('scroll',null);
+        };
+    }, []);
+
     return(
-        <div className = "header" >
+        <div className = { `${scrollTop ? "" : "shadow-header"} header` } >
             <Link className = "logo-container" to = "/" >
                 <img src = {logo} alt = "logo" />
             </Link>
