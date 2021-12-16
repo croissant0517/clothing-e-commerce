@@ -1,0 +1,12 @@
+.slide-dots {
+    font-size: clamp(0.6rem, 2.5vw, 1rem);
+    padding: 10px;
+        
+    .slide-dot-active {
+        cursor: pointer;
+    }
+
+    .slide-dot {
+        cursor: pointer;
+    }
+}

@@ -4,7 +4,7 @@
     padding: 1vw 5vw;
 
     .title {
-        font-size: 28px;
+        font-size: clamp(1rem, 5vw, 2.5rem);
         margin: 25px 25px;
     }
 

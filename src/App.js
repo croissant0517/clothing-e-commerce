@@ -10,6 +10,8 @@ import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up
 import checkOutPage from './pages/checkout/checkout';
 import Footer from './components/footer/footer';
 
+import ScrollToTop from './scrolltotop';
+
 import { 
   auth, 
   createUserProfileDocument,
@@ -56,6 +58,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <ScrollToTop/>
         <Header />
         <div className="body-container">
           <Switch>

@@ -3,6 +3,7 @@
     grid-template-columns: repeat(auto-fill, minmax(650px, 1fr));
     padding-bottom: 90px;
     padding-top: 90px;
+    animation: fade 200ms ease-out;
 
     @media (max-width: 700px) {
         grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
@@ -11,4 +12,13 @@
     @media (max-width: 400px) {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
+
+    @keyframes fade {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+        }
 }

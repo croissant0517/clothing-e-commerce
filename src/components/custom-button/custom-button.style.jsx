@@ -19,9 +19,9 @@ const googleSignInStyles = css`
 `
 
 const itemButtonStyles = css`
+    height: 10px;
     background-color: black;
     width: 100%;
-    border-radius: 10px;
     box-sizing: border-box;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 

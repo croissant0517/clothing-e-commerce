@@ -1,3 +1,14 @@
 .homepage {
-    padding: 140px 5vw;
+    display: flex;
+    flex-direction: column;
+    animation: fade 200ms ease-out;
+
+    @keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+    }
 }

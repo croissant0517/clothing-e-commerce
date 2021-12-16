@@ -1,3 +1,13 @@
 .shop-page {
     padding-top: 90px;
+    animation: fade 200ms ease-out;
+
+    @keyframes fade {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+        }
 }

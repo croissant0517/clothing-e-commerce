@@ -7,18 +7,16 @@
     justify-content: center;
     cursor: pointer;
     margin: 20px;
-  
-    .shopping-icon {
-        width: 45px;
-        height: 45px;
-        position: relative;
-    }
-
 
     .item-count {
         position: absolute;
         font-size: 12px;
         font-weight: bolder;
         bottom: 12px;
+        color: white;
+    }
+
+    .shadow-item-count {
+        color: black;
     }
 }

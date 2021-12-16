@@ -2,9 +2,10 @@
     display: flex;
     flex-direction: column;
     padding: 1vw 5vw;
+    animation: fade 200ms ease-out;
   
     .title {
-        font-size: 38px;
+        font-size: clamp(1rem, 5vw, 2.5rem);
         margin: 0 auto 30px;
     }
   
@@ -16,5 +17,14 @@
         @media (max-width: 400px) {
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         }
+    }
+
+    @keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
     }
 }

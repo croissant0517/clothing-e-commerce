@@ -8,9 +8,7 @@
     margin: 0 7.5px 15px;
     overflow: hidden;   
     border: 1px solid #ccc;
-    border-radius: 16px;
     box-sizing: border-box;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
     &:hover {
         cursor: pointer;
@@ -18,10 +16,8 @@
         transition: transform 0.5s;
 
         & .background-image {
-            // transform: scale(1.05);
-            // transition: transform 2s cubic-bezier(0.25, 0.45, 0.45, 0.95);
             opacity: 0.7;
-        }   
+        } 
     }
 
     &:active {
@@ -47,7 +43,7 @@
   
         .title {
             font-weight: bold;
-            font-size: 22px;
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
             color: #4a4a4a;
         }
     }
