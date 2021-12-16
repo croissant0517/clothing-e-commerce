@@ -11,7 +11,7 @@ const ConfirmModal= ({itemName, itemImage}) => {
                 <div className = "image-container" >
                     <img src = {itemImage} alt = "item" />
                 </div>
-                <h1>Add 1 {itemName} to the shopping cart</h1>
+                <p>Add 1 {itemName} to the shopping cart</p>
             </div>
         </Modal>
     );
