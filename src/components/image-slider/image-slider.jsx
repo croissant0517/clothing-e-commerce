@@ -52,7 +52,7 @@ const ImageSlider = () => {
             <div className="slider-dots">
                 {SliderData.map((slider, index) => {
                     return (
-                        <ImageSliderDot currentIdex={index === currentImageDataIndex} onClick={() => {
+                        <ImageSliderDot key = {index} currentIdex={index === currentImageDataIndex} onClick={() => {
                             setCurrentImageDataIndex(index)
                         }}/>
                     );

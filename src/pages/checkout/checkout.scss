@@ -16,10 +16,12 @@
         border-bottom: 1px solid darkgrey;
   
         .header-block {
+            width: 19%;
             text-transform: capitalize;
+            text-align: center;
   
             &:last-child {
-            width: 8%;
+            width: 4%;
             }
         }
     }
@@ -53,7 +55,7 @@
 
 @media (max-width: 1100px) {
     .checkout-page {
-        width: 90%;
+        width: 80%;
         min-height: 90vh;
         display: flex;
         flex-direction: column;
