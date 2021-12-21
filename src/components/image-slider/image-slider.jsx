@@ -42,7 +42,7 @@ const ImageSlider = () => {
             <div className="slide-container" >
                 {SliderData.map((slider, index) => {
                     return (
-                        <div key = {index} className={`${index === currentImageDataIndex ? "slide-active" : "slide"}`}>
+                        <div key = {slider.id} className={`${index === currentImageDataIndex ? "slide-active" : "slide"}`}>
                                 {index === currentImageDataIndex && <img className="slider-image" src={slider.imageUrl} alt={slider.title}/>}
                         </div>
                     );

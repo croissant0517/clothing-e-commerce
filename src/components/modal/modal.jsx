@@ -15,7 +15,7 @@ const Modal = ({children, closeModal, ...props}) => {
     // })
 
     return (
-        <Background 
+        <Background {...props}
         onClick={closeModal ? (event) => {
             if(event.target === event.currentTarget) {
                 closeModal()

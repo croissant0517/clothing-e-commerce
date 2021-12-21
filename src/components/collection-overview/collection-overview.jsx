@@ -15,7 +15,7 @@ const CollectionOverview = (props) => {
                     <CollectionPreview 
                         key = {collections.id}
                         title = {collections.title}
-                        routename = {collections.routename}
+                        routeName = {collections.routeName}
                         items = {collections.items}
                     />
                 )

@@ -4,14 +4,17 @@ import { IoClose } from "react-icons/io5"
 const getModalWrapperStyles = (props) => {
     if (props.cartModalStyles) {
         return cartModalStyles
-    } else {
-        return nomalModalStyles
+    } else if (props.confirmModalStyles) {
+        return confirmModalStyles
     }
 }
 
-const nomalModalStyles = css`
+const confirmModalStyles = css`
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     width: auto;
     height: auto;
+    bottom: 0;
+    justify-self: center;
 
     @media screen and (max-width: 820px) {
         width: 60vw;
@@ -19,6 +22,7 @@ const nomalModalStyles = css`
 `
 
 const cartModalStyles = css`
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
     width: 50vw;
     height: 50vh;
 
@@ -28,7 +32,6 @@ const cartModalStyles = css`
 `
 
 export const ModalWrapper = styled.div`
-    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
     background-color: #fff;
     color: #000;
     position: fixed;
@@ -52,8 +55,8 @@ export const ModalWrapper = styled.div`
 const getBackgroundStyles = (props) => {
     if (props.cartBackgroundStyles) {
         return cartBackgroundStyles
-    } else if (props.normalBackgroundStyles) {
-        return normalBackgroundStyles
+    } else if (props.confirmBackgroundStyles) {
+        return confirmBackgroundStyles
     }
 }
 
@@ -61,7 +64,7 @@ const cartBackgroundStyles = css`
     background: rgba(0, 0, 0, 0.8);
 `
 
-const normalBackgroundStyles = css`
+const confirmBackgroundStyles = css`
     background: rgba(0, 0, 0, 0);
 `
 
@@ -69,7 +72,6 @@ export const Background = styled.div`
     width: 100%;
     height: 100%;
     position: fixed;
-    background: rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: center;
     align-items: center;

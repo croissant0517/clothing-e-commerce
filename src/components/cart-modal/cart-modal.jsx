@@ -13,7 +13,7 @@ import "./cart-modal.scss";
 
 const CartModal = (props) => {
     return (
-        <Modal cartModalStyles cartBackgroundStyles closeModalButton closeModal = {() => {props.dispatch(toggleCartHidden())}}>
+        <Modal cartModalStyles cartBackgroundStyles closeModal = {() => {props.dispatch(toggleCartHidden())}}>
             <div className = "cart-dropdown" >
                 <div className = "cart-items" >
                     {props.cartItems.map((cartItem) => {

@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
+import { Link } from "react-router-dom";
 
 import CheckOutItem from "../../components/checkout-item/checkout-item";
 import StripeCheckoutForm from "../../components/stripe-button/stripe-payment-form";
@@ -31,7 +32,14 @@ const checkOutPage = (props) => {
             </div>
             { props.total ? 
             (props.cartItems.map((cartItem) => <CheckOutItem key = {cartItem.id} item = {cartItem} />))
-            : <h3>Your shopping cart is empty &#x1F622;</h3>}
+            : (
+                <div>
+                    <h3>Your shopping cart is empty &#x1F622;</h3>
+                    <Link className="cart-empty-warning" to = "/shop" >
+                        Go to shop &#x27A1;
+                    </Link>
+                </div>
+            )}
             <div className = "total" >
                 <span>TOTAL: NT${props.total}</span>
             </div>

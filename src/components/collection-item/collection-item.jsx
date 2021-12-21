@@ -10,20 +10,24 @@ import ConfirmModal from "../confirm-modal/confirm-modal";
 const CollectionItem = (props) => {
     const { name, price, imageUrl } = props.item
 
-    const [jumpConfirm, setJumpConfirm] = useState(false)
+    const [jumpConfirmModal, setJumpConfirmModal] = useState(false)
 
     const handleOnClick = () => {
         setTimeout(() => {
-            setJumpConfirm(false)
-        }, 1000)
-        props.handleAddItem(props.item)
+            setJumpConfirmModal(false)
+        }, 1500)
+        props.handleAddItem(props.item);
+    }
+
+    const handleCloseModalOnClickBackground = () => {
+        setJumpConfirmModal(false)
     }
     
     return (
         <div className = "collection-item" >
             <div className = "image" style = {{ backgroundImage : `url(${imageUrl})` }} >
                 <CustomButton itemButton onClick = {() => {
-                    setJumpConfirm(true)
+                    setJumpConfirmModal(true)
                     handleOnClick()
                     }
                 } >Add to cart</CustomButton>
@@ -32,7 +36,7 @@ const CollectionItem = (props) => {
                 <span className = "name" >{name}</span>
                 <span className = "price" >NT${price}</span>
             </div>
-            {jumpConfirm ? <ConfirmModal itemName={name} itemImage={imageUrl} /> : null}
+            {jumpConfirmModal ? <ConfirmModal closeModal={handleCloseModalOnClickBackground} itemName={name} itemImage={imageUrl} /> : null}
         </div>
     );
 }

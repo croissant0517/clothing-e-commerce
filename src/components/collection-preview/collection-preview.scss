@@ -6,6 +6,11 @@
     .title {
         font-size: clamp(1rem, 5vw, 2.5rem);
         margin: 25px 25px;
+        cursor: pointer;
+
+        &:hover {
+            color: gray;
+        }
     }
 
     .preview {

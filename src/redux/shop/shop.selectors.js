@@ -13,7 +13,7 @@ export const selectShopCollections = createSelector(
 // 再利用 map((key) => collections[key])得到個別對應的object並回傳至array中， EX: [{…}, {…}, {…}, {…}, {…}, {…}]
 export const selectShopCollectionsForPreview = createSelector(
     [selectShopCollections],
-    (collections) => Object.keys(collections).map((key) => collections[key])
+    (collections) => collections ? Object.keys(collections).map((key) => collections[key]) : []
 )
 
 export const selectShopCollection = memoize((collectionParams) => createSelector(

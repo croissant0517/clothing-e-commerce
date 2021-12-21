@@ -2,7 +2,7 @@ import SHOP_DATA from "./shop.data";
 import { ShopActionTypes } from "./shop.action.type";
 
 const INTIIAL_STATE = {
-    collections: SHOP_DATA
+    collections: null
 }
 
 const shopReducer = (state = INTIIAL_STATE, action) => {
