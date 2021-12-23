@@ -15,10 +15,6 @@ const confirmModalStyles = css`
     height: auto;
     bottom: 0;
     justify-self: center;
-
-    @media screen and (max-width: 820px) {
-        width: 60vw;
-    }
 `
 
 const cartModalStyles = css`
@@ -85,10 +81,9 @@ export const Background = styled.div`
 export const CloseModalButton = styled(IoClose)`
     cursor: pointer;
     position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 32px;
-    height: 32px;
+    top: 10px;
+    right: 10px;
+    font-size: clamp(1rem, 5vw, 2rem);
     padding: 0;
     z-index: 3;
 `

@@ -21,3 +21,14 @@ export const selectShopCollection = memoize((collectionParams) => createSelector
     // 原本使用find的方式會使整個尋找正確商品項目的速度變慢，因此將shop.data原本的array改成object
     (collections) => (collections[collectionParams])
 ))
+
+export const selectIsCollectionsFetch = createSelector(
+    [selectShop],
+    (shop) => shop.isFetching
+)
+
+// 檢查collections是否已有資料(使用雙驚嘆號可回傳布林值)
+export const selectCollectionsLoaded = createSelector(
+    [selectShop],
+    (shop) => !!shop.collections
+)

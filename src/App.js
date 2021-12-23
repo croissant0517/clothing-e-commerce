@@ -15,15 +15,14 @@ import ScrollToTop from './scrolltotop';
 import { 
   auth, 
   createUserProfileDocument,
-  // addCollectionAndDocuments 
 } from './firebase/firebase.utils';
 
 import { setCurrentUser } from './redux/user/user.action';
 import { selectCurrentUser } from './redux/user/user.selectors';
 import { createStructuredSelector } from 'reselect';
-// import { selectShopCollectionsForPreview } from "./redux/shop/shop.selectors";
 
 class App extends Component {
+  unsubscribeFromAuth = null;
   
   handleRedirectToHomePage = () => {
     return this.props.currentUser ? <Redirect to = "/" /> : <SignInAndSignUpPage />
@@ -42,17 +41,11 @@ class App extends Component {
         })
       } 
       this.props.handlesetCurrentUser(userAuth);
-      // addCollectionAndDocuments("collections", this.props.collectionsArray.map((collectionArray) => {
-      //   return ({
-      //     title: collectionArray.title,
-      //     items: collectionArray.items
-      //   })
-      // }));
     });
   }
 
   componentWillUnmount() {
-    this.unsubscribeFromAuth = null;
+    this.unsubscribeFromAuth();
   }
   
   render() {
@@ -76,7 +69,6 @@ class App extends Component {
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
-  // collectionsArray: selectShopCollectionsForPreview
 })
 
 const mapDispatchToProps = (dispatch) => {

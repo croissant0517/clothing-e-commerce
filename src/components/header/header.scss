@@ -10,7 +10,6 @@
     transition: 0.3s;
 
     .logo-container {
-        justify-self: flex-end;
         align-self: center;
         padding: 10px 15px;
         text-decoration: none;
@@ -19,12 +18,13 @@
     }
 
     .options {
-        justify-self: flex-end;
         display: flex;
+        justify-self: flex-end;
         align-items: center;
 
         .option {
-            padding: 10px 0 10px 30px;
+            white-space: nowrap;
+            margin: 10px 0 10px 30px;
             text-decoration: none;
             color: black;
             font-size: clamp(1rem, 2.5vw, 1.2rem);
@@ -40,11 +40,10 @@
         align-self: center;
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 800px) {
 
         .options {
             display: none;
-            opacity: 0;  
 
             .option {
                 margin: 10px 70vw 10px 15px;
@@ -88,7 +87,6 @@
     .options {
         display: flex;
         flex-wrap: wrap;
-        opacity: 1;
     }
 }
 
