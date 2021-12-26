@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CustomButton from "../custom-button/custom-button";
 import CartItem from "../cart-item/cart-item";
 import Modal from "../modal/modal";
 
-import { selectCartItems } from "../../redux/cart/cart.selectors";
+import { selectCartItems, selectCartHidden } from "../../redux/cart/cart.selectors";
 import { createStructuredSelector } from "reselect";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
@@ -12,8 +12,18 @@ import { toggleCartHidden } from "../../redux/cart/cart.action";
 import "./cart-modal.scss";
 
 const CartModal = (props) => {
+
+    // 如果cart-modal開啟，則將body的滾輪禁止使用
+    useEffect(() => {
+        const body = document.querySelector('body');
+        body.style.overflow = props.hidden ? null : 'hidden';
+        return () => {
+            body.style.overflow = "auto"
+        }
+      }, [props.hidden])
+
     return (
-        <Modal cartModalStyles cartBackgroundStyles closeModal = {() => {props.dispatch(toggleCartHidden())}}>
+        <Modal cartModalStyles cartBackgroundStyles CloseModal = {() => {props.dispatch(toggleCartHidden())}} >
             <div className = "cart-dropdown" >
                 <div className = "cart-items" >
                     {props.cartItems.map((cartItem) => {
@@ -30,11 +40,10 @@ const CartModal = (props) => {
 
 const mapStateToProps = createStructuredSelector({
     cartItems: selectCartItems,
+    hidden : selectCartHidden
 })
-
 
 // 假設我們只有一個action需要做dispatch可以不必在connect中給予第二個參數
 // 也就是mapDispatchToProps 這樣就會在props中給予一個dispatch讓我們可以直接使用 ex:22行
-
 
 export default connect(mapStateToProps)(CartModal);

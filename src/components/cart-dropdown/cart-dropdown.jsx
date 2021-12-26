@@ -29,10 +29,7 @@ const mapStateToProps = createStructuredSelector({
     cartItems: selectCartItems,
 })
 
-
-
 // 假設我們只有一個action需要做dispatch可以不必在connect中給予第二個參數
 // 也就是mapDispatchToProps 這樣就會在props中給予一個dispatch讓我們可以直接使用 ex:22行
-
 
 export default connect(mapStateToProps)(CartDropdown);

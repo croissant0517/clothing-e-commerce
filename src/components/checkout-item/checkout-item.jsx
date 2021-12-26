@@ -9,18 +9,8 @@ import "./checkout-item.scss";
 const CheckOutItem = (props) => {
     const { name, price, imageUrl, quantity } = props.item;
 
-    // const handleRemoveItemFromCartOnClick = () => {
-    //     if (props.item.quantity === 1) {
-    //         props.handleRemoveItem(props.item);
-    //         alert("Remove 1 item from the shopping cart")
-    //     } else {
-    //         props.handleRemoveItem(props.item);
-    //     }
-    // }
-
     const handleClearItemFromCartOnClick = () => {
         props.handleClearItemFromCart(props.item)
-        alert("Remove 1 item from the shopping cart")
     }
 
     return (

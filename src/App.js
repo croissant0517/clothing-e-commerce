@@ -20,6 +20,7 @@ import {
 import { setCurrentUser } from './redux/user/user.action';
 import { selectCurrentUser } from './redux/user/user.selectors';
 import { createStructuredSelector } from 'reselect';
+import { selectCartHidden } from './redux/cart/cart.selectors';
 
 class App extends Component {
   unsubscribeFromAuth = null;
@@ -49,11 +50,12 @@ class App extends Component {
   }
   
   render() {
+    console.log(this.props.hidden);
     return (
       <div>
         <ScrollToTop/>
         <Header />
-        <div className="body-container">
+        <div className="body-container" >
           <Switch>
             <Route exact path = "/" component = {HomePage} />
             <Route path = "/shop" component = {ShopPage} />
@@ -69,6 +71,7 @@ class App extends Component {
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
+  hidden: selectCartHidden
 })
 
 const mapDispatchToProps = (dispatch) => {

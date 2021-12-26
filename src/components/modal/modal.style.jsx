@@ -71,9 +71,11 @@ export const Background = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 3;
+    z-index: 1;
     bottom: 0;
     right: 0;
+    animation: fade 200ms ease-out;
+    overflow: hidden;
 
     ${getBackgroundStyles}
 `

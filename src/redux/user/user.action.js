@@ -6,4 +6,3 @@ export const setCurrentUser = (user) => {
         payload: user
     });
 }
-
