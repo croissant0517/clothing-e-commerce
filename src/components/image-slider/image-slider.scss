@@ -11,8 +11,6 @@
     .slide-container {
         height: 70vh;
         max-width: 100%;
-        object-fit: fill;
-        object-position: center;
     }
 
 
@@ -27,8 +25,6 @@
     .slider-image {
         height: 70vh;
         max-width: 100%;
-        object-fit: fill;
-        object-position: center;
     }
 
     .slider-dots {
@@ -42,7 +38,7 @@
         left: 5vw;
         font-size: 5vw;
         z-index: 1;
-        color: black;
+        color: #1c1d1f;
         cursor: pointer;
         user-select: none;
     }
@@ -53,7 +49,7 @@
         right: 5vw;
         font-size: 5vw;
         z-index: 1;
-        color: black;
+        color: #1c1d1f;
         cursor: pointer;
         user-select: none;
     }

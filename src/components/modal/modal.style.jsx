@@ -39,11 +39,9 @@ export const ModalWrapper = styled.div`
     @keyframes fade {
     from {
         opacity: 0;
-        transform: scale3D(0.95, 0.95, 0.95);
     }
     to {
         opacity: 1;
-        transform: scale3D(1, 1, 1);
     }
     }
 `
@@ -61,7 +59,7 @@ const cartBackgroundStyles = css`
 `
 
 const confirmBackgroundStyles = css`
-    background: rgba(0, 0, 0, 0);
+    background: rgba(0, 0, 0, 0.5);
 `
 
 export const Background = styled.div`

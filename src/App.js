@@ -50,7 +50,6 @@ class App extends Component {
   }
   
   render() {
-    console.log(this.props.hidden);
     return (
       <div>
         <ScrollToTop/>

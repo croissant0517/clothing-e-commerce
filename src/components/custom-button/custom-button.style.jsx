@@ -11,11 +11,15 @@ const getButtonStyles = (props) => {
 }
 
 const buttonStyles = css`
-    background-color: black;
+    background-color: #1c1d1f;
+
+    &:hover {
+        background-color: black;
+    }
 `
 
 const googleSignInStyles = css`
-    background-color: #007bff;
+    background-color: #4285F4;
 `
 
 const itemButtonStyles = css`
@@ -24,10 +28,6 @@ const itemButtonStyles = css`
     width: 100%;
     box-sizing: border-box;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-
-    &:active {
-        transform: scale(0.99);
-    }
 `
 
 export const CustomButtonContainer = styled.button`

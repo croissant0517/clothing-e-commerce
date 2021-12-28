@@ -12,7 +12,7 @@ import "./cart-icon.scss";
 const CartIcon = (props) => {
   return (
       <div className = "cart-icon" onClick = {props.handleToggleCartHidden} >
-        <IconContext.Provider value={props.ChangColor ? { color: 'black', size: '50px' } : { color: 'white', size: '50px' }}>
+        <IconContext.Provider value={props.ChangColor ? { color: '#1c1d1f', size: '50px' } : { color: 'white', size: '50px' }}>
           <div>
             <GiShoppingBag />
           </div>

@@ -15,7 +15,7 @@
         text-decoration: none;
         font-size: clamp(1rem, 5vw, 2rem);
         font-weight: bold;
-        color: black;
+        color: #1c1d1f;
     }
 
     .options {
@@ -27,7 +27,7 @@
             white-space: nowrap;
             margin: 10px 0 10px 30px;
             text-decoration: none;
-            color: black;
+            color: #1c1d1f;
             font-size: clamp(1rem, 2.5vw, 1.2rem);
             cursor: pointer;
         }
@@ -45,6 +45,7 @@
 
         .options {
             display: none;
+            height: 0;
 
             .option {
                 margin: 10px 70vw 10px 15px;
@@ -60,7 +61,7 @@
 
 .shadow-header {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    background-color: black;
+    background-color: #1c1d1f;
 
     .logo-container {
         color: white;
@@ -86,6 +87,7 @@
     }
 
     .options {
+        height: auto;
         display: flex;
         flex-wrap: wrap;
     }
