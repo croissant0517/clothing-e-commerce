@@ -7,16 +7,19 @@
     justify-content: center;
     margin: 0 7.5px 15px;
     overflow: hidden;   
-    border: 1px solid #1c1d1f;
+    // border: 1px solid #1c1d1f;
     box-sizing: border-box;
 
     &:hover {
         cursor: pointer;
-        transform: scale(1.01);
-        transition: transform 0.5s;
+
+        .content {
+            height: 100px;
+            opacity: 1;
+        }
 
         & .background-image {
-            opacity: 0.7;
+            opacity: 1;
         } 
     }
 
@@ -29,22 +32,32 @@
         height: 100%;
         background-position: center;
         background-size: cover;
+        opacity: 0.8;
     }
   
     .content {
-        height: 100px;
+        height: 0px;
+        opacity: 0;
         padding: 0 25px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background-color: rgba($color: white, $alpha: 0.7);
+        background-color: rgba($color: #1c1d1f, $alpha: 0.7);
         position: absolute;
+        transition: .5s;
   
         .title {
             font-weight: bold;
             font-size: clamp(1rem, 2.5vw, 1.5rem);
-            color: #4a4a4a;
+            color: white;
+        }
+    }
+
+    @media (max-width: 800px) {
+        .content {
+            height: 100px;
+            opacity: 1;
         }
     }
 }

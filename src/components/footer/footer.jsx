@@ -29,10 +29,10 @@ const Footer = () => {
                 </div>
                 <div className="footer-link-items" >
                     <div className="footer-link-title" >Social Media</div>
-                    <a className="footer-link" href="/" >Instagram</a>
-                    <a className="footer-link" href="/">Facebook</a>
-                    <a className="footer-link" href="/">Youtube</a>
-                    <a className="footer-link" href="/">Twitter</a>
+                    <a className="footer-link" href="https://www.instagram.com/vichang517/" target="_blank" rel="noreferrer">Instagram</a>
+                    <a className="footer-link" href="https://www.facebook.com/profile.php?id=100001558004053" target="_blank" rel="noreferrer">Facebook</a>
+                    <a className="footer-link" href="/" target="_blank" rel="noreferrer">Youtube</a>
+                    <a className="footer-link" href="https://twitter.com/VicChang17" target="_blank" rel="noreferrer">Twitter</a>
                 </div>
             </div>
         </div>

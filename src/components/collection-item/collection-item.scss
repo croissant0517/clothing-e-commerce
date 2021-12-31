@@ -29,6 +29,13 @@
             width: 100%;
             transition: .5s;
         }
+
+        @media (max-width: 800px) {
+            button {
+                height: 25%;
+                opacity: 0.85;
+            }
+        }
     }
 
     .collection-footer {

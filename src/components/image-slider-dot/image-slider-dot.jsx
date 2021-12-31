@@ -7,9 +7,9 @@ import "./image-slider-dot.scss";
 const ImageSliderDot = ({ currentIdex, onClick }) => {
     return (
         <div className="slide-dots">
-            <IconContext.Provider  value={currentIdex ? { color: 'black', className: "slide-dot-active" } : { color: 'gray', className: "slide-dot" }}>
+            <IconContext.Provider  value = {currentIdex ? { color: 'black', className: "slide-dot-active" } : { color: 'gray', className: "slide-dot" }}>
                 <div>
-                    <BsCircleFill onClick={onClick}/>
+                    <BsCircleFill onClick = {onClick}/>
                 </div>
             </IconContext.Provider>
         </div>

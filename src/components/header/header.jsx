@@ -11,8 +11,8 @@ import { IoClose } from "react-icons/io5"
 
 import "./header.scss"
 
-import { auth } from "../../firebase/firebase.utils";
 import { Link } from "react-router-dom";
+import { signOutStart } from "../../redux/user/user.action";
 
 const Header = (props) => {
     const [barsIconClick, setBarsIconClick] = useState(false);
@@ -26,11 +26,6 @@ const Header = (props) => {
         if(barsIconClick === true) {
             setBarsIconClick(!barsIconClick);
         }
-    }
-
-    // 將用戶登出
-    const handleSignOut = () => {
-        auth.signOut();
     }
 
     // 監聽滾動事件
@@ -66,8 +61,8 @@ const Header = (props) => {
                     { 
                         props.currentUser ? 
                         <div className = "option" onClick = {() => {
-                        handleSignOut()
-                        handelBarsExtendedBack()
+                        props.handleSignOutStart();
+                        handelBarsExtendedBack();
                         } }>SIGN OUT</div>
                         : 
                         <Link className = "option" to = "/signin" onClick={handelBarsExtendedBack}>SIGN IN</Link> 
@@ -88,4 +83,8 @@ const mapStateToProps = createStructuredSelector({
     hidden: selectCartHidden
 })
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = (dispatch) => ({
+    handleSignOutStart: () => dispatch(signOutStart())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

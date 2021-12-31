@@ -1,12 +1,14 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+
+import { signUpStart } from "../../redux/user/user.action";
+
 import "./sign-up.scss";
 
 import FormInput from "../form-input/form-input";
 import CustomButton from "../custom-button/custom-button";
 
-import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
-
-const SignUp = () => {
+const SignUp = (props) => {
     const [credentials, setCredentials] = useState({
         displayName: "",
         email: "",
@@ -21,20 +23,13 @@ const SignUp = () => {
             alert("passwords don't match");
             return;
         } 
-
-        try {
-            // createUserProfileDocument成功後會回傳一個userAuth的object其中有user
-            const { user } = await auth.createUserWithEmailAndPassword(email, password)
-            createUserProfileDocument(user, {displayName});
-            setCredentials({
-                displayName: "",
-                email: "",
-                password: "",
-                confirmPassword: ""
-            })
-        } catch (error) {
-            console.log(error);
-        }
+        props.handleSignUpStart(email, password, displayName);
+        setCredentials({
+            displayName: "",
+            email: "",
+            password: "",
+            confirmPassword: ""
+        })
     }
 
     const handleChange = (event) => {
@@ -92,4 +87,8 @@ const SignUp = () => {
     );
 }
 
-export default SignUp;
+const mapDispatchToProps = (dispatch) => ({
+    handleSignUpStart: (email, password, displayName) => dispatch(signUpStart({email, password, displayName})),
+})
+
+export default connect(null, mapDispatchToProps)(SignUp);

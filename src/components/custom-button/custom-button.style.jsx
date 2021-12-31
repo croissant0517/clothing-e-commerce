@@ -1,8 +1,10 @@
 import styled, { css } from "styled-components";
 
 const getButtonStyles = (props) => {
-    if (props.isProviderSignIn) {
+    if (props.googleSignIn) {
         return googleSignInStyles
+    } else if (props.facebookSignIn) {
+        return facebookSingInStyle
     } else if (props.itemButton) {
         return itemButtonStyles
     } else {
@@ -22,8 +24,12 @@ const googleSignInStyles = css`
     background-color: #4285F4;
 `
 
+const facebookSingInStyle = css`
+    background-color: #3B5998;
+`
+
 const itemButtonStyles = css`
-    height: 10px;
+    height: 0px;
     background-color: black;
     width: 100%;
     box-sizing: border-box;

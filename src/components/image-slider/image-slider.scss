@@ -13,7 +13,6 @@
         max-width: 100%;
     }
 
-
     .slide {
         display: none;
     }
@@ -28,8 +27,9 @@
     }
 
     .slider-dots {
+        position: absolute;
         display: flex;
-        justify-content: center;
+        bottom: 0;
     }
 
     .left-arrow {
