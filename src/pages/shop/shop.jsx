@@ -10,12 +10,13 @@ import { fetchCollectionsStart } from "../../redux/shop/shop.action";
 import "./shop.scss";
 
 const ShopPage = (props) => {
+    const {handleFetchCollections} = props;
 
     useEffect(
         () => {
-            props.handleFetchCollections();
+            handleFetchCollections();
         }
-    )
+    , [handleFetchCollections])
 
     return (
         <div className = "shop-page" >

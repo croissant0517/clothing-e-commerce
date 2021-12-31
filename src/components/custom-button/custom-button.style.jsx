@@ -37,15 +37,14 @@ const itemButtonStyles = css`
 `
 
 export const CustomButtonContainer = styled.button`
+    font-family: 'Open Sans Condensed', sans-serif;
     width: 100%;
     height: 50px;
     letter-spacing: 0.5px;
     line-height: 50px;
-    padding: 0 35px 0 35px;
-    font-size: 15px;
     color: white;
     text-transform: uppercase;
-    font-weight: bolder;
+    font-size: clamp(0.5rem, 2.5vw, 1rem);
     border: none;
     cursor: pointer;
     margin-top: 10px;

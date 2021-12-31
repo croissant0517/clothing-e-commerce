@@ -5,8 +5,11 @@ import { Link } from "react-router-dom";
 
 import CheckOutItem from "../../components/checkout-item/checkout-item";
 import StripeCheckoutForm from "../../components/stripe-button/stripe-payment-form";
+import CustomButton from "../../components/custom-button/custom-button";
 
 import { selectCartItems, selectCartTotal } from "../../redux/cart/cart.selectors";
+
+import { clearCart } from "../../redux/cart/cart.action";
 
 import "./checkout.scss";
 
@@ -40,6 +43,7 @@ const checkOutPage = (props) => {
                     </Link>
                 </div>
             )}
+            { props.total ? <CustomButton className = "clear-all-button" onClick = {props.handleClearCart}>CLEAR ALL</CustomButton> : null }
             <div className = "total" >
                 <span>TOTAL: NT${props.total}</span>
             </div>
@@ -60,4 +64,8 @@ const mapStateToProps = createStructuredSelector({
     total: selectCartTotal
 });
 
-export default connect(mapStateToProps)(checkOutPage);
+const mapDispatchToProps = (dispatch) => ({
+    handleClearCart: () => dispatch(clearCart())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(checkOutPage);
