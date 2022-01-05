@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { signUpStart } from "../../redux/user/user.action";
 
@@ -17,19 +17,15 @@ const SignUp = (props) => {
     })
     const {displayName, email, password, confirmPassword} = credentials
 
+    const dispatch = useDispatch();
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (password !== confirmPassword) {
             alert("passwords don't match");
             return;
         } 
-        props.handleSignUpStart(email, password, displayName);
-        setCredentials({
-            displayName: "",
-            email: "",
-            password: "",
-            confirmPassword: ""
-        })
+        dispatch(signUpStart({email, password, displayName}));
     }
 
     const handleChange = (event) => {
@@ -87,8 +83,4 @@ const SignUp = (props) => {
     );
 }
 
-const mapDispatchToProps = (dispatch) => ({
-    handleSignUpStart: (email, password, displayName) => dispatch(signUpStart({email, password, displayName})),
-})
-
-export default connect(null, mapDispatchToProps)(SignUp);
+export default SignUp;

@@ -4,9 +4,11 @@
         
     .slide-dot-active {
         cursor: pointer;
+        transition: 1s ease-out;
     }
 
     .slide-dot {
         cursor: pointer;
+        transition: 1s ease-out;
     }
 }

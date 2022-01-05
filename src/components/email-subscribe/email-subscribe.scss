@@ -1,12 +1,11 @@
 .email-subscribe-contaier {
-    margin: 5vw 0 0 0;
     padding: 5rem calc((100vw - 1300px) / 2);
     background: linear-gradient(180deg, 
     rgba(0, 0, 0, 0.5) 0%, 
     rgba(0, 0, 0, 0.5) 35%, 
     rgba(0, 0, 0, 0.1) 100% 
     ),
-    url("https://images.unsplash.com/photo-1556740772-1a741367b93e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80")
+    url("https://images.unsplash.com/photo-1556741533-411cf82e4e2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80")
     no-repeat center;
     width: 100%;
     height: auto;
@@ -36,6 +35,10 @@
         form {
             z-index: 2;
             padding: 0 3rem;
+        }
+        
+        input {
+            border-radius: 5px;
         }
     }
 }

@@ -39,13 +39,15 @@ const checkOutPage = (props) => {
                 <div>
                     <h3>Your shopping cart is empty &#x1F622;</h3>
                     <Link className="cart-empty-warning" to = "/shop" >
-                        Go to shop &#x27A1;
+                        Go to shop
                     </Link>
                 </div>
             )}
-            { props.total ? <CustomButton className = "clear-all-button" onClick = {props.handleClearCart}>CLEAR ALL</CustomButton> : null }
-            <div className = "total" >
-                <span>TOTAL: NT${props.total}</span>
+            <div className = "total-clear-all-button" >
+                <div className = "total" >
+                    <span>SUBTOTAL: NT${props.total}</span>
+                </div>
+                <CustomButton className = "clear-all-button" onClick = {props.handleClearCart}>CLEAR ALL</CustomButton>
             </div>
             <div className = "stripe-checkoutForm">
                 <StripeCheckoutForm price = {props.total} />

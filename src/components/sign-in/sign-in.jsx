@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import "./sign-in.scss";
 
@@ -15,9 +15,11 @@ const  SignIn = (props) => {
 
     const { email, password } = credentials
 
+    const dispatch = useDispatch();
+
     const handleSubit = async (event) => {
         event.preventDefault();
-        props.handleEmailSignInStart(email, password);
+        dispatch(emailSignInStart({ email, password }));
     }
 
     const handleChange = (event) => {
@@ -48,17 +50,17 @@ const  SignIn = (props) => {
                     required
                 />              
                     <CustomButton type = "submit" > Sign in </CustomButton>
-                    <CustomButton type = "button" onClick = {props.handleGoogleSignInStart} googleSignIn >Sign in with Google </CustomButton>
-                    <CustomButton type = "button" onClick = {props.handleFacebookSignInStart} facebookSignIn >Sign in with Facebook </CustomButton>
+                    <CustomButton type = "button" onClick = {() => dispatch(googleSignInStart())} googleSignIn >Sign in with Google </CustomButton>
+                    <CustomButton type = "button" onClick = {() => dispatch(facebookSignInStart())} facebookSignIn >Sign in with Facebook </CustomButton>
             </form>
         </div>
     );
 }
 
-const mapDispatchToProps = (dispatch) => ({
-    handleGoogleSignInStart: () => dispatch(googleSignInStart()),
-    handleFacebookSignInStart: () => dispatch(facebookSignInStart()),
-    handleEmailSignInStart: (email, password) => dispatch(emailSignInStart({ email, password }))
-})
+// const mapDispatchToProps = (dispatch) => ({
+//     handleGoogleSignInStart: () => dispatch(googleSignInStart()),
+//     handleFacebookSignInStart: () => dispatch(facebookSignInStart()),
+//     handleEmailSignInStart: (email, password) => dispatch(emailSignInStart({ email, password }))
+// })
 
-export default connect(null, mapDispatchToProps)(SignIn); 
+export default SignIn; 

@@ -23,7 +23,7 @@ export function* signUp(signUpObject) {
         yield put(signUpSuccess());
         yield put(signInSuccess({ id: userSnapShot.id, ...userSnapShot.data() }));
     }catch(error) {
-        put(signUpFailure(error))
+        yield put(signUpFailure(error.code))
     }
 }
 
@@ -40,7 +40,7 @@ export function* signInWithEmail(signInWithEmailActionObject) {
         const userSnapShot = yield userRef.get();
         yield put(signInSuccess({ id: userSnapShot.id, ...userSnapShot.data() }))
     }catch(error) {
-        put(signInFailure(error))
+        yield put(signInFailure(error))
     }
 }
 
@@ -55,7 +55,7 @@ export function* signInWithGoogle() {
         const userSnapShot = yield userRef.get();
         yield put(signInSuccess({ id: userSnapShot.id, ...userSnapShot.data() }))
     }catch(error) {
-        yield put(signInFailure(error))
+        yield put(signInFailure(error.code))
     }
 }
 
@@ -70,7 +70,7 @@ export function* signInWithFacebook() {
         const userSnapShot = yield userRef.get();
         yield put(signInSuccess({ id: userSnapShot.id, ...userSnapShot.data() }))
     }catch(error) {
-        yield put(signInFailure(error))
+        yield put(signInFailure(error.code))
     }
 }
 
@@ -89,7 +89,7 @@ export function* checkUserSession() {
             return
         }
     }catch(error) {
-        yield put(signInFailure(error))
+        yield put(signInFailure(error.code))
     }
 }
 
@@ -102,7 +102,7 @@ export function* signOut() {
         yield auth.signOut();
         yield put(signOutSuccess())
     }catch(error) {
-        yield put(signOutFailure(error))
+        yield put(signOutFailure(error.code))
     }
 }
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import "./collection-item.scss";
 import { addItem } from "../../redux/cart/cart.action";
@@ -9,14 +9,14 @@ import ConfirmModal from "../confirm-modal/confirm-modal";
 
 const CollectionItem = (props) => {
     const { name, price, imageUrl } = props.item
-
     const [jumpConfirmModal, setJumpConfirmModal] = useState(false)
+    const dispatch = useDispatch();
 
     const handleOnClick = () => {
         setTimeout(() => {
             setJumpConfirmModal(false)
         }, 1500)
-        props.handleAddItem(props.item);
+        dispatch(addItem(props.item));
     }
 
     const handleCloseModalOnClickBackground = () => {
@@ -41,10 +41,4 @@ const CollectionItem = (props) => {
     );
 }
 
-const mapDispatchToProps = (dispatch) => {
-   return ({
-       handleAddItem: (item) => dispatch(addItem(item))
-   });
-}
-
-export default connect(null, mapDispatchToProps)(CollectionItem);
+export default CollectionItem;

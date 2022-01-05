@@ -189,10 +189,10 @@ const SHOP_DATA = {
             }
         ]
         },
-        womens: {
+        keyboard: {
         id: 5,
-        title: 'Womens',
-        routeName: 'womens',
+        title: 'Keyboard',
+        routeName: 'keyboard',
         items: [
             {
             id: 28,

@@ -4,7 +4,7 @@
     display: flex;
     position: fixed;
     justify-content: space-between;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 1);
     z-index: 2;
     user-select: none;
     transition: 0.3s;
@@ -12,15 +12,14 @@
     .logo-container {
         align-self: center;
         padding: 10px 15px;
-        text-decoration: none;
         font-size: clamp(1rem, 5vw, 2rem);
         font-weight: bold;
         color: #1c1d1f;
+        
     }
 
     .options {
         display: flex;
-        justify-self: flex-end;
         align-items: center;
 
         .option {
@@ -30,6 +29,12 @@
             color: #1c1d1f;
             font-size: clamp(1rem, 2.5vw, 1.2rem);
             cursor: pointer;
+
+            .profile-icon {
+                display: flex;
+                align-self: center;
+                justify-content: center;
+            }
         }
     }
 
@@ -68,6 +73,8 @@
     }
 
     .options {
+        text-shadow: 0.1em 0.1em 0.2em black;
+
         .option {
             color: white;
         }

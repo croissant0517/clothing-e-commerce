@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Switch, Route, Redirect } from "react-router-dom";
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 
 import HomePage from './pages/homepage/homepage';
@@ -12,11 +12,11 @@ import Footer from './components/footer/footer';
 
 import ScrollToTop from './scrolltotop';
 import { selectCurrentUser } from './redux/user/user.selectors';
-import { createStructuredSelector } from 'reselect';
 import { checkUserSession } from './redux/user/user.action'
 
-const App = (props) => {
-  const { handleCheckUserSession, currentUser } = props;
+const App = () => {
+  const currentUser = useSelector(selectCurrentUser)
+  const dispatch = useDispatch()
 
   const handleRedirectToHomePage = () => {
     return currentUser ? <Redirect to = "/" /> : <SignInAndSignUpPage />
@@ -24,9 +24,9 @@ const App = (props) => {
 
   useEffect(
     () => {
-      handleCheckUserSession();
+      dispatch(checkUserSession())
     }
-  ,[handleCheckUserSession])
+  ,[dispatch])
   
   return (
     <div>
@@ -45,12 +45,4 @@ const App = (props) => {
   );
 }
 
-const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser,
-})
-
-const mapDispatchToProps = (dispatch) => ({
-  handleCheckUserSession: () => dispatch(checkUserSession())
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

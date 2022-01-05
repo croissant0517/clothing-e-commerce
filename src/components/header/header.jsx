@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from "react";
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
+import { useSelector, useDispatch } from "react-redux";
 import CartIcon from "../cart-icon/cart-icon";
+import { IconContext } from "react-icons";
+import { CgProfile } from "react-icons/cg";
 import CartModal from "../cart-modal/cart-modal";
 import { selectCartHidden } from "../../redux/cart/cart.selectors";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
@@ -14,9 +15,12 @@ import "./header.scss"
 import { Link } from "react-router-dom";
 import { signOutStart } from "../../redux/user/user.action";
 
-const Header = (props) => {
+const Header = () => {
     const [barsIconClick, setBarsIconClick] = useState(false);
     const [scrollTop, setScrollTop] = useState(true);
+    const currentUser = useSelector(selectCurrentUser);
+    const hidden = useSelector(selectCartHidden);
+    const dispatch = useDispatch();
 
     const handelBarsIconClick = () => {
         setBarsIconClick(!barsIconClick);
@@ -47,11 +51,17 @@ const Header = (props) => {
         <div>
             <div className = { `${scrollTop ? "" : "shadow-header"} ${barsIconClick ? "extend-header" : ""} header` } >
                 <Link className = "logo-container" to = "/" onClick={handelBarsExtendedBack} >
-                    OUTFIT
+                    OVERFIT
                 </Link>
                 {barsIconClick ? <IoClose className="header-bars-icon" onClick ={handelBarsIconClick} /> : <FaBars className="header-bars-icon" onClick ={handelBarsIconClick}/>}
                 <div className = "options" >
-                    {props.currentUser ? <div className="option" >{`Hi! ${props.currentUser.displayName}`}</div> : null}
+                    <Link className = "option" to = "/" onClick={handelBarsExtendedBack}>
+                        <IconContext.Provider value={scrollTop ? { color: '#1c1d1f', size: '40px' } : { color: 'white', size: '40px' }}>
+                            <div className="profile-icon" >
+                                <CgProfile />
+                            </div>
+                        </IconContext.Provider>
+                    </Link>
                     <Link className = "option" to = "/" onClick={handelBarsExtendedBack}>
                         HOME
                     </Link>
@@ -59,32 +69,23 @@ const Header = (props) => {
                         SHOP
                     </Link>
                     { 
-                        props.currentUser ? 
+                        currentUser ? 
                         <div className = "option" onClick = {() => {
-                        props.handleSignOutStart();
+                        dispatch(signOutStart())
                         handelBarsExtendedBack();
                         } }>SIGN OUT</div>
                         : 
                         <Link className = "option" to = "/signin" onClick={handelBarsExtendedBack}>SIGN IN</Link> 
                     }
-                    <div className = "cart-icon" onClick={handelBarsExtendedBack}>
+                    <div onClick={handelBarsExtendedBack}>
                         <CartIcon ChangColor = { scrollTop ? true : false } />
                     </div>
                 </div> 
-                {props.hidden ? null : <CartModal />}
+                {hidden ? null : <CartModal />}
             </div>
             <div className = { `${barsIconClick ? "extend-header-background" : ""}` } onClick={handelBarsExtendedBack}></div>
         </div>
     );
 }
 
-const mapStateToProps = createStructuredSelector({
-    currentUser: selectCurrentUser,
-    hidden: selectCartHidden
-})
-
-const mapDispatchToProps = (dispatch) => ({
-    handleSignOutStart: () => dispatch(signOutStart())
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default Header;

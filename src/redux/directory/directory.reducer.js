@@ -2,15 +2,15 @@ const INTIIAL_STATE = {
     section: [
         {
             title: 'BOTTOM',
-            imageUrl: 'https://images.pexels.com/photos/1082528/pexels-photo-1082528.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+            imageUrl: 'https://images.unsplash.com/photo-1560243563-062bfc001d68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
             id: 1,
             linkUrl: 'shop/bottom'
         },
         {
-            title: 'TOP',
-            imageUrl: 'https://images.pexels.com/photos/4641825/pexels-photo-4641825.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+            title: 'OUTERWEAR',
+            imageUrl: 'https://images.unsplash.com/photo-1559551409-dadc959f76b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1473&q=80',
             id: 2,
-            linkUrl: 'shop/top'
+            linkUrl: 'shop/outerwear'
         },
         {
             title: 'SHOES',
@@ -25,17 +25,11 @@ const INTIIAL_STATE = {
             linkUrl: 'shop/hats'
         },
         {
-            title: 'WOMENS',
-            imageUrl: 'https://images.pexels.com/photos/884979/pexels-photo-884979.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+            title: 'TOP',
+            imageUrl: 'https://images.unsplash.com/photo-1523381294911-8d3cead13475?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
             id: 5,
-            linkUrl: 'shop/womens'
+            linkUrl: 'shop/top'
         },
-        {
-            title: 'MENS',
-            imageUrl: 'https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-            id: 6,
-            linkUrl: 'shop/mens'
-        }
     ]
 }
 

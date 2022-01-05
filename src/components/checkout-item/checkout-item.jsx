@@ -1,5 +1,5 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import { clearItemFromCart, addItem, removeItem } from "../../redux/cart/cart.action";
 
 import {IoIosAdd, IoIosRemove} from "react-icons/io"
@@ -8,9 +8,10 @@ import "./checkout-item.scss";
 
 const CheckOutItem = (props) => {
     const { name, price, imageUrl, quantity } = props.item;
+    const dispatch = useDispatch();
 
     const handleClearItemFromCartOnClick = () => {
-        props.handleClearItemFromCart(props.item)
+        dispatch(clearItemFromCart(props.item))
     }
 
     return (
@@ -20,9 +21,9 @@ const CheckOutItem = (props) => {
             </div>
             <span className = "name" >{name}</span>
             <span className = "quantity" >
-                <div className = "arrow" onClick = {() => props.handleRemoveItem(props.item)} ><IoIosRemove/></div>
+                <div className = "arrow" onClick = {() => dispatch(removeItem(props.item))} ><IoIosRemove/></div>
                 <span className = "value" >{quantity}</span>
-                <div className = "arrow" onClick = {() => props.handleAddItem(props.item)}><IoIosAdd/></div>
+                <div className = "arrow" onClick = {() => dispatch(addItem(props.item))}><IoIosAdd/></div>
             </span>
             <span className = "price" >NT${price}</span>
             <div className = "remove-button" onClick = {handleClearItemFromCartOnClick} >&#10005;</div>
@@ -30,12 +31,4 @@ const CheckOutItem = (props) => {
     );
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return ({
-      handleClearItemFromCart: (item) => dispatch(clearItemFromCart(item)),
-      handleAddItem: (item) => dispatch(addItem(item)),
-      handleRemoveItem: (item) => dispatch(removeItem(item))
-    });
-}
-
-export default connect(null, mapDispatchToProps)(CheckOutItem);
+export default CheckOutItem;

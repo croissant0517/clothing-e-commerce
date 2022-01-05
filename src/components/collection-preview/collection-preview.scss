@@ -9,18 +9,38 @@
         font-size: clamp(1rem, 5vw, 2.5rem);
         margin: 25px 25px;
         cursor: pointer;
+        border-bottom: 5px solid rgba($color: black, $alpha: 0);
+        transition: .2s;
 
         &:hover {
-            color: gray;
+            border-bottom: 5px solid opacify($color: black, $amount: 1);
         }
     }
 
     .preview {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        // display: grid;
+        // grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
 
-        @media (max-width: 400px) {
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        // @media (max-width: 400px) {
+        //     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        // }
+    }
+
+    .load-more-button {
+        align-self: center;
+        width: auto;
+        color: gray;
+        background-color: rgba($color: white, $alpha: 0);
+        border: 1px solid gray;
+
+        &:hover {
+            color: black;
+            background-color: rgba($color: white, $alpha: 0);
+            border: 1px solid black;
         }
     }
 }
