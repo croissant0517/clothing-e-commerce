@@ -1,0 +1,26 @@
+.payment-complet {
+    width: 500px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .payment-complet-result {
+        width: auto;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        padding: clamp(1rem, 2.5vw, 3rem);
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .stripe-logo {
+            width: 50%;
+        }
+    }
+
+    @media (max-width: 500px) {
+        width: 300px;
+    }
+}

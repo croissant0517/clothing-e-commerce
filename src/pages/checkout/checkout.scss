@@ -1,90 +1,19 @@
 .checkout-page {
-    width: 70vw;
-    min-height: 90vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0px auto 0;
-    padding-top: 140px;
+    padding: 100px 0;
     animation: fade 200ms ease-out;
 
-    .cart-empty-warning {
-        display: block;
-        text-align: center;
-        text-decoration: none;
-        color: gray;
-        font-size: clamp(1rem, 2.5vw, 1.2rem);
-        margin-bottom: 1rem;
-    }
-  
-    .checkout-header {
-        width: 100%;
-        padding: 10px 0;
-        font-size: clamp(0.5rem, 2.5vw, 1rem);
-        display: flex;
-        justify-content: space-between;
-        border-bottom: 1px solid darkgrey;
-  
-        .header-block {
-            display: block;
-            width: 21%;
-            text-transform: capitalize;
-            text-align: center;
-  
-            &:last-child {
-            display: block;
-            width: 4%;
-            }
-        }
-    }
-    .total-clear-all-button {
-        display: flex;
-        justify-content: space-between;
-        border-top: 1px solid darkgrey;
-        width: 100%;
-
-        .total {
-            align-self: center;
-            justify-self: flex-start;
-            font-size: clamp(1.5rem, 5vw, 3rem);
-        }
-    
-        .clear-all-button {  
-            justify-self: flex-end;    
-            width: 25%;
-        }
-    }
-
-    .stripe-checkoutForm {
-        margin-top: 30px;
-    }
-
-    .test-warning {
-        text-align: center;
-        margin: 80px 0px;
-        font-size: 25px;
-        color: red;
-    }
-
     @media (max-width: 1100px) {
-
-        width: 80%;
-        min-height: 90vh;
+        width: 90%;
         display: flex;
         flex-direction: column;
         align-items: center;
         margin: 0px auto 0;
         padding-top: 140px;
-
-        .checkout-header {
-      
-            .header-block {
-      
-                &:last-child {
-                    width: 10%;
-                }
-            }
-        }
     }
 
     @keyframes fade {
@@ -95,4 +24,4 @@
         opacity: 1;
     }
     }
-} 
+}

@@ -18,19 +18,18 @@ const confirmModalStyles = css`
 `
 
 const cartModalStyles = css`
-    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
     width: 50vw;
-    height: 50vh;
+    height: 30vw;
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
 
-    @media screen and (max-width: 820px) {
+    @media screen and (max-width: 900px) {
         width: 100vw;
+        height: 100vw;
     }
 `
 
 export const ModalWrapper = styled.div`
-    background-color: #fff;
-    color: #000;
-    position: fixed;
+    position: relative;
     z-index: 3;
     animation: fade 200ms ease-out;
 
@@ -56,10 +55,12 @@ const getBackgroundStyles = (props) => {
 
 const cartBackgroundStyles = css`
     background: rgba(0, 0, 0, 0.8);
+    align-items: center;
 `
 
 const confirmBackgroundStyles = css`
     background: rgba(0, 0, 0, 0.5);
+    align-items: flex-end;
 `
 
 export const Background = styled.div`
@@ -68,7 +69,6 @@ export const Background = styled.div`
     position: fixed;
     display: flex;
     justify-content: center;
-    align-items: center;
     z-index: 1;
     bottom: 0;
     right: 0;

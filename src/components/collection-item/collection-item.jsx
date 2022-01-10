@@ -25,16 +25,18 @@ const CollectionItem = (props) => {
     
     return (
         <div className = "collection-item" >
-            <div className = "image" style = {{ backgroundImage : `url(${imageUrl})` }} >
-                <CustomButton itemButton onClick = {() => {
-                    setJumpConfirmModal(true)
-                    handleOnClick()
-                    }
-                } >Add to cart</CustomButton>
+            <div className="image-container">
+                <div className = "image" style = {{ backgroundImage : `url(${imageUrl})` }} >
+                    <CustomButton itemButton onClick = {() => {
+                        setJumpConfirmModal(true)
+                        handleOnClick()
+                        }
+                    } >Add to cart</CustomButton>
+                </div>
             </div>
             <div className = "collection-footer" >
                 <span className = "name" >{name}</span>
-                <span className = "price" >NT${price}</span>
+                <span className = "price" >${price}</span>
             </div>
             {jumpConfirmModal ? <ConfirmModal closeModal={handleCloseModalOnClickBackground} itemName={name} itemImage={imageUrl} /> : null}
         </div>

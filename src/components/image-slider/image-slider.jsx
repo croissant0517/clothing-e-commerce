@@ -31,7 +31,7 @@ const ImageSlider = () => {
     // })
 
     useEffect(() => {
-        const autuChangeSlider = setInterval(handleChangeNextImage, 10000)
+        const autuChangeSlider = setInterval(handleChangeNextImage, 6000)
         return () => {
             clearInterval(autuChangeSlider);
         }

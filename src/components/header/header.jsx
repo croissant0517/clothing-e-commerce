@@ -56,13 +56,6 @@ const Header = () => {
                 {barsIconClick ? <IoClose className="header-bars-icon" onClick ={handelBarsIconClick} /> : <FaBars className="header-bars-icon" onClick ={handelBarsIconClick}/>}
                 <div className = "options" >
                     <Link className = "option" to = "/" onClick={handelBarsExtendedBack}>
-                        <IconContext.Provider value={scrollTop ? { color: '#1c1d1f', size: '40px' } : { color: 'white', size: '40px' }}>
-                            <div className="profile-icon" >
-                                <CgProfile />
-                            </div>
-                        </IconContext.Provider>
-                    </Link>
-                    <Link className = "option" to = "/" onClick={handelBarsExtendedBack}>
                         HOME
                     </Link>
                     <Link className = "option" to = "/shop" onClick={handelBarsExtendedBack}>
@@ -77,7 +70,14 @@ const Header = () => {
                         : 
                         <Link className = "option" to = "/signin" onClick={handelBarsExtendedBack}>SIGN IN</Link> 
                     }
-                    <div onClick={handelBarsExtendedBack}>
+                    <Link className = "option" to = "/" onClick={handelBarsExtendedBack}>
+                        <IconContext.Provider value={scrollTop ? { color: '#1c1d1f', size: '40px' } : { color: 'white', size: '40px' }}>
+                            <div className = "profile-icon" >
+                                <CgProfile />
+                            </div>
+                        </IconContext.Provider>
+                    </Link>
+                    <div className = "option" onClick={handelBarsExtendedBack}>
                         <CartIcon ChangColor = { scrollTop ? true : false } />
                     </div>
                 </div> 
