@@ -18,16 +18,16 @@
     }
 
     .preview {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        // display: grid;
-        // grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        // display: flex;
+        // flex-wrap: wrap;
+        // justify-content: center;
+        // align-items: center;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
 
-        // @media (max-width: 400px) {
-        //     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        // }
+        @media (max-width: 400px) {
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        }
     }
 
     .load-more-button {

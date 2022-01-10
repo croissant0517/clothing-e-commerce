@@ -1,0 +1,48 @@
+.payment-status {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(0.5rem, 2.5vw, 1rem);
+
+    .payment-charge {
+        width: 100%;
+        align-self: start;
+
+        .payment-charge-detail1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: whitesmoke;
+            padding:1rem 3rem;
+            border-bottom: 1px solid darkgrey;
+            color: gray;
+            border-top-left-radius: 5px 5px;
+            border-top-right-radius: 5px 5px;
+        }
+
+        .payment-charge-detail2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: whitesmoke;
+            padding:1rem 3rem;
+            font-weight: bold;
+            border-bottom-right-radius: 5px 5px;
+            border-bottom-left-radius: 5px 5px;
+        }
+    }
+
+    .contact-information {
+        margin-top: 5rem;
+        padding: clamp(2rem, 2.5vw, 4rem) clamp(1rem, 2.5vw, 3rem);
+        border-top: 1px solid darkgrey;
+        border-bottom: 1px solid darkgrey;
+
+        a {
+            color: #7069FE;
+            font-size: clamp(0.5rem, 2.5vw, 1rem);
+        }
+    }
+}

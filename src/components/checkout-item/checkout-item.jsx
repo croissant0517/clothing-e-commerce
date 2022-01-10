@@ -25,7 +25,7 @@ const CheckOutItem = (props) => {
                 <span className = "value" >{quantity}</span>
                 <div className = "arrow" onClick = {() => dispatch(addItem(props.item))}><IoIosAdd/></div>
             </span>
-            <span className = "price" >NT${price}</span>
+            <span className = "price" >${price}</span>
             <div className = "remove-button" onClick = {handleClearItemFromCartOnClick} >&#10005;</div>
         </div>
     );

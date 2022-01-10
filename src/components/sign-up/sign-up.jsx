@@ -19,7 +19,7 @@ const SignUp = (props) => {
 
     const dispatch = useDispatch();
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
         if (password !== confirmPassword) {
             alert("passwords don't match");

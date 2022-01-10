@@ -17,7 +17,7 @@ const  SignIn = (props) => {
 
     const dispatch = useDispatch();
 
-    const handleSubit = async (event) => {
+    const handleSubit = (event) => {
         event.preventDefault();
         dispatch(emailSignInStart({ email, password }));
     }
@@ -56,11 +56,5 @@ const  SignIn = (props) => {
         </div>
     );
 }
-
-// const mapDispatchToProps = (dispatch) => ({
-//     handleGoogleSignInStart: () => dispatch(googleSignInStart()),
-//     handleFacebookSignInStart: () => dispatch(facebookSignInStart()),
-//     handleEmailSignInStart: (email, password) => dispatch(emailSignInStart({ email, password }))
-// })
 
 export default SignIn; 

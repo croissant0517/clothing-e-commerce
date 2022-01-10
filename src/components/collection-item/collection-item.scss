@@ -5,46 +5,52 @@
     height: 50vh;
     overflow: hidden;
     margin: 0 15px;
-    border-radius: 5px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     margin-bottom: 5rem;
-    cursor: pointer;
-    transition: .2s ease-in-out;
+    transition: 1s cubic-bezier(0.25,0.1,0.25,1);
 
-    &:hover {
-        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-    }
-
-    .image {
+    .image-container {
         display: flex;
         width: 100%;
-        height: 90%;
-        background-size: cover;
-        background-position: center;
+        height: 85%;
         margin-bottom: 5px;
-        overflow: hidden;
         box-sizing: border-box;
+        overflow: hidden;
+        transition: 1s cubic-bezier(0.25,0.1,0.25,1);
 
-        &:hover {
-            button {
-                height: 20%;
-                opacity: 0.85;
-            }
-        }
-
-        button {
-            align-self: flex-end;
-            opacity: 0;
+        .image {
             width: 100%;
-            transition: .5s;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+            transition: 1s cubic-bezier(0.25,0.1,0.25,1);
+
+            &:hover {
+                transform: scale(1.09);
+                
+                button {
+                    transform: scale(1.09);
+                    opacity: 0.75;
+                }
+            }
+
+            button {
+                align-self: flex-end;
+                opacity: 0;
+                height: 100%;
+                width: 100%;
+                transition: .5s;
+            }
         }
     }
 
     .collection-footer {
         padding: 0 1rem;
         width: 100%;
-        height: 10%;
+        height: 15%;
         display: flex;
+        overflow: hidden;
         justify-content: space-between;
         font-size: 18px;
     
@@ -61,11 +67,25 @@
         min-width: 80%;
         box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 
-        .image {
+        .image-container {
 
-            button {
-                height: 20%;
-                opacity: 0.85;
+            .image {
+
+                button {
+                    height: 100%;
+                    opacity: 0.65;
+                    transform: scale(1.09);
+    
+                }
+    
+    
+                // &:hover {
+                //     button {
+                //         height: 100%;
+                //         opacity: 0.75;
+                        
+                //     }
+                // }
             }
         }
     }

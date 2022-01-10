@@ -7,7 +7,7 @@ import HomePage from './pages/homepage/homepage';
 import ShopPage from './pages/shop/shop';
 import Header from './components/header/header';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up';
-import checkOutPage from './pages/checkout/checkout';
+import CheckOutPage from './pages/checkout/checkout';
 import Footer from './components/footer/footer';
 
 import ScrollToTop from './scrolltotop';
@@ -15,8 +15,8 @@ import { selectCurrentUser } from './redux/user/user.selectors';
 import { checkUserSession } from './redux/user/user.action'
 
 const App = () => {
-  const currentUser = useSelector(selectCurrentUser)
-  const dispatch = useDispatch()
+  const currentUser = useSelector(selectCurrentUser);
+  const dispatch = useDispatch();
 
   const handleRedirectToHomePage = () => {
     return currentUser ? <Redirect to = "/" /> : <SignInAndSignUpPage />
@@ -31,13 +31,13 @@ const App = () => {
   return (
     <div>
       <ScrollToTop/>
-      <Header />
       <div className="body-container" >
+        <Header />
         <Switch>
           <Route exact path = "/" component = {HomePage} />
           <Route path = "/shop" component = {ShopPage} />
           <Route exact path = "/signin" render = {handleRedirectToHomePage} />
-          <Route exact path = "/checkout" component = { checkOutPage } />
+          <Route path = "/checkout" component = {CheckOutPage} />
         </Switch>
       </div>
       <Footer />
