@@ -32,7 +32,7 @@ const CheckoutPayment = () => {
     const handleGoPayButtonOnClick = () => {
         axios({
             method: "POST",
-            url: 'http://localhost:3000/create-payment-intent',
+            url: 'https://floating-lowlands-20171.herokuapp.com/create-payment-intent',
             headers: { "Content-Type": "application/json" },
             data: {
                 total: total*100
