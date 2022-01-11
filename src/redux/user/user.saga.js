@@ -2,7 +2,7 @@ import { takeLatest, put, all, call } from "redux-saga/effects";
 
 import { UserActionTypes } from "./user.action.type";
 
-import { auth, goolgeProvider, Facebookprovider, createUserProfileDocument, getCurrentUser } from "../../firebase/firebase.utils";
+import { auth, goolgeProvider, Facebookprovider, createUserProfileDocument, getCurrentUser, storage } from "../../firebase/firebase.utils";
 
 import {
     signInSuccess,
@@ -10,7 +10,9 @@ import {
     signOutSuccess,
     signOutFailure,
     signUpSuccess,
-    signUpFailure
+    signUpFailure,
+    updateUserPhotoSuccess,
+    updateUserPhotoFailure,
 } from "./user.action";
 
 export function* signUp(signUpObject) {
@@ -18,10 +20,15 @@ export function* signUp(signUpObject) {
     const { email, password, displayName } = signUpObject.payload;
     try{
         const data = yield auth.createUserWithEmailAndPassword(email, password);
+        yield auth.currentUser.updateProfile({
+            displayName: displayName
+        })
+        const userData = yield getCurrentUser();
         const userRef = yield call(createUserProfileDocument, data.user, {displayName});
-        const userSnapShot = yield userRef.get();
+        console.log(userRef);
+        // const userSnapShot = yield userRef.get();
         yield put(signUpSuccess());
-        yield put(signInSuccess({ id: userSnapShot.id, ...userSnapShot.data() }));
+        yield put(signInSuccess({ id: userData.uid, displayName: userData.displayName, email: userData.email, photoURL: userData.photoURL }));
     }catch(error) {
         yield put(signUpFailure(error.code))
     }
@@ -36,9 +43,11 @@ export function* signInWithEmail(signInWithEmailActionObject) {
     const { email, password } = signInWithEmailActionObject.payload
     try{
         const data = yield auth.signInWithEmailAndPassword(email, password)
+        const userData = data.user
         const userRef = yield call(createUserProfileDocument, data.user);
-        const userSnapShot = yield userRef.get();
-        yield put(signInSuccess({ id: userSnapShot.id, ...userSnapShot.data() }))
+        console.log(userRef);
+        // const userSnapShot = yield userRef.get();
+        yield put(signInSuccess({ id: userData.uid, displayName: userData.displayName, email: userData.email, photoURL: userData.photoURL }))
     }catch(error) {
         yield put(signInFailure(error))
     }
@@ -51,9 +60,11 @@ export function* onEmailSignInStart() {
 export function* signInWithGoogle() {
     try{
         const data = yield auth.signInWithPopup(goolgeProvider);
-        const userRef = yield call(createUserProfileDocument, data.user);
-        const userSnapShot = yield userRef.get();
-        yield put(signInSuccess({ id: userSnapShot.id, ...userSnapShot.data() }))
+        const userData = data.user
+        const userRef = yield call(createUserProfileDocument, userData);
+        console.log(userRef);
+        // const userSnapShot = yield userRef.get();
+        yield put(signInSuccess({ id: userData.uid, displayName: userData.displayName, email: userData.email, photoURL: userData.photoURL }))
     }catch(error) {
         yield put(signInFailure(error.code))
     }
@@ -66,9 +77,11 @@ export function* onGoogleSingInStart() {
 export function* signInWithFacebook() {
     try{
         const data = yield auth.signInWithPopup(Facebookprovider);
-        const userRef = yield call(createUserProfileDocument, data.user);
-        const userSnapShot = yield userRef.get();
-        yield put(signInSuccess({ id: userSnapShot.id, ...userSnapShot.data() }))
+        const userData = data.user
+        const userRef = yield call(createUserProfileDocument, userData);
+        console.log(userRef);
+        // const userSnapShot = yield userRef.get();
+        yield put(signInSuccess({ id: userData.uid, displayName: userData.displayName, email: userData.email, photoURL: userData.photoURL }))
     }catch(error) {
         yield put(signInFailure(error.code))
     }
@@ -83,8 +96,10 @@ export function* checkUserSession() {
         const userData = yield getCurrentUser();
         if(userData) {
             const userRef = yield call(createUserProfileDocument, userData);
-            const userSnapShot = yield userRef.get();
-            yield put(signInSuccess({ id: userSnapShot.id, ...userSnapShot.data() }))
+            console.log(userRef);
+            // const userSnapShot = yield userRef.get();
+            // yield put(signInSuccess({ id: userSnapShot.id, ...userSnapShot.data() }))
+            yield put(signInSuccess({ id: userData.uid, displayName: userData.displayName, email: userData.email, photoURL: userData.photoURL }))
         } else if(!userData) {
             return
         }
@@ -108,6 +123,25 @@ export function* signOut() {
 
 export function* onSignOutStart() {
     yield takeLatest(UserActionTypes.SIGN_OUT_START, signOut)
+}
+
+export function* updateUserPhoto(updataPhotoStartActionObject) {
+    const {uploadImageFile, id} = updataPhotoStartActionObject.payload
+    const storageRef = storage.ref(`${id}/images/${uploadImageFile.name}`);
+    try{
+        yield storageRef.put(uploadImageFile);
+        const imageUploadURL = yield storageRef.getDownloadURL();
+        yield auth.currentUser.updateProfile({
+            photoURL: imageUploadURL,
+        })
+        yield put(updateUserPhotoSuccess(imageUploadURL))
+    }catch(error) {
+        yield put(updateUserPhotoFailure(error.code))
+    }
+}
+
+export function* onUpdateUserPhoto() {
+    yield takeLatest(UserActionTypes.UPDATE_USER_PHOTO_START, updateUserPhoto)
 } 
 
 export function* userSaga() {
@@ -118,5 +152,6 @@ export function* userSaga() {
         call(onCheckUserSession),
         call(onSignOutStart),
         call(onSignUpStart),
+        call(onUpdateUserPhoto),
     ])
 }

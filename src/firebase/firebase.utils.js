@@ -1,6 +1,7 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
+import 'firebase/compat/storage';
 
 const config = {
   apiKey: "AIzaSyDbMg5hj4Areww41k4gfuqQLj5LKBeqZxc",
@@ -72,8 +73,8 @@ export const convertCollectionsSnapshotToMap = (collections) => {
 
 export const getCurrentUser = () => {
     return new Promise((resolve, reject) => {
-        const unSubscribe = auth.onAuthStateChanged((userAuth) => {
-            unSubscribe();
+        auth.onAuthStateChanged((userAuth) => {
+            
             resolve(userAuth);
         }, reject)
     })
@@ -83,6 +84,7 @@ firebase.initializeApp(config);
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
+export const storage = firebase.storage();
 
 export const signInWithGoogle = () => {
     const provider = new firebase.auth.GoogleAuthProvider();

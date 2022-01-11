@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    scroll-behavior: smooth;
 
     .shipping-detail {
         width: 100%;
@@ -28,7 +29,7 @@
         justify-content: space-between;
         padding: 40px 0;
         width: 100%;
-        font-size: 1.5rem;
+        font-size: clamp(1rem, 2.5vw, 1.2rem);
     
         .subtotal-title {
             align-self: center;
@@ -42,20 +43,19 @@
             justify-self: flex-end;
             display: flex;
             flex-direction: column;
+
+            span {
+                text-align: end;
+            }
         }
     }
 
-    .button-section {
-        display: flex;
-        justify-content: flex-end;
-
-        .go-pay-button {
-            width: 25%; 
-        }
+    .stripe-checkoutForm-topsection{
+        height: 50px;
     }
 
     .stripe-checkoutForm {
-        margin-top: 30px;
+        margin-top: 40px;
         width: 100%;
     }
 

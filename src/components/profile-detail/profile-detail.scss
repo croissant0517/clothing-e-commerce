@@ -1,0 +1,65 @@
+.profile-detail-container {
+    margin-top: 5vw;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    border-radius: 10px;
+
+    .profile-detail {
+        width: 100%;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        padding: 1rem;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .user-photo {
+            width: 200px;
+            height: 200px;
+            border: 5px solid #1c1d1f;
+            border-radius: 50%;
+            background-position: center;
+            background-size: cover;
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+        }
+
+        .button-area {
+            width: 100%;
+            margin: 20px 0;
+
+            button {
+                margin: 10px 0;
+            }
+
+            .button-area-upload {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                button {
+                    margin: 10px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 500px) {
+        width: 100%;
+
+        .button-area {
+
+            .button-area-upload {
+                flex-wrap: wrap;
+
+                // button {
+                //     margin: 20px 0;
+                // }
+            }
+        }
+    }
+}

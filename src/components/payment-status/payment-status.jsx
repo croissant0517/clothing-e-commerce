@@ -28,7 +28,6 @@ const PaymentStatus = () => {
     stripe
       .retrievePaymentIntent(paymentIntentclientSecret)
       .then((data) => {
-          console.log(data);
           const {paymentIntent} = data
           setPaymentIntentDetail(paymentIntent);
         // Inspect the PaymentIntent `status` to indicate the status of the payment
