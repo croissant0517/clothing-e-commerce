@@ -81,7 +81,6 @@ const CheckoutForm = (props) => {
 
   return (
     <form id="payment-form" onSubmit={handleSubmit}>
-      <h1>{message}</h1>
       <FormInput
         id="email"
         type="email"
@@ -101,5 +100,3 @@ const CheckoutForm = (props) => {
   );
 }
 export default CheckoutForm;
-
-// https://localhost:3001/?payment_intent=pi_3KF8OzGBBygI9WOW1l2Bzool&payment_intent_client_secret=pi_3KF8OzGBBygI9WOW1l2Bzool_secret_Joo10DshSBqU0yHLF2l0J9rZT&redirect_status=succeeded

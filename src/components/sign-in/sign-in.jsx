@@ -49,9 +49,9 @@ const  SignIn = (props) => {
                     label = "Password" 
                     required
                 />              
-                    <CustomButton type = "submit" > Sign in </CustomButton>
-                    <CustomButton type = "button" onClick = {() => dispatch(googleSignInStart())} googleSignIn >Sign in with Google </CustomButton>
-                    <CustomButton type = "button" onClick = {() => dispatch(facebookSignInStart())} facebookSignIn >Sign in with Facebook </CustomButton>
+                <CustomButton type = "submit" > Sign in </CustomButton>
+                <CustomButton type = "button" onClick = {() => dispatch(googleSignInStart())} googleSignIn >Sign in with Google </CustomButton>
+                <CustomButton type = "button" onClick = {() => dispatch(facebookSignInStart())} facebookSignIn >Sign in with Facebook </CustomButton>
             </form>
         </div>
     );

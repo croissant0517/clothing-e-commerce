@@ -54,3 +54,18 @@ export const signOutFailure = (error) => ({
     type: UserActionTypes.SIGN_OUT_FAILURE,
     payload: error
 })
+
+export const updateUserPhotoStart = (updatePhotoFile) => ({
+    type: UserActionTypes.UPDATE_USER_PHOTO_START,
+    payload: updatePhotoFile
+})
+
+export const updateUserPhotoSuccess = (updataPhotoURL) => ({
+    type: UserActionTypes.UPDATE_USER_PHOTO_SUCCESS,
+    payload: updataPhotoURL
+})
+
+export const updateUserPhotoFailure = (error) => ({
+    type: UserActionTypes.UPDATE_USER_PHOTO_FAILURE,
+    payload: error
+})

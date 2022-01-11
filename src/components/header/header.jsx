@@ -1,9 +1,12 @@
 import React, {useState, useEffect} from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import CartIcon from "../cart-icon/cart-icon";
 import { IconContext } from "react-icons";
 import { CgProfile } from "react-icons/cg";
+
 import CartModal from "../cart-modal/cart-modal";
+import SignOutConfirmModal from "../sign-out-confirm-modal/sign-out-confirm-modal";
+
 import { selectCartHidden } from "../../redux/cart/cart.selectors";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 
@@ -13,14 +16,13 @@ import { IoClose } from "react-icons/io5"
 import "./header.scss"
 
 import { Link } from "react-router-dom";
-import { signOutStart } from "../../redux/user/user.action";
 
 const Header = () => {
     const [barsIconClick, setBarsIconClick] = useState(false);
+    const [signOutClick, setSignOutClick] = useState(false);
     const [scrollTop, setScrollTop] = useState(true);
     const currentUser = useSelector(selectCurrentUser);
     const hidden = useSelector(selectCartHidden);
-    const dispatch = useDispatch();
 
     const handelBarsIconClick = () => {
         setBarsIconClick(!barsIconClick);
@@ -64,13 +66,14 @@ const Header = () => {
                     { 
                         currentUser ? 
                         <div className = "option" onClick = {() => {
-                        dispatch(signOutStart())
+                        setSignOutClick(true)
+                        // dispatch(signOutStart())
                         handelBarsExtendedBack();
                         } }>SIGN OUT</div>
                         : 
                         <Link className = "option" to = "/signin" onClick={handelBarsExtendedBack}>SIGN IN</Link> 
                     }
-                    <Link className = "option" to = "/" onClick={handelBarsExtendedBack}>
+                    <Link className = "option" to = "/profile" onClick={handelBarsExtendedBack}>
                         <IconContext.Provider value={scrollTop ? { color: '#1c1d1f', size: '40px' } : { color: 'white', size: '40px' }}>
                             <div className = "profile-icon" >
                                 <CgProfile />
@@ -82,6 +85,7 @@ const Header = () => {
                     </div>
                 </div> 
                 {hidden ? null : <CartModal />}
+                {signOutClick && <SignOutConfirmModal CloseModal={() => setSignOutClick(false)}/>}
             </div>
             <div className = { `${barsIconClick ? "extend-header-background" : ""}` } onClick={handelBarsExtendedBack}></div>
         </div>
