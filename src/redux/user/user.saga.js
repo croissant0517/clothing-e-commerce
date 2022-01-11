@@ -24,8 +24,8 @@ export function* signUp(signUpObject) {
             displayName: displayName
         })
         const userData = yield getCurrentUser();
-        const userRef = yield call(createUserProfileDocument, data.user, {displayName});
-        console.log(userRef);
+        yield call(createUserProfileDocument, data.user, {displayName});
+
         // const userSnapShot = yield userRef.get();
         yield put(signUpSuccess());
         yield put(signInSuccess({ id: userData.uid, displayName: userData.displayName, email: userData.email, photoURL: userData.photoURL }));
@@ -44,8 +44,7 @@ export function* signInWithEmail(signInWithEmailActionObject) {
     try{
         const data = yield auth.signInWithEmailAndPassword(email, password)
         const userData = data.user
-        const userRef = yield call(createUserProfileDocument, data.user);
-        console.log(userRef);
+        yield call(createUserProfileDocument, data.user);
         // const userSnapShot = yield userRef.get();
         yield put(signInSuccess({ id: userData.uid, displayName: userData.displayName, email: userData.email, photoURL: userData.photoURL }))
     }catch(error) {
@@ -61,8 +60,8 @@ export function* signInWithGoogle() {
     try{
         const data = yield auth.signInWithPopup(goolgeProvider);
         const userData = data.user
-        const userRef = yield call(createUserProfileDocument, userData);
-        console.log(userRef);
+        yield call(createUserProfileDocument, userData);
+
         // const userSnapShot = yield userRef.get();
         yield put(signInSuccess({ id: userData.uid, displayName: userData.displayName, email: userData.email, photoURL: userData.photoURL }))
     }catch(error) {
@@ -78,8 +77,7 @@ export function* signInWithFacebook() {
     try{
         const data = yield auth.signInWithPopup(Facebookprovider);
         const userData = data.user
-        const userRef = yield call(createUserProfileDocument, userData);
-        console.log(userRef);
+        yield call(createUserProfileDocument, userData);
         // const userSnapShot = yield userRef.get();
         yield put(signInSuccess({ id: userData.uid, displayName: userData.displayName, email: userData.email, photoURL: userData.photoURL }))
     }catch(error) {
@@ -95,8 +93,8 @@ export function* checkUserSession() {
     try{
         const userData = yield getCurrentUser();
         if(userData) {
-            const userRef = yield call(createUserProfileDocument, userData);
-            console.log(userRef);
+            yield call(createUserProfileDocument, userData);
+            // console.log(userRef);
             // const userSnapShot = yield userRef.get();
             // yield put(signInSuccess({ id: userSnapShot.id, ...userSnapShot.data() }))
             yield put(signInSuccess({ id: userData.uid, displayName: userData.displayName, email: userData.email, photoURL: userData.photoURL }))

@@ -55,8 +55,13 @@ const CheckoutPayment = () => {
     }
 
     const handleCheckBoxChange = () => {
-        setNameCheckBoxValue(!nameCheckBoxValue);
-        console.log(nameCheckBoxValue);
+        if(nameCheckBoxValue === false) {
+            setNameCheckBoxValue(true);
+            setShipping({ ...shipping, name: currentUser.displayName})
+        } else if (nameCheckBoxValue === true) {
+            setNameCheckBoxValue(false);
+            setShipping({ ...shipping, name: ""})
+        }
     }
 
     return (
@@ -102,9 +107,10 @@ const CheckoutPayment = () => {
                 <FormInput
                     type="name"
                     value={nameCheckBoxValue ? currentUser.displayName : shipping.name}
-                    handleChange={(e) =>
+                    handleChange={(e) => {
                         setShipping({ ...shipping, name: e.target.value})
-                    }
+                        // console.log(shipping);
+                    }}
                     placeholder="Enter recipient name"
                     required
                     autoComplete="on"
