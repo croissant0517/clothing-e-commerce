@@ -20,7 +20,7 @@ const confirmModalStyles = css`
 `
 
 const cartModalStyles = css`
-    width: 40vw;
+    width: 50vw;
     height: 30vw;
     box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
 

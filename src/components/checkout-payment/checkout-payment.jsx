@@ -109,7 +109,6 @@ const CheckoutPayment = () => {
                     value={nameCheckBoxValue ? currentUser.displayName : shipping.name}
                     handleChange={(e) => {
                         setShipping({ ...shipping, name: e.target.value})
-                        // console.log(shipping);
                     }}
                     placeholder="Enter recipient name"
                     required

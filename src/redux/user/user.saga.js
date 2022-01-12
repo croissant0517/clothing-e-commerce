@@ -13,6 +13,7 @@ import {
     signUpFailure,
     updateUserPhotoSuccess,
     updateUserPhotoFailure,
+    checkUserSessionSuccess,
 } from "./user.action";
 
 export function* signUp(signUpObject) {
@@ -98,8 +99,9 @@ export function* checkUserSession() {
             // const userSnapShot = yield userRef.get();
             // yield put(signInSuccess({ id: userSnapShot.id, ...userSnapShot.data() }))
             yield put(signInSuccess({ id: userData.uid, displayName: userData.displayName, email: userData.email, photoURL: userData.photoURL }))
+            yield put(checkUserSessionSuccess());
         } else if(!userData) {
-            return
+            yield put(checkUserSessionSuccess());
         }
     }catch(error) {
         yield put(signInFailure(error.code))
@@ -107,7 +109,7 @@ export function* checkUserSession() {
 }
 
 export function* onCheckUserSession() {
-    yield takeLatest(UserActionTypes.CHECK_USER_SESSION, checkUserSession)
+    yield takeLatest(UserActionTypes.CHECK_USER_SESSION_START, checkUserSession)
 }
 
 export function* signOut() {
