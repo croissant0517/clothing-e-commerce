@@ -2,6 +2,7 @@ import React, { useEffect, lazy, Suspense } from 'react';
 import { Switch, Route, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
+import ReactGA from 'react-ga';
 
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
@@ -23,6 +24,9 @@ const ShopPage = lazy(() => import("./pages/shop/shop"));
 const SignInAndSignUpPage = lazy(() => import("./pages/sign-in-and-sign-up/sign-in-and-sign-up"));
 const CheckOutPage = lazy(() => import("./pages/checkout/checkout"));
 const ProfilePage = lazy(() => import("./pages/profile/profile"));
+
+ReactGA.initialize('G-TVR59WM9MW');
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 const App = () => {
   const currentUser = useSelector(selectCurrentUser);
