@@ -1,5 +1,7 @@
 import React from "react";
 
+import { ErrorImageOverlay, ErrorImageContainer, ErrorImageText } from "./errorboundary.style";
+
 class ErrorBoundary extends React.Component {
     constructor(props) {
       super(props);
@@ -20,11 +22,10 @@ class ErrorBoundary extends React.Component {
       if (this.state.hasError) {
         // 你可以 render 任何客製化的 fallback UI
         return (
-            <div>
-                <h1>Something went wrong.</h1>
-                <h1>Something went wrong.</h1>
-                <h1>Something went wrong.</h1>
-            </div>
+          <ErrorImageOverlay>
+            <ErrorImageContainer imageUrl="https://i.imgur.com/A040Lxr.png" />
+            <ErrorImageText>Sorry this Page is Lost in Space</ErrorImageText>
+          </ErrorImageOverlay>
         );
       }
   
