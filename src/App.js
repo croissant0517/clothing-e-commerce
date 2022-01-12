@@ -17,7 +17,7 @@ import { Spinner } from './components/with-spinner/with-spinner';
 import ScrollToTop from './scrolltotop';
 import { selectCurrentUser, selectCheckUserSessionOnLoading } from './redux/user/user.selectors';
 import { checkUserSessionStart } from './redux/user/user.action'
-import ErrorBoundary from './errorboundary';
+import ErrorBoundary from './components/errorboundary/errorboundary';
 
 const HomePage = lazy(() => import("./pages/homepage/homepage"));
 const ShopPage = lazy(() => import("./pages/shop/shop"));
@@ -25,7 +25,7 @@ const SignInAndSignUpPage = lazy(() => import("./pages/sign-in-and-sign-up/sign-
 const CheckOutPage = lazy(() => import("./pages/checkout/checkout"));
 const ProfilePage = lazy(() => import("./pages/profile/profile"));
 
-ReactGA.initialize('G-TVR59WM9MW');
+ReactGA.initialize('216377923-2');
 ReactGA.pageview(window.location.pathname + window.location.search);
 
 const App = () => {
