@@ -25,7 +25,7 @@ const SignInAndSignUpPage = lazy(() => import("./pages/sign-in-and-sign-up/sign-
 const CheckOutPage = lazy(() => import("./pages/checkout/checkout"));
 const ProfilePage = lazy(() => import("./pages/profile/profile"));
 
-ReactGA.initialize('216377923-2');
+ReactGA.initialize('UA-216377923-2');
 ReactGA.pageview(window.location.pathname + window.location.search);
 
 const App = () => {
