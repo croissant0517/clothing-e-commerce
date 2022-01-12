@@ -55,6 +55,7 @@
         font-size: 18px;
     
         .name {
+            text-align: center;
             align-self: center;
         }
     
@@ -96,6 +97,10 @@
                     }
                 }
             }
+        }
+
+        .collection-footer {
+            flex-direction: column;
         }
     }
 }

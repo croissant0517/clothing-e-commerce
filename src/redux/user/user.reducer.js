@@ -2,7 +2,8 @@ import { UserActionTypes } from "./user.action.type";
 
 const INITIAL_STATE = {
     currentUser: null,
-    error: undefined
+    error: undefined,
+    checkUserSessionOnLoasding: true
 }
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -24,6 +25,11 @@ const userReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 currentUser: { ...state.currentUser, photoURL: action.payload },
                 error: undefined
+            }
+        case UserActionTypes.CHECK_USER_SESSION_SUCCESS:
+            return {
+                ...state,
+                checkUserSessionOnLoasding: false
             }
         case UserActionTypes.SIGN_IN_FAILURE:
         case UserActionTypes.SIGN_OUT_FAILURE:
