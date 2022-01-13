@@ -13,7 +13,7 @@ const SignOutConfirmModal = ({CloseModal}) => {
     const dispatch = useDispatch();
 
     return (
-        <Modal confirmSignOutBackgroundStyles confirmSignOutModalStyles CloseModal={CloseModal}>
+        <Modal confirmSignOutBackgroundStyles confirmSignOutModalStyles backgroundCloseModal={CloseModal}>
             <div className="confirm-signout-modal-container" >
                 <div className="signout-title" >Are you sure to sign out?</div>
                 <div className="cancle-signout-button" >

@@ -16,6 +16,8 @@ const CartModal = () => {
     const hidden = useSelector(selectCartHidden);
 
     const dispatch = useDispatch()
+
+    const closeModal = () => dispatch(toggleCartHidden())
     
     // 如果cart-modal開啟，則將body的滾輪禁止使用
     useEffect(() => {
@@ -27,7 +29,7 @@ const CartModal = () => {
       }, [hidden])
 
     return (
-        <Modal cartModalStyles cartBackgroundStyles CloseModal = {() => {dispatch(toggleCartHidden())}} >
+        <Modal cartModalStyles cartBackgroundStyles backgroundCloseModal = {closeModal} buttonCloseModal={closeModal}>
             <div className = "cart-dropdown" >
                 <div className = "cart-items" >
                     {cartItems.map((cartItem) => {

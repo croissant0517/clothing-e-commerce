@@ -1,7 +1,7 @@
 import React from "react";
 import { Background, ModalWrapper, CloseModalButton } from "./modal.style";
 
-const Modal = ({children, CloseModal, ...props}) => {
+const Modal = ({children, backgroundCloseModal, buttonCloseModal, ...props}) => {
 
     // const handleKeyPressToCloseModal = (event) => {
     //     if (event.key === "Escape") {
@@ -16,15 +16,15 @@ const Modal = ({children, CloseModal, ...props}) => {
 
     return (
         <Background {...props}
-        onClick={CloseModal ? (event) => {
+        onClick={backgroundCloseModal ? (event) => {
             if(event.target === event.currentTarget) {
-                CloseModal()
+                backgroundCloseModal()
             }
         } : null}
         >
             <ModalWrapper {...props}>
                 {children}
-                {CloseModal ? <CloseModalButton onClick={() => {CloseModal()}}/> : null}
+                {buttonCloseModal ? <CloseModalButton onClick={() => {buttonCloseModal()}}/> : null}
             </ModalWrapper>
         </Background>
     );

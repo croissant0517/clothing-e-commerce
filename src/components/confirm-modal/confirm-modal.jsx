@@ -6,7 +6,7 @@ import "./confirm-modal.scss";
 
 const ConfirmModal= ({itemName, itemImage, closeModal}) => {
     return (
-        <Modal confirmModalStyles confirmBackgroundStyles CloseModal={closeModal} >
+        <Modal confirmModalStyles confirmBackgroundStyles backgroundCloseModal={closeModal} >
             <div className="confirm-modal-container" >
                 <div className = "image-container" >
                     <img src = {itemImage} alt = "item" />

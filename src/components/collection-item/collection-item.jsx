@@ -7,22 +7,26 @@ import { addItem } from "../../redux/cart/cart.action";
 import CustomButton from "../custom-button/custom-button";
 import ConfirmModal from "../confirm-modal/confirm-modal";
 
+let timer;
+
 const CollectionItem = (props) => {
     const { name, price, imageUrl } = props.item
     const [jumpConfirmModal, setJumpConfirmModal] = useState(false)
     const dispatch = useDispatch();
 
     const handleOnClick = () => {
-        setTimeout(() => {
-            setJumpConfirmModal(false)
+        timer = setTimeout(() => {
+            setJumpConfirmModal(false);
+            clearTimeout(timer);
         }, 1500)
         dispatch(addItem(props.item));
     }
 
-    const handleCloseModalOnClickBackground = () => {
-        setJumpConfirmModal(false)
+    const handleCloseModalOnClick = () => {
+        setJumpConfirmModal(false);
+        clearTimeout(timer);
     }
-    
+
     return (
         <div className = "collection-item" >
             <div className="image-container">
@@ -38,7 +42,7 @@ const CollectionItem = (props) => {
                 <span className = "name" >{name}</span>
                 <span className = "price" >${price}</span>
             </div>
-            {jumpConfirmModal ? <ConfirmModal closeModal={handleCloseModalOnClickBackground} itemName={name} itemImage={imageUrl} /> : null}
+            {jumpConfirmModal ? <ConfirmModal closeModal={handleCloseModalOnClick} itemName={name} itemImage={imageUrl} /> : null}
         </div>
     );
 }
