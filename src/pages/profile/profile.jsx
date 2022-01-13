@@ -1,6 +1,7 @@
 import React from "react";
 
 import ProfileDetail from "../../components/profile-detail/profile-detail";
+import CustomButton from "../../components/custom-button/custom-button";
 
 import { useSelector } from "react-redux";
 
@@ -14,7 +15,13 @@ const ProfilePage = (props) => {
 
     return (
         <div className="profile-container" >
-            {currentUser && <ProfileDetail  currentUser={currentUser}/>}
+            {currentUser ? <ProfileDetail  currentUser={currentUser}/>
+            : 
+            (<div>
+                <h2>Please sign in first</h2>
+                <CustomButton onClick = {() => props.history.push('/signin')} >Go to Sign in</CustomButton>
+            </div>)
+            }
         </div>
     )
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, lazy, Suspense } from 'react';
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 import ReactGA from 'react-ga';
@@ -25,20 +25,17 @@ const SignInAndSignUpPage = lazy(() => import("./pages/sign-in-and-sign-up/sign-
 const CheckOutPage = lazy(() => import("./pages/checkout/checkout"));
 const ProfilePage = lazy(() => import("./pages/profile/profile"));
 
-ReactGA.initialize('UA-216377923-2');
+ReactGA.initialize('216377923-2');
 ReactGA.pageview(window.location.pathname + window.location.search);
 
 const App = () => {
   const currentUser = useSelector(selectCurrentUser);
   const dispatch = useDispatch();
   const CheckUserSessionOnLoading = useSelector(selectCheckUserSessionOnLoading);
+  const history = useHistory();
 
   const handleRedirectToHomePage = () => {
-    return currentUser ? <Redirect to = "/" /> : <SignInAndSignUpPage />
-  }
-
-  const handleRedirectToSignInPage = () => {
-    return currentUser ? <ProfilePage /> : <SignInAndSignUpPage />
+    return currentUser ? history.goBack() : <SignInAndSignUpPage />
   }
 
   useEffect(
@@ -57,9 +54,9 @@ const App = () => {
               <Suspense fallback={<></>} >
                 <Route exact path = "/" component = {HomePage} />
                 <Route path = "/shop" component = {ShopPage} />
-                <Route exact path = "/signin" render = {handleRedirectToHomePage} />
+                <Route exact path = "/signin" render={handleRedirectToHomePage} />
                 <Route path = "/checkout" component = {CheckOutPage} />
-                <Route exact path = "/profile" render = {handleRedirectToSignInPage} />
+                <Route exact path = "/profile" component={ProfilePage} />
               </Suspense>
             </ErrorBoundary>
           </Switch>
