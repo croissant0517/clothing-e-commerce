@@ -49,7 +49,7 @@ export function* signInWithEmail(signInWithEmailActionObject) {
         // const userSnapShot = yield userRef.get();
         yield put(signInSuccess({ id: userData.uid, displayName: userData.displayName, email: userData.email, photoURL: userData.photoURL }))
     }catch(error) {
-        yield put(signInFailure(error))
+        yield put(signInFailure(error.code))
     }
 }
 
