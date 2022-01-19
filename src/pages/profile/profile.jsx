@@ -17,7 +17,7 @@ const ProfilePage = (props) => {
         <div className="profile-container" >
             {currentUser ? <ProfileDetail  currentUser={currentUser}/>
             : 
-            (<div>
+            (<div className="sign-in-warning" >
                 <h2>Please sign in first</h2>
                 <CustomButton onClick = {() => props.history.push('/signin')} >Go to Sign in</CustomButton>
             </div>)

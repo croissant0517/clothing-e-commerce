@@ -1,25 +1,14 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import "./sign-in-and-sign-up.scss";
 
-import SignIn from "../../components/sign-in/sign-in";
-import SignUp from "../../components/sign-up/sign-up";
-import { useDispatch } from "react-redux";
-import { checkUserSessionStart } from "../../redux/user/user.action";
+import SignInAndSignUpForm from "../../components/sign-in-and-sign-up-form/sign-in-sign-up-form";
+
 
 const SignInAndSignUpPage = () => {
-    const dispatch = useDispatch()
-    
-    useEffect(
-        () => {
-            return () => dispatch(checkUserSessionStart());
-        }
-    );
-
     return (
-        <div className = "sign-in-sign-up" >
-            <SignIn />
-            <SignUp />
+        <div className = "sign-in-sign-up-container" >
+            <SignInAndSignUpForm />
         </div>
     );
 }

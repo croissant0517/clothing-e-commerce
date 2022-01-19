@@ -17,12 +17,14 @@ const confirmModalStyles = css`
     height: auto;
     bottom: 0;
     justify-self: center;
+    animation: fade 200ms ease-out;
 `
 
 const cartModalStyles = css`
     width: 500px;
     height: 500px;
     box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+    animation: popout 200ms ease;
 
     @media screen and (max-width: 900px) {
         width: 100vw;
@@ -35,12 +37,12 @@ const confirmSignOutModalStyles = css`
     width: auto;
     height: auto;
     justify-self: center;
+    animation: popout 200ms ease;
 `
 
 export const ModalWrapper = styled.div`
     position: relative;
     z-index: 3;
-    animation: fade 200ms ease-out;
 
     ${getModalWrapperStyles}
 
@@ -51,6 +53,11 @@ export const ModalWrapper = styled.div`
     to {
         opacity: 1;
     }
+    }
+
+    @keyframes popout {
+        from{transform:scale(0)}
+        to{transform:scale(1)}
     }
 `
 

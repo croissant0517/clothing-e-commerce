@@ -45,7 +45,6 @@ export const CustomButtonContainer = styled.button`
     height: auto;
     padding: 1rem;
     letter-spacing: 0.5px;
-    /* line-height: 50px; */
     color: white;
     text-transform: uppercase;
     font-size: clamp(0.8rem, 2.5vw, 1rem);

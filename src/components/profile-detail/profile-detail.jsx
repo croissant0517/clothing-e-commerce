@@ -27,19 +27,6 @@ const ProfileDetail = (props) => {
         dispatch(updateUserPhotoStart({uploadImageFile, id}));
         handleToggleChangeUserPhoto();
         setUploadImageFile(undefined);
-        // const storageRef = storage.ref(`${id}/images/${uploadImageFile.name}`);
-        // const imageSnapShot = await storageRef.put(uploadImageFile);
-        // console.log(imageSnapShot);
-        // const imageUploadURL = await storageRef.getDownloadURL();
-        // console.log(imageUploadURL);
-        // const updataUserImage = auth.currentUser.updateProfile({
-        //     photoURL: imageUploadURL,
-        // }).then(() => {
-        //     setCurrentUserPhotoURL(imageUploadURL);
-        //     setUploadImageFile(undefined);
-        //     setToggleChangeUserPhoto(!toggleChangeUserPhoto);
-        // })
-        // console.log(updataUserImage);
     }
 
     return (
