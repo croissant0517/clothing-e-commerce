@@ -20,8 +20,8 @@ const confirmModalStyles = css`
 `
 
 const cartModalStyles = css`
-    width: 50vw;
-    height: 30vw;
+    width: 500px;
+    height: 500px;
     box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
 
     @media screen and (max-width: 900px) {

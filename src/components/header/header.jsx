@@ -23,6 +23,7 @@ const Header = () => {
     const [scrollTop, setScrollTop] = useState(true);
     const currentUser = useSelector(selectCurrentUser);
     const hidden = useSelector(selectCartHidden);
+    
 
     const handelBarsIconClick = () => {
         setBarsIconClick(!barsIconClick);

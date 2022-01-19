@@ -42,8 +42,11 @@ const CheckoutItems = (props) => {
                     </Link>
                 </div>
             )}
+            <div className = "total" >
+                <span>Total : ${(total).toFixed(2)}</span>
+            </div>
             <div className="button-section">
-                {!!total && <CustomButton onClick = {() => props.history.push(`${props.match.path}/payment`)} >Confirm and Go Pay</CustomButton>}
+                {!!total && <CustomButton onClick = {() => props.history.push(`${props.match.path}/payment`)} >CHECKOUT</CustomButton>}
             </div>
         </div>
     );

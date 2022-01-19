@@ -1,17 +1,17 @@
 //cartItems 是目前已經存在於array中的項目
-//cartItemsToAdd 是目前要新增到array的項目
+//cartItemToAdd 是目前要新增到array的項目
 
-export const addItemToCartQuantity = (cartItems, cartItemsToAdd) => {
+export const addItemToCartQuantity = (cartItems, cartItemToAdd) => {
     const existingCartItem = cartItems.find((cartItem) => {
-        return (cartItem.id === cartItemsToAdd.id);
+        return (cartItem.id === cartItemToAdd.id);
     })
 
     if (existingCartItem) {
         return cartItems.map((cartItem) => {
-            return (cartItem.id === cartItemsToAdd.id ? {...cartItem, quantity: cartItem.quantity + 1} : cartItem)
+            return (cartItem.id === cartItemToAdd.id ? {...cartItem, quantity: cartItem.quantity + 1} : cartItem)
         })
     } else {
-        return [...cartItems, {...cartItemsToAdd, quantity: 1}]    
+        return [...cartItems, {...cartItemToAdd, quantity: 1}]    
     }
 }
 
@@ -25,4 +25,13 @@ export const removeItemFromCartQuantity = (cartItems, cartItemsToRemove) => {
             : cartItem
         ) 
     }
+}
+
+export const addItemsToCartQuantity = (cartItems, cartItemsToAdd) => {
+    let array = cartItems;
+    for(let i = 0; i < cartItemsToAdd.length; i++) {
+        console.log(array);
+        addItemToCartQuantity(array, cartItemsToAdd[i])
+    }
+    console.log(array);
 }
