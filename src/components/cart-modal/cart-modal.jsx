@@ -31,14 +31,20 @@ const CartModal = () => {
     return (
         <Modal cartModalStyles cartBackgroundStyles backgroundCloseModal = {closeModal} buttonCloseModal={closeModal}>
             <div className = "cart-dropdown" >
-                <div className = "cart-items" >
-                    {cartItems.map((cartItem) => {
-                            return (<CartItem key = {cartItem.id} item = {cartItem} />);
-                        })}
-                </div>
-                <Link  to = "/checkout" >
-                    <CustomButton onClick = {() => {dispatch(toggleCartHidden())}} >CHECKOUT</CustomButton> 
-                </Link>
+                { cartItems.length ? 
+                <>
+                    <div className = "cart-items" >
+                        {cartItems.map((cartItem) => {
+                                return (<CartItem key = {cartItem.id} item = {cartItem} />);
+                            })}
+                    </div>
+                    <Link  to = "/checkout" >
+                        <CustomButton onClick = {() => {dispatch(toggleCartHidden())}} >CHECKOUT</CustomButton> 
+                    </Link>
+                </>
+                :
+                <h4>Your cart is empty</h4>
+                }
             </div>
         </Modal>
     );

@@ -86,19 +86,7 @@ export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 export const storage = firebase.storage();
 
-export const signInWithGoogle = () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    provider.setCustomParameters({ prompt: 'select_account' });
-    return auth.signInWithPopup(provider);
-}
-
 export const goolgeProvider = new firebase.auth.GoogleAuthProvider();
-
-export const signInWithFacebook = () => {
-    const provider = new firebase.auth.FacebookAuthProvider();
-    provider.setCustomParameters({ prompt: 'select_account' });
-    return auth.signInWithPopup(provider);
-}
 
 export const Facebookprovider = new firebase.auth.FacebookAuthProvider();
 

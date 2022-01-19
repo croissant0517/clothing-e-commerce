@@ -34,6 +34,18 @@
         }
     }
 
+    .total {
+        display: flex;
+        justify-content: flex-end;
+        padding: 40px 0;
+        width: 100%;
+        font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    
+        span {
+            text-align: end;
+        }
+    }
+
     .button-section {
         width: 100%;
         display: flex;

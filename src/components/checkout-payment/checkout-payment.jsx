@@ -130,7 +130,7 @@ const CheckoutPayment = () => {
                     <span>${(total).toFixed(2)}</span>
                 </div>
             </div>
-                <CustomButton type="submit">Confirm and Go Pay</CustomButton>
+                <CustomButton type="submit">Pay {(total).toFixed(2)}</CustomButton>
             </form>
             <div className = "stripe-checkoutForm-topsection" ref={myRef} >
 

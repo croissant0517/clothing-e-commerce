@@ -7,7 +7,6 @@
     padding: 20px;
     background-color: white;
     flex-direction: column;
-    padding: 10px;
     border-radius: 10px;
 
     .signout-title {
@@ -18,10 +17,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 30px;
+        padding: 10px;
 
         button {
-            width: 100px;
+            width: auto;
             margin: 10px;
         }
     }

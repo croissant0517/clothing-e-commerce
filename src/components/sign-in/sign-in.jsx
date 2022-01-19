@@ -1,33 +1,43 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { selectError } from "../../redux/user/user.selectors";
 
 import "./sign-in.scss";
 
 import FormInput from "../form-input/form-input";
 import CustomButton from "../custom-button/custom-button";
-import { googleSignInStart, facebookSignInStart, emailSignInStart } from "../../redux/user/user.action";
+import { googleSignInStart, facebookSignInStart, emailSignInStart, checkUserSessionStart} from "../../redux/user/user.action";
 
-const  SignIn = (props) => {
+const  SignIn = () => {
     const [credentials, setCredentials] = useState({
         email: "",
         password:""
     })
-
     const { email, password } = credentials
-
     const dispatch = useDispatch();
+    const [errorMessage, setErrorMessage] = useState("");
+    const error = useSelector(selectError);
 
     const handleSubit = (event) => {
         event.preventDefault();
+        dispatch(checkUserSessionStart());
         dispatch(emailSignInStart({ email, password }));
     }
 
     const handleChange = (event) => {
+        setErrorMessage("");
         setCredentials({
             ...credentials,
             [event.target.name]: event.target.value
         });
     }
+
+    useEffect(
+        () => {
+            setErrorMessage(error)
+        }
+    , [error]);
 
     return(
         <div className = "sign-in" >
@@ -48,7 +58,8 @@ const  SignIn = (props) => {
                     value = {password}
                     label = "Password" 
                     required
-                />              
+                />
+                {errorMessage && <h3>{errorMessage}</h3>}
                 <CustomButton type = "submit" > Sign in </CustomButton>
                 <CustomButton type = "button" onClick = {() => dispatch(googleSignInStart())} googleSignIn >Sign in with Google </CustomButton>
                 <CustomButton type = "button" onClick = {() => dispatch(facebookSignInStart())} facebookSignIn >Sign in with Facebook </CustomButton>
@@ -57,4 +68,4 @@ const  SignIn = (props) => {
     );
 }
 
-export default SignIn; 
+export default SignIn;

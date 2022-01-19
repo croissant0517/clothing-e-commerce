@@ -3,7 +3,7 @@ import { UserActionTypes } from "./user.action.type";
 const INITIAL_STATE = {
     currentUser: null,
     error: undefined,
-    checkUserSessionOnLoasding: true
+    checkUserSessionOnLoasding: true,
 }
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -12,7 +12,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 currentUser: action.payload,
-                error: undefined
+                error: undefined,
             }
         case UserActionTypes.SIGN_OUT_SUCCESS:
             return {
@@ -29,7 +29,8 @@ const userReducer = (state = INITIAL_STATE, action) => {
         case UserActionTypes.CHECK_USER_SESSION_SUCCESS:
             return {
                 ...state,
-                checkUserSessionOnLoasding: false
+                checkUserSessionOnLoasding: false,
+                error: undefined
             }
         case UserActionTypes.SIGN_IN_FAILURE:
         case UserActionTypes.SIGN_OUT_FAILURE:

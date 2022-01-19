@@ -1,5 +1,5 @@
 .checkout-payment {
-    width: 50%;
+    width: 500px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -59,7 +59,7 @@
         width: 100%;
     }
 
-    @media (max-width: 1000px) {
+    @media (max-width: 700px) {
         width: 100%;
     }
 }
