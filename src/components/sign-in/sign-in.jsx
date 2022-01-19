@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { selectError } from "../../redux/user/user.selectors";
+import { selectErrorForSignIn } from "../../redux/user/user.selectors";
 
 import "./sign-in.scss";
 
@@ -17,7 +17,7 @@ const  SignIn = () => {
     const { email, password } = credentials
     const dispatch = useDispatch();
     const [errorMessage, setErrorMessage] = useState("");
-    const error = useSelector(selectError);
+    const error = useSelector(selectErrorForSignIn);
 
     const handleSubit = (event) => {
         event.preventDefault();

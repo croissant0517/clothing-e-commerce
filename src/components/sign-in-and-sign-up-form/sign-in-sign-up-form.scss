@@ -1,0 +1,39 @@
+.sign-in-sign-up-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fade 200ms ease-out;
+    margin-top: 100px;
+
+    .sign-in-sign-up-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        border-radius: 5px;
+        padding: 20px;
+
+        .text-content {
+            font-size: larger;
+            text-align: center;
+            display: flex;
+
+            .switch-text {
+                color: red;
+                cursor: pointer;
+                width: max-content;
+                margin: 0 0.5rem;
+            }
+        }
+    }
+
+    @keyframes fade {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+        }
+}

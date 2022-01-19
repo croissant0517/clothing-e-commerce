@@ -1,14 +1,16 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { signUpStart } from "../../redux/user/user.action";
+import { signUpStart, checkUserSessionStart } from "../../redux/user/user.action";
+
+import { selectErrorForSignUp } from "../../redux/user/user.selectors";
 
 import "./sign-up.scss";
 
 import FormInput from "../form-input/form-input";
 import CustomButton from "../custom-button/custom-button";
 
-const SignUp = (props) => {
+const SignUp = () => {
     const [credentials, setCredentials] = useState({
         displayName: "",
         email: "",
@@ -16,31 +18,39 @@ const SignUp = (props) => {
         confirmPassword: ""
     })
     const {displayName, email, password, confirmPassword} = credentials
-
     const dispatch = useDispatch();
+    const [errorMessage, setErrorMessage] = useState("");
+    const error = useSelector(selectErrorForSignUp);
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        dispatch(checkUserSessionStart());
         if (password !== confirmPassword) {
-            alert("passwords don't match");
+            setErrorMessage("Passwords don't match");
             return;
         } 
         dispatch(signUpStart({email, password, displayName}));
     }
 
     const handleChange = (event) => {
+        setErrorMessage("");
         setCredentials({
             ...credentials,
             [event.target.name]: event.target.value
         });
     }
 
+    useEffect(
+        () => {
+            setErrorMessage(error)
+        }
+    , [error]);
         
     return(
         <div className = "sign-up" >
             <h2 className = "title">Sign Up</h2>
             <span>Sign up with your email</span>
-            <form className = "sign-up-form" onSubmit = {handleSubmit}>
+            <form onSubmit = {handleSubmit}>
                 <FormInput
                     type = "text"
                     name = "displayName"
@@ -77,6 +87,7 @@ const SignUp = (props) => {
                     required
                 >
                 </FormInput>
+                {errorMessage && <h3>{errorMessage}</h3>}
                 <CustomButton type = "submit">SIGN UP</CustomButton>
             </form>
         </div>
