@@ -116,7 +116,7 @@ const CheckoutPayment = () => {
                 />
                 <div>
                     <input type="checkbox" id="cbox1" onClick={handleCheckBoxChange}/>
-                    <label htmlFor="cbox1">Equal to displayName</label>
+                    <label htmlFor="cbox1">Equal to account name</label>
                 </div>
             <div className = "total" >
                 <div className = "subtotal-title" >
