@@ -6,13 +6,13 @@ import { selectDirectorySection } from "../../redux/directory/directory.selector
 
 import "./directory.scss";
 
-const Directory = (props) => {
+const Directory = () => {
     const section = useSelector(selectDirectorySection);
 
     return(
         <div className = "directory-menu" >
             {section.map((item) => 
-                <MenuItem 
+                <MenuItem
                     key = {item.id}
                     title = {item.title}
                     imageUrl = {item.imageUrl}

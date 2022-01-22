@@ -1,6 +1,7 @@
 import React from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import { Spinner } from "../with-spinner/with-spinner"; 
 
 import CheckoutForm from "./CheckoutForm";
 
@@ -24,7 +25,7 @@ export default function StripePayPage(props) {
 
     return (
         <div className="stripe-pay" >
-            {clientSecret && (
+            {clientSecret ? (
             <Elements options={options} stripe={stripePromise}>
                 <CheckoutForm shipping={props.shipping}/>
                 <div className = "test-warning">
@@ -33,7 +34,7 @@ export default function StripePayPage(props) {
                     4242-4242-4242-4242 - 01/23 - CVV : 123               
                 </div>
             </Elements>
-            )}
+            ) : <Spinner/>}
         </div>
     );
 }
