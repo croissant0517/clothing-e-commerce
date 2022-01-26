@@ -32,3 +32,8 @@ export const selectCollectionsLoaded = createSelector(
     [selectShop],
     (shop) => !!shop.collections
 )
+
+export const selectShopCollectionsForDirectory = createSelector(
+    [selectShopCollections],
+    (collections) => collections ? Object.keys(collections).map((key) => collections[key]) : []
+)

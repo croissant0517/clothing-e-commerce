@@ -26,12 +26,3 @@ export const removeItemFromCartQuantity = (cartItems, cartItemsToRemove) => {
         ) 
     }
 }
-
-export const addItemsToCartQuantity = (cartItems, cartItemsToAdd) => {
-    let array = cartItems;
-    for(let i = 0; i < cartItemsToAdd.length; i++) {
-        console.log(array);
-        addItemToCartQuantity(array, cartItemsToAdd[i])
-    }
-    console.log(array);
-}

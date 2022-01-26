@@ -8,16 +8,18 @@ import "./collection-overview.scss"
 
 const CollectionOverview = (props) => {
     const collections = useSelector(selectShopCollectionsForPreview);
+    console.log(collections);
 
     return (
         <div className = "collection-overview" >
-            {collections.map(collections => {
+            {collections.map(collection => {
                 return (
                     <CollectionPreview 
-                        key = {collections.id}
-                        title = {collections.title}
-                        routeName = {collections.routeName}
-                        items = {collections.items}
+                        key = {collection.id}
+                        title = {collection.title}
+                        routeName = {collection.routeName}
+                        items = {collection.items}
+                        imageUrl = {collection.imageUrl}
                     />
                 )
             })}

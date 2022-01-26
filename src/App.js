@@ -7,16 +7,11 @@ import ReactGA from 'react-ga';
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
 
-// import HomePage from './pages/homepage/homepage';
-// import ShopPage from './pages/shop/shop';
-// import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up';
-// import CheckOutPage from './pages/checkout/checkout';
-// import ProfilePage from './pages/profile/profile';
-
 import { Spinner } from './components/with-spinner/with-spinner';
 import ScrollToTop from './scrolltotop';
 import { selectCurrentUser, selectCheckUserSessionOnLoading } from './redux/user/user.selectors';
 import { checkUserSessionStart } from './redux/user/user.action'
+import { fetchCollectionsStart } from './redux/shop/shop.action'; 
 import ErrorBoundary from './components/errorboundary/errorboundary';
 
 const HomePage = lazy(() => import("./pages/homepage/homepage"));
@@ -41,6 +36,7 @@ const App = () => {
   useEffect(
     () => {
       dispatch(checkUserSessionStart())
+      dispatch(fetchCollectionsStart());
     }
   ,[dispatch])
   

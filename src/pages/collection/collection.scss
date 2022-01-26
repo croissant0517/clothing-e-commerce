@@ -3,6 +3,7 @@
     flex-direction: column;
     padding: 1vw 5vw;
     animation: fade 200ms ease-out;
+    margin: 0 6vw;
   
     .title {
         font-size: clamp(1rem, 5vw, 2rem);
@@ -11,11 +12,10 @@
   
     .items {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-        grid-gap: 10px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
 
-        @media (max-width: 400px) {
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        @media (max-width: 800px) {
+            grid-template-columns: 1fr 1fr;
         }
     }
 

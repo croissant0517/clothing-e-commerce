@@ -11,7 +11,6 @@ $main-color: black;
 
 .group {
     position: relative;
-    margin: 45px 0;
 
     .form-input {
         background: none;
@@ -29,6 +28,11 @@ $main-color: black;
 
     &:focus {
         outline: none;
+        border-bottom: 2px solid $main-color;
+        color: $main-color;
+    }
+
+    &:valid {
         border-bottom: 2px solid $main-color;
         color: $main-color;
     }
