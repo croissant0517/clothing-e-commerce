@@ -2,21 +2,22 @@ import React from "react";
 import MenuItem from "../menu-item/menu-item";
 
 import { useSelector } from "react-redux";
-import { selectDirectorySection } from "../../redux/directory/directory.selectors";
+import { selectShopCollectionsForDirectory } from "../../redux/shop/shop.selectors";
 
 import "./directory.scss";
 
 const Directory = () => {
-    const section = useSelector(selectDirectorySection);
+    const section2 = useSelector(selectShopCollectionsForDirectory);
+    console.log(section2);
 
     return(
         <div className = "directory-menu" >
-            {section.map((item) => 
+            {section2.map((item) => 
                 <MenuItem
                     key = {item.id}
                     title = {item.title}
                     imageUrl = {item.imageUrl}
-                    linkUrl = {item.linkUrl}
+                    linkUrl = {`shop/${item.routeName}`}
                 />
             )}
         </div>

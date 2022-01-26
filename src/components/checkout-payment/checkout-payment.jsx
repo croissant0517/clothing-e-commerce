@@ -24,8 +24,9 @@ const CheckoutPayment = () => {
             line1:"",
             postal_code: ""
         },
-        name: ""
+        name: "",
     });
+    const [email, setEmail] = useState("");
     const total = useSelector(selectCartTotal);
     const currentUser = useSelector(selectCurrentUser);
 
@@ -58,9 +59,11 @@ const CheckoutPayment = () => {
         if(nameCheckBoxValue === false) {
             setNameCheckBoxValue(true);
             setShipping({ ...shipping, name: currentUser.displayName})
+            setEmail(currentUser.email)
         } else if (nameCheckBoxValue === true) {
             setNameCheckBoxValue(false);
             setShipping({ ...shipping, name: ""})
+            setEmail("")
         }
     }
 
@@ -114,9 +117,19 @@ const CheckoutPayment = () => {
                     required
                     autoComplete="on"
                 />
+                <FormInput
+                    type="email"
+                    value={nameCheckBoxValue ? currentUser.email : email}
+                    handleChange={(e) => {
+                        setShipping(e.target.value)
+                    }}
+                    placeholder="Enter email address"
+                    required
+                    autoComplete="on"
+                />
                 <div>
                     <input type="checkbox" id="cbox1" onClick={handleCheckBoxChange}/>
-                    <label htmlFor="cbox1">Equal to account name</label>
+                    <label htmlFor="cbox1">Shipping information is the same as account information</label>
                 </div>
             <div className = "total" >
                 <div className = "subtotal-title" >
@@ -133,10 +146,9 @@ const CheckoutPayment = () => {
                 <CustomButton type="submit">Pay {(total).toFixed(2)}</CustomButton>
             </form>
             <div className = "stripe-checkoutForm-topsection" ref={myRef} >
-
             </div>
             <div className = "stripe-checkoutForm">
-                <StripePayPage clientSecret={clientSecret} shipping={shipping}/>
+                <StripePayPage clientSecret={clientSecret} shipping={shipping} email={email}/>
             </div>
         </div>
     );

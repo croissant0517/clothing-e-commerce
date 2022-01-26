@@ -23,7 +23,11 @@ const userReducer = (state = INITIAL_STATE, action) => {
         case UserActionTypes.UPDATE_USER_PHOTO_SUCCESS:
             return {
                 ...state,
-                currentUser: { ...state.currentUser, photoURL: action.payload },
+                error: undefined
+            }
+        case UserActionTypes.UPDATE_USER_INFO_SUCCESS:
+            return {
+                ...state,
                 error: undefined
             }
         case UserActionTypes.CHECK_USER_SESSION_SUCCESS:
@@ -36,6 +40,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
         case UserActionTypes.SIGN_OUT_FAILURE:
         case UserActionTypes.SIGN_UP_FAILURE:
         case UserActionTypes.UPDATE_USER_PHOTO_FAILURE:
+        case UserActionTypes.UPDATE_USER_INFO_FAILURE:
             return {
                 ...state,
                 error: action.payload

@@ -5,13 +5,10 @@ import {
   useStripe,
   useElements
 } from "@stripe/react-stripe-js";
-import FormInput from "../form-input/form-input";
 
 const CheckoutForm = (props) => {
   const stripe = useStripe();
   const elements = useElements();
-  
-  const [email, setEmail] = useState("");
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -60,8 +57,9 @@ const CheckoutForm = (props) => {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: "https://overfit-vic.herokuapp.com/checkout/complet",
-        receipt_email: email,
+        // return_url: "https://overfit-vic.herokuapp.com/checkout/complet",
+        return_url: "https://localhost:3000/checkout/complet",
+        receipt_email: props.shipping.email,
         shipping: props.shipping,
       },
     });
@@ -81,13 +79,6 @@ const CheckoutForm = (props) => {
 
   return (
     <form id="payment-form" onSubmit={handleSubmit}>
-      <FormInput
-        id="email"
-        type="email"
-        value={email}
-        handleChange={(e) => setEmail(e.target.value)}
-        placeholder="Enter email address"
-      />
       <PaymentElement id="payment-element" />
       <button disabled={isLoading || !stripe || !elements} id="submit">
         <span id="button-text"> 

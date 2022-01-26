@@ -13,7 +13,10 @@ import {
     signUpFailure,
     updateUserPhotoSuccess,
     updateUserPhotoFailure,
+    checkUserSessionStart,
     checkUserSessionSuccess,
+    updateUserInfoSuccess,
+    updateUserInfoFailure,
 } from "./user.action";
 
 import { addItem } from "../cart/cart.action";
@@ -49,7 +52,7 @@ export function* signInWithEmail(signInWithEmailActionObject) {
         const userData = data.user
         const userRef = yield call(createUserProfileDocument, data.user);
         const userSnapShot = yield userRef.get();
-        yield put(signInSuccess({ id: userData.uid, displayName: userData.displayName, email: userData.email, photoURL: userData.photoURL}));
+        yield put(signInSuccess({ id: userData.uid, displayName: userData.displayName, email: userData.email, photoURL: userData.photoURL, phoneNumber: userData.phoneNumber }));
         for(let i = 0; i < userSnapShot.data().cartItems.length; i++) {
             yield put(addItem(userSnapShot.data().cartItems[i]));
         }
@@ -66,11 +69,9 @@ export function* signInWithGoogle() {
     try{
         const data = yield auth.signInWithPopup(goolgeProvider);
         const userData = data.user
-        console.log(userData);
         const userRef = yield call(createUserProfileDocument, userData);
         const userSnapShot = yield userRef.get();
-        console.log(userSnapShot.data());
-        yield put(signInSuccess({ id: userData.uid, displayName: userData.displayName, email: userData.email, photoURL: userData.photoURL }))
+        yield put(signInSuccess({ id: userData.uid, displayName: userData.displayName, email: userData.email, photoURL: userData.photoURL, phoneNumber: userData.phoneNumber }))
         for(let i = 0; i < userSnapShot.data().cartItems.length; i++) {
             yield put(addItem(userSnapShot.data().cartItems[i]));
         }
@@ -89,7 +90,7 @@ export function* signInWithFacebook() {
         const userData = data.user
         const userRef = yield call(createUserProfileDocument, userData);
         const userSnapShot = yield userRef.get();
-        yield put(signInSuccess({ id: userData.uid, displayName: userData.displayName, email: userData.email, photoURL: userData.photoURL }))
+        yield put(signInSuccess({ id: userData.uid, displayName: userData.displayName, email: userData.email, photoURL: userData.photoURL, phoneNumber: userData.phoneNumber }))
         for(let i = 0; i < userSnapShot.data().cartItems.length; i++) {
             yield put(addItem(userSnapShot.data().cartItems[i]));
         }
@@ -107,7 +108,7 @@ export function* checkUserSession() {
         const userData = yield getCurrentUser();
         if(userData) {
             yield call(createUserProfileDocument, userData);
-            yield put(signInSuccess({ id: userData.uid, displayName: userData.displayName, email: userData.email, photoURL: userData.photoURL }))
+            yield put(signInSuccess({ id: userData.uid, displayName: userData.displayName, email: userData.email, photoURL: userData.photoURL, phoneNumber: userData.phoneNumber }))
             yield put(checkUserSessionSuccess());
         } else if(!userData) {
             yield put(checkUserSessionSuccess());
@@ -152,7 +153,8 @@ export function* updateUserPhoto(updataPhotoStartActionObject) {
         yield auth.currentUser.updateProfile({
             photoURL: imageUploadURL,
         })
-        yield put(updateUserPhotoSuccess(imageUploadURL))
+        yield put(checkUserSessionStart())
+        yield put(updateUserPhotoSuccess())
     }catch(error) {
         yield put(updateUserPhotoFailure(error.code))
     }
@@ -160,7 +162,24 @@ export function* updateUserPhoto(updataPhotoStartActionObject) {
 
 export function* onUpdateUserPhoto() {
     yield takeLatest(UserActionTypes.UPDATE_USER_PHOTO_START, updateUserPhoto)
-} 
+}
+
+export function* updateUserInfo(updataUserInfoStartActionObject) {
+    const userInfo = updataUserInfoStartActionObject.payload
+    try{
+        yield auth.currentUser.updateProfile({
+            displayName: userInfo.displayName,
+        })
+        yield put(checkUserSessionStart())
+        yield put(updateUserInfoSuccess())
+    }catch(error) {
+        yield put(updateUserInfoFailure(error.code))
+    }
+}
+
+export function* onUpdateUserInfo() {
+    yield takeLatest(UserActionTypes.UPDATE_USER_INFO_START, updateUserInfo)
+}
 
 export function* userSaga() {
     yield all([
@@ -171,5 +190,6 @@ export function* userSaga() {
         call(onSignOutStart),
         call(onSignUpStart),
         call(onUpdateUserPhoto),
+        call(onUpdateUserInfo),
     ])
 }
