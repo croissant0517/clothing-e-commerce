@@ -58,7 +58,7 @@ const CheckoutForm = (props) => {
       confirmParams: {
         // Make sure to change this to your payment completion page
         // return_url: "https://overfit-vic.herokuapp.com/checkout/complet",
-        return_url: "https://localhost:3000/checkout/complet",
+        return_url: "https://overfit-vic.herokuapp.com/checkout/complet",
         receipt_email: props.shipping.email,
         shipping: props.shipping,
       },
