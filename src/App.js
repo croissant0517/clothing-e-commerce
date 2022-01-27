@@ -40,14 +40,14 @@ const App = () => {
     }
   ,[dispatch])
   
-  return CheckUserSessionOnLoading ? <Spinner /> : (
+  return CheckUserSessionOnLoading ? <></> : (
     <div>
       <div className="body-container" >
         <ScrollToTop/>
           <Header />
           <Switch>
             <ErrorBoundary>
-              <Suspense fallback={<></>} >
+              <Suspense fallback={<Spinner/>} >
                 <Route exact path = "/" component = {HomePage} />
                 <Route path = "/shop" component = {ShopPage} />
                 <Route exact path = "/signin" render={handleRedirectToHomePage} />

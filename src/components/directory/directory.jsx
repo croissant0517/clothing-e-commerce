@@ -7,12 +7,11 @@ import { selectShopCollectionsForDirectory } from "../../redux/shop/shop.selecto
 import "./directory.scss";
 
 const Directory = () => {
-    const section2 = useSelector(selectShopCollectionsForDirectory);
-    console.log(section2);
+    const section = useSelector(selectShopCollectionsForDirectory);
 
     return(
         <div className = "directory-menu" >
-            {section2.map((item) => 
+            {section.map((item) => 
                 <MenuItem
                     key = {item.id}
                     title = {item.title}

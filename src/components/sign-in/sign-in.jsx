@@ -15,8 +15,8 @@ const  SignIn = () => {
         password:""
     })
     const { email, password } = credentials
-    const dispatch = useDispatch();
     const [errorMessage, setErrorMessage] = useState("");
+    const dispatch = useDispatch();
     const error = useSelector(selectErrorForSignIn);
 
     const handleSubit = (event) => {
@@ -39,7 +39,7 @@ const  SignIn = () => {
         }
     , [error]);
 
-    return(
+    return (
         <div className = "sign-in" >
             <h2>Sign In</h2>
             <form onSubmit = {handleSubit}>

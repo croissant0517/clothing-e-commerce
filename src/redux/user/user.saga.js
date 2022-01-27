@@ -17,6 +17,8 @@ import {
     checkUserSessionSuccess,
     updateUserInfoSuccess,
     updateUserInfoFailure,
+    userResetPasswardSuccess,
+    userResetPasswardFailure,
 } from "./user.action";
 
 import { addItem } from "../cart/cart.action";
@@ -181,6 +183,20 @@ export function* onUpdateUserInfo() {
     yield takeLatest(UserActionTypes.UPDATE_USER_INFO_START, updateUserInfo)
 }
 
+export function* userResetPassward(userResetPasswardStartActionObject) {
+    const email = userResetPasswardStartActionObject.payload
+    try{
+        yield auth.sendPasswordResetEmail(email)
+        yield put(userResetPasswardSuccess())
+    }catch(error) {
+        yield put(userResetPasswardFailure(error.code))
+    }
+}
+
+export function* onUserResetPassward() {
+    yield takeLatest(UserActionTypes.USER_RESET_PASSWARD_START, userResetPassward)
+}
+
 export function* userSaga() {
     yield all([
         call(onGoogleSingInStart), 
@@ -191,5 +207,6 @@ export function* userSaga() {
         call(onSignUpStart),
         call(onUpdateUserPhoto),
         call(onUpdateUserInfo),
+        call(onUserResetPassward),
     ])
 }

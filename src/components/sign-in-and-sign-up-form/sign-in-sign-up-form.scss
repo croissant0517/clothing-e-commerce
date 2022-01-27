@@ -13,6 +13,12 @@
         border-radius: 5px;
         padding: 20px;
 
+        .forgot-passward {
+            cursor: pointer;
+            text-align: center;
+            color: red;
+        }
+
         .text-content {
             font-size: larger;
             text-align: center;

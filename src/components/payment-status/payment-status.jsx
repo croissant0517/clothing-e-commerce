@@ -29,6 +29,7 @@ const PaymentStatus = () => {
       .retrievePaymentIntent(paymentIntentclientSecret)
       .then((data) => {
           const {paymentIntent} = data
+          console.log(data);
           setPaymentIntentDetail(paymentIntent);
         // Inspect the PaymentIntent `status` to indicate the status of the payment
         // to your customer.

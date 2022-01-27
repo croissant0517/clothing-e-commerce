@@ -6,6 +6,20 @@ export const SpinnerOverlay = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 100;
+`;
+
+export const RelativeSpinnerOverlay = styled.div`
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    bottom: 0;
+    right: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.8);
 `;
 
 export const SpinnerContainer = styled.div`
