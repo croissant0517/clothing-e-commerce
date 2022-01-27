@@ -17,12 +17,14 @@
             cursor: pointer;
             text-align: center;
             color: red;
+            margin: 0.5rem 0;
         }
 
         .text-content {
             font-size: larger;
             text-align: center;
             display: flex;
+            margin: 1rem 0;
 
             .switch-text {
                 color: red;
