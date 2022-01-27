@@ -6,9 +6,8 @@ import { useSelector } from "react-redux";
 
 import "./collection-overview.scss"
 
-const CollectionOverview = (props) => {
+const CollectionOverview = () => {
     const collections = useSelector(selectShopCollectionsForPreview);
-    console.log(collections);
 
     return (
         <div className = "collection-overview" >

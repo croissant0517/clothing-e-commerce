@@ -51,3 +51,29 @@ export const selectErrorForSignUp = createSelector(
         }
     }
 )
+
+export const selectErrorForUserResetPassward = createSelector(
+    [selectUser],
+    (user) => {
+        switch (user.error) {
+            case "auth/invalid-email":
+                return "Email address is not valid"
+            case "auth/user-not-found":
+                return "No user corresponding to the email address"
+            default:
+                break;
+        }
+    }
+)
+
+export const selectResultForUserResetPassward = createSelector(
+    [selectUser],
+    (user) => {
+        switch (user.userResetPasswardResult) {
+            case "success":
+                return "Success! Please check your email"
+            default:
+                break;
+        }
+    }
+)

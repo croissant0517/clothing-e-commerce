@@ -79,12 +79,25 @@ export const updateUserInfoStart = (userinfo) => ({
     payload: userinfo
 })
 
-export const updateUserInfoSuccess = (userinfo) => ({
+export const updateUserInfoSuccess = () => ({
     type: UserActionTypes.UPDATE_USER_INFO_SUCCESS,
-    payload: userinfo
 })
 
 export const updateUserInfoFailure = (error) => ({
     type: UserActionTypes.UPDATE_USER_INFO_FAILURE,
+    payload: error
+})
+
+export const userResetPasswardStart = (email) => ({
+    type: UserActionTypes.USER_RESET_PASSWARD_START,
+    payload: email
+})
+
+export const userResetPasswardSuccess = () => ({
+    type: UserActionTypes.USER_RESET_PASSWARD_SUCCESS,
+})
+
+export const userResetPasswardFailure = (error) => ({
+    type: UserActionTypes.USER_RESET_PASSWARD_FAILURE,
     payload: error
 })

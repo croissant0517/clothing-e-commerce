@@ -4,6 +4,7 @@ const INITIAL_STATE = {
     currentUser: null,
     error: undefined,
     checkUserSessionOnLoasding: true,
+    userResetPasswardResult: null,
 }
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -33,17 +34,26 @@ const userReducer = (state = INITIAL_STATE, action) => {
         case UserActionTypes.CHECK_USER_SESSION_SUCCESS:
             return {
                 ...state,
+                userResetPasswardResult: null,
                 checkUserSessionOnLoasding: false,
                 error: undefined
+            }
+        case UserActionTypes.USER_RESET_PASSWARD_SUCCESS:
+            return {
+                ...state,
+                error: undefined,
+                userResetPasswardResult: "success",
             }
         case UserActionTypes.SIGN_IN_FAILURE:
         case UserActionTypes.SIGN_OUT_FAILURE:
         case UserActionTypes.SIGN_UP_FAILURE:
         case UserActionTypes.UPDATE_USER_PHOTO_FAILURE:
         case UserActionTypes.UPDATE_USER_INFO_FAILURE:
+        case UserActionTypes.USER_RESET_PASSWARD_FAILURE:
             return {
                 ...state,
-                error: action.payload
+                error: action.payload,
+                userResetPasswardResult: null,
             }
         default:
             return state;
