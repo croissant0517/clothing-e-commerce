@@ -1,0 +1,85 @@
+.order-detail-modal-container {
+    
+    padding: 2rem;
+    background-color: whitesmoke;
+
+    .order-detail-modal-container-title {
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 2rem;
+    }
+
+    .order-detail-modal-shipping-info {
+        display: grid;
+        grid-template-columns: 30% 70%;
+
+        .order-detail-modal-shipping-info-titles {
+            display: grid;
+            grid-template-rows: 20% 20% 20% 20% 20%;
+
+            .order-detail-modal-shipping-info-title {
+                height: 2rem;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+            }
+        }
+
+        .order-detail-modal-shipping-info-values {
+            display: grid;
+            grid-template-rows: 20% 20% 20% 20% 20%;
+
+            .order-detail-modal-shipping-info-value {
+                height: 2rem;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+            }
+        }
+    }
+
+    .order-detail-modal-products {
+        margin-top: 5rem;
+        display: flex;
+        flex-direction: column;
+
+        .order-detail-modal-items-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+
+            .order-detail-modal-items-header-title {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        .order-detail-modal-items {
+            height: 300px;
+            width: 100%;
+            overflow-y: scroll;
+
+            .order-detail-modal-item {
+                width: 100%;
+                height: 250px;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                margin: 1rem 0;
+
+                .order-detail-modal-item-content {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 0 0.5rem;
+
+                    .order-detail-modal-item-content-img {
+                        width: 100%;
+                        height: 100%;
+                        background-position: center;
+                        background-size: cover;
+                    }
+                }
+            }
+        }
+    }
+}

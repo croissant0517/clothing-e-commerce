@@ -101,3 +101,18 @@ export const userResetPasswardFailure = (error) => ({
     type: UserActionTypes.USER_RESET_PASSWARD_FAILURE,
     payload: error
 })
+
+export const userGetHistoryOrdersStart = (email) => ({
+    type: UserActionTypes.USER_GET_HISTORY_ORDERS_START,
+    payload: email
+})
+
+export const userGetHistoryOrdersSuccess = (ordersArray) => ({
+    type: UserActionTypes.USER_GET_HISTORY_ORDERS_SUCCESS,
+    payload: ordersArray
+})
+
+export const userGetHistoryOrdersFailure = (error) => ({
+    type: UserActionTypes.USER_GET_HISTORY_ORDERS_FAILURE,
+    payload: error
+})

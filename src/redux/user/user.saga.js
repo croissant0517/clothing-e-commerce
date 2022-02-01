@@ -19,6 +19,8 @@ import {
     updateUserInfoFailure,
     userResetPasswardSuccess,
     userResetPasswardFailure,
+    userGetHistoryOrdersSuccess,
+    userGetHistoryOrdersFailure,
 } from "./user.action";
 
 import { addItem } from "../cart/cart.action";
@@ -197,6 +199,27 @@ export function* onUserResetPassward() {
     yield takeLatest(UserActionTypes.USER_RESET_PASSWARD_START, userResetPassward)
 }
 
+export function* userGetHistoryOrders(userGetHistoryOrdersStartActionObject) {
+    const email = userGetHistoryOrdersStartActionObject.payload
+    const queryRef = firestore.collection("orders")
+    const query = queryRef.where("email", "==", email)
+    const ordersArray = [];
+    try{
+        const querySnapshot = yield query.get()
+        yield querySnapshot.forEach((doc) => {
+            ordersArray.push(doc.data());
+            // return doc.data()
+        });
+        yield put(userGetHistoryOrdersSuccess(ordersArray))
+    }catch(error) {
+        yield put(userGetHistoryOrdersFailure(error.code))
+    }
+}
+
+export function* onUserGetHistoryOrders() {
+    yield takeLatest(UserActionTypes.USER_GET_HISTORY_ORDERS_START, userGetHistoryOrders)
+}
+
 export function* userSaga() {
     yield all([
         call(onGoogleSingInStart), 
@@ -208,5 +231,6 @@ export function* userSaga() {
         call(onUpdateUserPhoto),
         call(onUpdateUserInfo),
         call(onUserResetPassward),
+        call(onUserGetHistoryOrders),
     ])
 }

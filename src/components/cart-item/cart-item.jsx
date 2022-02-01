@@ -10,7 +10,7 @@ const CartItem = (props) => {
             <img src = {imageUrl} alt = "item" />
             <div className = "item-details">
                 <span className = "item-name">{name}</span>
-                <span className = "item-price">{quantity} x NT${price}</span>
+                <span className = "item-price">{quantity} x ${price}</span>
             </div>
         </div>
     );

@@ -16,31 +16,6 @@ const CheckoutForm = (props) => {
     if (!stripe) {
       return;
     }
-
-    const clientSecret = new URLSearchParams(window.location.search).get(
-      "payment_intent_client_secret"
-    );
-
-    if (!clientSecret) {
-      return;
-    }
-    stripe.retrievePaymentIntent(clientSecret).then((data) => {
-      const { paymentIntent } = data
-      switch (paymentIntent.status) {
-        case "succeeded":
-          setMessage("Payment succeeded!");
-          break;
-        case "processing":
-          setMessage("Your payment is processing.");
-          break;
-        case "requires_payment_method":
-          setMessage("Your payment was not successful, please try again.");
-          break;
-        default:
-          setMessage("Something went wrong.");
-          break;
-      }
-    });
   }, [stripe]);
 
   const handleSubmit = async (e) => {
@@ -57,8 +32,8 @@ const CheckoutForm = (props) => {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: "https://overfit-vic.herokuapp.com/checkout/complet",
-        // return_url: "https://localhost:3000/checkout/complet",
+        // return_url: "https://overfit-vic.herokuapp.com/checkout/complet",
+        return_url: "https://localhost:3000/checkout/complet",
         receipt_email: props.email,
         shipping: props.shipping,
       },

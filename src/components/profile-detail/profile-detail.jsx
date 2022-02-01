@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { updateUserPhotoStart, updateUserInfoStart } from "../../redux/user/user.action";
-
+import { updateUserPhotoStart, updateUserInfoStart, userGetHistoryOrdersStart } from "../../redux/user/user.action";
+import { selectUserHistoryOrders } from "../../redux/user/user.selectors";
 import CustomButton from "../custom-button/custom-button";
 import FormInput from "../form-input/form-input";
+import UserHistoryOrderItem from "../user-history-order-item/user-history-order-item";
 
 import "./profile-detail.scss";
-import { useEffect } from "react";
 
 const ProfileDetail = (props) => {
     const { id, photoURL, displayName, email} = props.currentUser
@@ -22,6 +22,7 @@ const ProfileDetail = (props) => {
     const [toggleChangeUserPhoto, setToggleChangeUserPhoto] = useState(true);
     const [toggleChangeUserInfo, setToggleChangeUSerInfo] = useState(false);
     const dispatch = useDispatch();
+    const userHistoryOrder = useSelector(selectUserHistoryOrders);
 
     const handleChangeImageFile = (e) => {
         if (e.target.files[0]) {
@@ -73,10 +74,11 @@ const ProfileDetail = (props) => {
                 displayName,
                 email,
             })
+            dispatch(userGetHistoryOrdersStart(email))
         }
-    , [displayName, email])
+    , [displayName, email, dispatch])
 
-    return (
+    return ( 
         <div className="profile-detail-container" >
             <div className="profile-detail" >
                 <h1>Account Profile</h1>
@@ -121,6 +123,32 @@ const ProfileDetail = (props) => {
                     :
                     <CustomButton onClick={handleToggleChangeUserInfo} >edit file</CustomButton>
                 }
+                <h3>Order history</h3>
+                <div className="user-history-order" >
+                    <div className="user-history-order-header" >
+                        <div className="user-history-order-header-content" >
+                            <span>Order State</span>
+                        </div>
+                        <div className="user-history-order-header-content" >
+                            <span>Order Create Time</span>
+                        </div>
+                        <div className="user-history-order-header-content" >
+                            <span>Order Amount</span>
+                        </div>
+                        <div className="user-history-order-header-content" >
+                            <span>Order Detail</span>
+                        </div>
+                    </div>
+                    <div className="user-history-order-items" >
+                        {
+                            userHistoryOrder.map((orderItem) => {
+                                return (
+                                    <UserHistoryOrderItem key={orderItem.id} orderItem={orderItem} />
+                                )
+                            })
+                        }
+                    </div>
+                </div>
             </div>
         </div>
     )

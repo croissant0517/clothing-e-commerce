@@ -8,6 +8,8 @@ const getModalWrapperStyles = (props) => {
         return confirmModalStyles
     } else if (props.confirmSignOutModalStyles) {
         return confirmSignOutModalStyles
+    } else if (props.orderDetailModalStyles) {
+        return OrderDetailModalStyles
     }
 }
 
@@ -22,7 +24,7 @@ const confirmModalStyles = css`
 
 const cartModalStyles = css`
     width: 500px;
-    height: 500px;
+    height: 600px;
     box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
     animation: popout 200ms ease;
 
@@ -35,6 +37,14 @@ const cartModalStyles = css`
 const confirmSignOutModalStyles = css`
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     width: auto;
+    height: auto;
+    justify-self: center;
+    animation: popout 200ms ease;
+`
+
+const OrderDetailModalStyles = css`
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    width: 800px;
     height: auto;
     justify-self: center;
     animation: popout 200ms ease;
@@ -68,6 +78,8 @@ const getBackgroundStyles = (props) => {
         return confirmBackgroundStyles
     } else if (props.confirmSignOutBackgroundStyles) {
         return confirmSignOutBackgroundStyles
+    } else if (props.OrderDetailBackgroundStyles) {
+        return OrderDetailBackgroundStyles
     }
 }
 
@@ -82,6 +94,11 @@ const confirmBackgroundStyles = css`
 `
 
 const confirmSignOutBackgroundStyles = css`
+    background: rgba(0, 0, 0, 0.8);
+    align-items: center;
+`
+
+const OrderDetailBackgroundStyles = css`
     background: rgba(0, 0, 0, 0.8);
     align-items: center;
 `

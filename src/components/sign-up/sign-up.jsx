@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+// import axios from "axios";
+
 import { signUpStart, checkUserSessionStart } from "../../redux/user/user.action";
 
 import { selectErrorForSignUp } from "../../redux/user/user.selectors";
@@ -28,7 +30,7 @@ const SignUp = () => {
         if (password !== confirmPassword) {
             setErrorMessage("Passwords don't match");
             return;
-        } 
+        }
         dispatch(signUpStart({email, password, displayName}));
     }
 
@@ -39,7 +41,7 @@ const SignUp = () => {
             [event.target.name]: event.target.value
         });
     }
-
+    
     useEffect(
         () => {
             setErrorMessage(error)
