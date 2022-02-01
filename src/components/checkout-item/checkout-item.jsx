@@ -16,17 +16,17 @@ const CheckOutItem = (props) => {
 
     return (
         <div className = "checkout-item" >
-            <div className = "image-container" >
+            <div className = "checkout-item-content" >
                 <img src = {imageUrl} alt = "item" />
             </div>
-            <span className = "name" >{name}</span>
-            <span className = "quantity" >
+            <span className = "checkout-item-content" >{name}</span>
+            <span className = "checkout-item-content" >
                 <div className = "arrow" onClick = {() => dispatch(removeItem(props.item))} ><IoIosRemove/></div>
                 <span className = "value" >{quantity}</span>
                 <div className = "arrow" onClick = {() => dispatch(addItem(props.item))}><IoIosAdd/></div>
             </span>
-            <span className = "price" >${price}</span>
-            <div className = "remove-button" onClick = {handleClearItemFromCartOnClick} >&#10005;</div>
+            <span className = "checkout-item-content" >${price}</span>
+            <div className = "checkout-item-remove-button" onClick = {handleClearItemFromCartOnClick} >&#10005;</div>
         </div>
     );
 }

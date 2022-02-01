@@ -17,20 +17,13 @@
         width: 100%;
         padding: 10px 0;
         font-size: clamp(0.5rem, 2.5vw, 1rem);
-        display: flex;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: 24% 24% 24% 24% 4%;
         border-bottom: 1px solid darkgrey;
     
         .header-block {
-            display: block;
-            width: 21%;
             text-transform: capitalize;
             text-align: center;
-    
-            &:last-child {
-            display: block;
-            width: 4%;
-            }
         }
     }
 
@@ -63,7 +56,7 @@
     }
     
     @media (max-width: 1000px) {
-        width: 100%;
+        width: 87%;
         
         .checkout-header {
       

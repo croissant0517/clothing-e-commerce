@@ -11,7 +11,7 @@
     .profile-detail {
         width: 100%;
         box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-        padding: 4rem;
+        padding: 1rem;
         border-radius: 5px;
         display: flex;
         flex-direction: column;
@@ -90,6 +90,36 @@
             display: flex;
             width: 55%;
             justify-content: space-between;
+        }
+
+        .user-history-order {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .user-history-order-header {
+                display: grid;
+                grid-template-columns: 25% 25% 25% 25%;
+                height: 2rem;
+        
+                .user-history-order-header-content {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: #1c1d1f;
+                    color: whitesmoke;
+                    font-size: clamp(0.1rem, 2.5vw, 1rem);
+                }
+            }
+
+            .user-history-order-items {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+
+                
+            }
         }
     }
 

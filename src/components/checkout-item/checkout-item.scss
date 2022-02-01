@@ -1,68 +1,54 @@
 .checkout-item {
     width: 100%;
-    display: flex;
-    min-height: 100px;
+    display: grid;
+    height: auto;
     border-radius: 5px;
-    padding: 10px 10px;
     font-size: clamp(0.5rem, 2.5vw, 1rem);;
     align-items: center;
-    justify-content: space-between;
+    grid-template-columns: 24% 24% 24% 24% 4%;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    margin: 10px 0;
     transition: .5s;
+    margin: 1rem 0;
 
     &:hover {
         box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
         background-color: whitesmoke;
     }
   
-    .image-container {
-        width: 20%;
-        padding-right: 15px;
-  
+    .checkout-item-content {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5rem;
+        user-select: none;
+
         img {
             width: 100%;
             height: 100%;
         }
-    }
-    .name {
-        width: 20%;
-        display: flex;
-        justify-content: center;
-    }
-
-    .quantity {
-        width: 20%;
-        display: flex;
-        justify-content: center;
-        font-size: clamp(1rem, 2.5vw, 1.5rem);;
-    }
-
-    .price {
-        width: 20%;
-        display: flex;
-        justify-content: center;
-    }
-  
-    .quantity {
-        width: 20%;
-        display: flex;
-        user-select: none;
 
         .arrow {
-            cursor: pointer;
             display: flex;
+            justify-content: center;
             align-items: center;
-        }    
+            font-size: x-large;
+            cursor: pointer;
+        }
 
         .value {
-            margin: 0 10px;
+            font-size: large;
         }
     }
-  
-    .remove-button {
-        padding-left: 15px;
+
+    .checkout-item-remove-button {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        user-select: none;
         cursor: pointer;
+        font-size: large;
     }
 
     @media (max-width: 800px) {

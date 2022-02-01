@@ -1,0 +1,14 @@
+.user-history-order-item {
+    height: 2rem;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    text-align: center;
+
+    .user-history-order-item-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        font-size: clamp(0.1rem, 2.5vw, 1rem);
+    }
+}

@@ -10,7 +10,7 @@ const EmailSubscribe = () => {
         <div className="email-subscribe-contaier" >
             <div className="email-subscribe-content" >
                 <h1>Get Access to Exclusive Offers</h1>
-                <p>Subscribe for your newsletter below to get NT$100 off your firt order!</p>
+                <p>Subscribe for your newsletter below to get $10 off your firt order!</p>
                 <form action="#">
                     <FormInput 
                         name = "email" 
