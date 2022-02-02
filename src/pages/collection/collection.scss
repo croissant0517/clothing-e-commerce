@@ -19,6 +19,11 @@
         }
     }
 
+    @media (max-width: 1000px) {
+        padding: 1vw 1vw;
+        margin: 0 ;
+    }
+
     @keyframes fade {
     from {
         opacity: 0;

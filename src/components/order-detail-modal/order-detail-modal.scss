@@ -1,5 +1,5 @@
 .order-detail-modal-container {
-    
+    font-size: clamp(0.5rem, 2.5vw, 1rem);
     padding: 2rem;
     background-color: whitesmoke;
 
@@ -12,6 +12,10 @@
     .order-detail-modal-shipping-info {
         display: grid;
         grid-template-columns: 30% 70%;
+
+        @media (max-width: 700px) {
+            grid-template-columns: 50% 50%;
+        }
 
         .order-detail-modal-shipping-info-titles {
             display: grid;

@@ -47,12 +47,17 @@ const OrderDetailModalStyles = css`
     width: 800px;
     height: auto;
     justify-self: center;
+    align-items: center;
     animation: popout 200ms ease;
+
+    @media screen and (max-width: 900px) {
+        width: 100vw;
+        height: 80vh;
+    }
 `
 
 export const ModalWrapper = styled.div`
     position: relative;
-    z-index: 3;
 
     ${getModalWrapperStyles}
 
@@ -109,7 +114,7 @@ export const Background = styled.div`
     position: fixed;
     display: flex;
     justify-content: center;
-    z-index: 1;
+    z-index: 100;
     bottom: 0;
     right: 0;
     animation: fade 200ms ease-out;

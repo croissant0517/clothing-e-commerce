@@ -29,6 +29,11 @@
             font-size: clamp(1rem, 2.5vw, 1.2rem);
             cursor: pointer;
 
+            &:active {
+                transform: scale(0.9);
+                transition: 0.3s ease-out;
+            }
+
             .profile-icon {
                 display: flex;
                 align-self: center;
