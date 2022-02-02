@@ -53,6 +53,7 @@ const App = () => {
                 <Route exact path = "/signin" render={handleRedirectToHomePage} />
                 <Route path = "/checkout" component = {CheckOutPage} />
                 <Route exact path = "/profile" component={ProfilePage} />
+                {/* <Route exact path="/admin" component={AdminPage} /> */}
               </Suspense>
             </ErrorBoundary>
           </Switch>

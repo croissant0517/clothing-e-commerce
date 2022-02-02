@@ -45,19 +45,12 @@ const userReducer = (state = INITIAL_STATE, action) => {
                 error: undefined,
                 userResetPasswardResult: "success",
             }
-        case UserActionTypes.USER_GET_HISTORY_ORDERS_SUCCESS:
-            return {
-                ...state,
-                userHistoryOrders: action.payload,
-                error: undefined,
-            }
         case UserActionTypes.SIGN_IN_FAILURE:
         case UserActionTypes.SIGN_OUT_FAILURE:
         case UserActionTypes.SIGN_UP_FAILURE:
         case UserActionTypes.UPDATE_USER_PHOTO_FAILURE:
         case UserActionTypes.UPDATE_USER_INFO_FAILURE:
         case UserActionTypes.USER_RESET_PASSWARD_FAILURE:
-        case UserActionTypes.USER_GET_HISTORY_ORDERS_FAILURE:
             return {
                 ...state,
                 error: action.payload,

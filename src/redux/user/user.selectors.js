@@ -12,11 +12,6 @@ export const selectCheckUserSessionOnLoading = createSelector(
     (user) => (user.checkUserSessionOnLoasding)
 )
 
-export const selectUserHistoryOrders = createSelector(
-    [selectUser],
-    (user) => (user.userHistoryOrders)
-)
-
 export const selectErrorForSignIn = createSelector(
     [selectUser],
     (user) => {

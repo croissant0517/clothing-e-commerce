@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState, useEffect, useCallback } from "react";
+import { useDispatch } from "react-redux";
 
-import { updateUserPhotoStart, updateUserInfoStart, userGetHistoryOrdersStart } from "../../redux/user/user.action";
-import { selectUserHistoryOrders } from "../../redux/user/user.selectors";
+import { updateUserPhotoStart, updateUserInfoStart } from "../../redux/user/user.action";
 import CustomButton from "../custom-button/custom-button";
 import FormInput from "../form-input/form-input";
 import UserHistoryOrderItem from "../user-history-order-item/user-history-order-item";
+import { firestore } from "../../firebase/firebase.utils";
 
 import "./profile-detail.scss";
 
@@ -21,8 +21,8 @@ const ProfileDetail = (props) => {
     const [uploadImageFile, setUploadImageFile] = useState(undefined);
     const [toggleChangeUserPhoto, setToggleChangeUserPhoto] = useState(true);
     const [toggleChangeUserInfo, setToggleChangeUSerInfo] = useState(false);
+    const [ userHistoryOrderInfo, setUserHistoryOrderInfo ] = useState([]);
     const dispatch = useDispatch();
-    const userHistoryOrder = useSelector(selectUserHistoryOrders);
 
     const handleChangeImageFile = (e) => {
         if (e.target.files[0]) {
@@ -68,15 +68,31 @@ const ProfileDetail = (props) => {
         handleToggleChangeUserInfo()
     }
 
+    const handleLoadingUserHistoryOrder = useCallback(() => {
+        const queryRef = firestore.collection("orders");
+        const query = queryRef.where("email", "==", email);
+        const ordersArray = [];
+        query.get()
+            .then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    ordersArray.push(doc.data());
+                });
+                setUserHistoryOrderInfo(ordersArray)
+            })
+            .catch((error) => {
+                console.log("Error getting documents: ", error);
+            });
+    }, [email])
+
     useEffect(
         () => {
             setUserInfo({
                 displayName,
                 email,
             })
-            dispatch(userGetHistoryOrdersStart(email))
+            handleLoadingUserHistoryOrder()
         }
-    , [displayName, email, dispatch])
+    , [displayName, email, handleLoadingUserHistoryOrder])
 
     return ( 
         <div className="profile-detail-container" >
@@ -141,7 +157,7 @@ const ProfileDetail = (props) => {
                     </div>
                     <div className="user-history-order-items" >
                         {
-                            userHistoryOrder.map((orderItem) => {
+                            userHistoryOrderInfo.map((orderItem) => {
                                 return (
                                     <UserHistoryOrderItem key={orderItem.id} orderItem={orderItem} />
                                 )
