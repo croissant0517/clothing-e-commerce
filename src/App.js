@@ -2,11 +2,9 @@ import React, { useEffect, lazy, Suspense } from 'react';
 import { Switch, Route, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
-import ReactGA from 'react-ga';
 
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
-
 import { Spinner } from './components/with-spinner/with-spinner';
 import ScrollToTop from './scrolltotop';
 import { selectCurrentUser, selectCheckUserSessionOnLoading } from './redux/user/user.selectors';
@@ -19,11 +17,31 @@ const ShopPage = lazy(() => import("./pages/shop/shop"));
 const SignInAndSignUpPage = lazy(() => import("./pages/sign-in-and-sign-up/sign-in-and-sign-up"));
 const CheckOutPage = lazy(() => import("./pages/checkout/checkout"));
 const ProfilePage = lazy(() => import("./pages/profile/profile"));
+const AdminPage = lazy(() => import("./pages/admin/admin"));
 
-ReactGA.initialize('216377923-2');
-ReactGA.pageview(window.location.pathname + window.location.search);
+export default function App() {
+  return (
+    <div>
+      <ScrollToTop/>
+        <Switch>
+            <Route path = "/admin" component = {AdminRoutes} />
+            <Route path = "/" component = {Shop} />
+        </Switch>
+    </div>
+  );
+}
 
-const App = () => {
+const AdminRoutes = () => {
+  return (
+    <Switch>
+      <Suspense fallback={<Spinner/>} >
+        <Route path = "/admin" component = {AdminPage} />
+      </Suspense>
+    </Switch>
+  )
+}
+
+const Shop = () => {
   const currentUser = useSelector(selectCurrentUser);
   const dispatch = useDispatch();
   const CheckUserSessionOnLoading = useSelector(selectCheckUserSessionOnLoading);
@@ -39,28 +57,24 @@ const App = () => {
       dispatch(fetchCollectionsStart());
     }
   ,[dispatch])
-  
+
   return CheckUserSessionOnLoading ? <></> : (
     <div>
       <div className="body-container" >
-        <ScrollToTop/>
-          <Header />
-          <Switch>
+        <Header />
+        <Switch>
+          <Suspense fallback={<Spinner/>} >
             <ErrorBoundary>
-              <Suspense fallback={<Spinner/>} >
-                <Route exact path = "/" component = {HomePage} />
-                <Route path = "/shop" component = {ShopPage} />
-                <Route exact path = "/signin" render={handleRedirectToHomePage} />
-                <Route path = "/checkout" component = {CheckOutPage} />
-                <Route exact path = "/profile" component={ProfilePage} />
-                {/* <Route exact path="/admin" component={AdminPage} /> */}
-              </Suspense>
+              <Route exact path = "/" component = {HomePage} />
+              <Route path = "/shop" component = {ShopPage} />
+              <Route path = "/signin" render={handleRedirectToHomePage} />
+              <Route path = "/checkout" component = {CheckOutPage} />
+              <Route path = "/profile" component={ProfilePage} />
             </ErrorBoundary>
-          </Switch>
+          </Suspense>
+        </Switch>
       </div>
       <Footer />
     </div>
-  );
+  )
 }
-
-export default App;

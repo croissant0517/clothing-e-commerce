@@ -8,6 +8,7 @@ import FormInput from "../../components/form-input/form-input";
 
 import { selectCartTotal } from "../../redux/cart/cart.selectors";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
+import { API_URL } from "../../api/api-utils";
 
 import axios from "axios";
 
@@ -33,8 +34,7 @@ const CheckoutPayment = () => {
     const handleGoPayButtonOnClick = () => {
         axios({
             method: "POST",
-            url: 'https://floating-lowlands-20171.herokuapp.com/create-payment-intent',
-            // url: 'http://localhost:3001/create-payment-intent',
+            url: `${API_URL}/create-payment-intent`,
             headers: { "Content-Type": "application/json" },
             data: {
                 total: total*100,
@@ -46,7 +46,9 @@ const CheckoutPayment = () => {
             .catch((error) => console.log(error));
     }
 
-    const executeScroll = () => myRef.current.scrollIntoView() 
+    const executeScroll = () => myRef.current.scrollIntoView({
+        behavior: "smooth", 
+    }) 
 
     const handleShippingDetailConfirm = (event) => {
         event.preventDefault();

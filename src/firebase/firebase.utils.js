@@ -60,8 +60,16 @@ export const convertCollectionsSnapshotToMap = (collections) => {
             routeName: encodeURI(title.toLowerCase()),
             id: doc.id,
             title,
-            items,
-            imageUrl
+            imageUrl,
+            items: items.map((item, index) => {
+                const { name, imageUrl, price } = item
+                return ({
+                    id: index+1,
+                    name: name,
+                    imageUrl: imageUrl,
+                    price: price,
+                })
+            })
         })
     })
 
@@ -75,7 +83,6 @@ export const convertCollectionsSnapshotToMap = (collections) => {
 export const getCurrentUser = () => {
     return new Promise((resolve, reject) => {
         auth.onAuthStateChanged((userAuth) => {
-            
             resolve(userAuth);
         }, reject)
     })

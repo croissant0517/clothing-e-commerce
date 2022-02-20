@@ -13,15 +13,19 @@ import "./checkout.scss";
 const CheckOutPage = (props) => {
     const currentUser = useSelector(selectCurrentUser);
 
-    const handleRedirectToSignInPage = () => {
+    const handleRedirectPaymentToSignInPage = () => {
         return currentUser ? <CheckoutPayment /> : <Redirect to="/signin" />
+    }
+
+    const handleRedirectCompletToSignInPage = () => {
+        return currentUser ? <CheckoutComplet /> : <Redirect to="/signin" />
     }
 
     return (
         <div className = "checkout-page" >
             <Route exact path = {`${props.match.path}`} component={CheckoutItems} />
-            <Route exact path = {`${props.match.path}/payment`} render={handleRedirectToSignInPage} />
-            <Route exact path = {`${props.match.path}/complet`} component={CheckoutComplet} />
+            <Route exact path = {`${props.match.path}/payment`} render={handleRedirectPaymentToSignInPage} />
+            <Route exact path = {`${props.match.path}/complet`} render={handleRedirectCompletToSignInPage} />
         </div>
     );
 }
