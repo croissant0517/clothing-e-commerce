@@ -11,7 +11,7 @@ const Footer = () => {
                     <Link to = "/">
                         <h1>OVERFIT</h1>
                     </Link>
-                    <p>We  to create the best experiences for our customers</p>
+                    <p>We create the best experiences for our customers</p>
                 </div>
                 <div className="footer-link-items" >
                     <div className="footer-link-title" >Contact Us</div>

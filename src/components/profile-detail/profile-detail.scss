@@ -37,8 +37,9 @@
                 margin: 10px 0;
             }
 
-            .button-area-upload {
+            .photo-upload-area {
                 display: flex;
+                flex-direction: column;
                 justify-content: center;
                 align-items: center;
 
@@ -123,13 +124,13 @@
         }
     }
 
-    @media (max-width: 500px) {
+    // @media (max-width: 500px) {
 
-        .button-area {
+    //     .button-area {
 
-            .button-area-upload {
-                flex-wrap: wrap;
-            }
-        }
-    }
+    //         .photo-upload-area {
+    //             flex-wrap: wrap;
+    //         }
+    //     }
+    // }
 }

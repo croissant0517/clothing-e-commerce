@@ -45,8 +45,7 @@ const PaymentStatus = () => {
           });
         } else if (snapShot.exists === true){
           setOrderItems(snapShot.data().detail.orderItems);
-          const date = new Date(new Date().getTime())
-          setOrderCompletTime(date.toString());
+          setOrderCompletTime(snapShot.data().orderCreatedTime);
         }
       })
     }, [cartItems])
@@ -59,6 +58,8 @@ const PaymentStatus = () => {
     let day;
     if (date.getDate() < 10) {
       day = "0"+date.getDate().toString()
+    } else {
+      day = date.getDate()
     }
     const fullTime = year+mounth+day
     return fullTime
@@ -123,6 +124,9 @@ const PaymentStatus = () => {
         <div className='payment-status' >
             <h3 className='payment-status-message' >{message}</h3>
             <h3 className='payment-status-resultMessage' >{resultMessage}</h3>
+            <div className='order-complet-time'>
+              <span>Date : {orderCompletTime}</span>
+            </div>
             <div className='shipping-info' >
               <h3>Shipping Info</h3>
               <div>
@@ -187,9 +191,6 @@ const PaymentStatus = () => {
                   }
                 </div>
               </div>
-            </div>
-            <div className='order-complet-time'>
-              <span>{orderCompletTime}</span>
             </div>
             <div className='contact-information'>
               <span>

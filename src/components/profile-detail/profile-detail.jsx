@@ -104,12 +104,14 @@ const ProfileDetail = (props) => {
                         change photo
                     </CustomButton>
                     :
-                    <div className="button-area-upload">
+                    <div className="photo-upload-area">
                         <div className="custom-file-upload">
                             <input type="file" onChange={handleChangeImageFile} ></input>
                         </div>
-                        <CustomButton onClick={uploadImageFile && handleUploadImageFile} >Upload</CustomButton>
-                        <CustomButton onClick={handleToggleChangeUserPhoto} >Cancle</CustomButton>
+                        <div  className="custom-file-upload-button">
+                            <CustomButton onClick={uploadImageFile && handleUploadImageFile} >Upload</CustomButton>
+                            <CustomButton onClick={handleToggleChangeUserPhoto} >Cancle</CustomButton>
+                        </div>
                     </div>}
                 </div>
                 <div className="user-info" >
@@ -157,9 +159,12 @@ const ProfileDetail = (props) => {
                     </div>
                     <div className="user-history-order-items" >
                         {
-                            userHistoryOrderInfo.map((orderItem) => {
+                            userHistoryOrderInfo.map((orderItem, index) => {
                                 return (
-                                    <UserHistoryOrderItem key={orderItem.id} orderItem={orderItem} />
+                                    <UserHistoryOrderItem 
+                                        key={orderItem.id}
+                                        orderItem={orderItem} 
+                                    />
                                 )
                             })
                         }

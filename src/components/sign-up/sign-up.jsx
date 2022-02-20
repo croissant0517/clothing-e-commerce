@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-// import axios from "axios";
-
 import { signUpStart, checkUserSessionStart } from "../../redux/user/user.action";
 
 import { selectErrorForSignUp } from "../../redux/user/user.selectors";
