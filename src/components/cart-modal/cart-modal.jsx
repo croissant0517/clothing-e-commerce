@@ -32,7 +32,10 @@ const CartModal = () => {
     return (
         <Modal cartModalStyles cartBackgroundStyles backgroundCloseModal = {closeModal} buttonCloseModal={closeModal}>
             <div className = "cart-dropdown" >
-                <div className = "cart-items" >
+                <div 
+                    className = "cart-items" 
+                    style={ cartItems.length > 1 ? { overflowY: "scroll" } : { overflowY: "null" }}
+                >
                     { cartItems.length ? 
                     <>
                     {cartItems.map((cartItem) => {

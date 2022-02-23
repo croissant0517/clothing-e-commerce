@@ -4,23 +4,10 @@ import { IoClose } from "react-icons/io5"
 const getModalWrapperStyles = (props) => {
     if (props.cartModalStyles) {
         return cartModalStyles
-    } else if (props.confirmModalStyles) {
-        return confirmModalStyles
-    } else if (props.confirmSignOutModalStyles) {
-        return confirmSignOutModalStyles
     } else if (props.orderDetailModalStyles) {
         return OrderDetailModalStyles
     }
 }
-
-const confirmModalStyles = css`
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-    width: auto;
-    height: auto;
-    bottom: 0;
-    justify-self: center;
-    animation: fade 200ms ease-out;
-`
 
 const cartModalStyles = css`
     width: 500px;
@@ -32,14 +19,6 @@ const cartModalStyles = css`
         width: 100vw;
         height: 100vw;
     }
-`
-
-const confirmSignOutModalStyles = css`
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-    width: auto;
-    height: auto;
-    justify-self: center;
-    animation: popout 200ms ease;
 `
 
 const OrderDetailModalStyles = css`
@@ -79,26 +58,12 @@ export const ModalWrapper = styled.div`
 const getBackgroundStyles = (props) => {
     if (props.cartBackgroundStyles) {
         return cartBackgroundStyles
-    } else if (props.confirmBackgroundStyles) {
-        return confirmBackgroundStyles
-    } else if (props.confirmSignOutBackgroundStyles) {
-        return confirmSignOutBackgroundStyles
     } else if (props.OrderDetailBackgroundStyles) {
         return OrderDetailBackgroundStyles
     }
 }
 
 const cartBackgroundStyles = css`
-    background: rgba(0, 0, 0, 0.8);
-    align-items: center;
-`
-
-const confirmBackgroundStyles = css`
-    background: rgba(0, 0, 0, 0.5);
-    align-items: flex-end;
-`
-
-const confirmSignOutBackgroundStyles = css`
     background: rgba(0, 0, 0, 0.8);
     align-items: center;
 `

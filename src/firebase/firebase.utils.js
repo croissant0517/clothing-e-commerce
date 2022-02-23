@@ -61,10 +61,10 @@ export const convertCollectionsSnapshotToMap = (collections) => {
             id: doc.id,
             title,
             imageUrl,
-            items: items.map((item, index) => {
-                const { name, imageUrl, price } = item
+            items: items.map((item) => {
+                const { id, name, imageUrl, price } = item
                 return ({
-                    id: index+1,
+                    id: id,
                     name: name,
                     imageUrl: imageUrl,
                     price: price,

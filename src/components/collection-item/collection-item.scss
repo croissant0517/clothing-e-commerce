@@ -6,7 +6,6 @@
     overflow: hidden;
     margin: 0 15px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-    border-radius: 5px;
     margin-bottom: 5rem;
     transition: 1s cubic-bezier(0.25,0.1,0.25,1);
 
@@ -40,6 +39,7 @@
                 opacity: 0;
                 height: 100%;
                 width: 100%;
+                font-size: clamp(0.8rem, 2.5vw, 1rem);
             }
         }
     }
@@ -51,7 +51,7 @@
         display: flex;
         overflow: hidden;
         justify-content: space-between;
-        font-size: clamp(0.5rem, 2.5vw, 1rem);
+        font-size: clamp(0.8rem, 2.5vw, 1rem);
     
         .name {
             text-align: center;
@@ -61,10 +61,6 @@
         .price {
             align-self: center;
         }
-    }
-
-    &:hover {
-        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
     }
 
     @media (max-width: 800px) {
@@ -84,7 +80,7 @@
                     width: 100%;
                     opacity: 0.65;
                     transform: scale(1);
-    
+                    margin: 10px;
                 }
     
                 &:hover {
@@ -95,6 +91,7 @@
                         width: 100%;
                         opacity: 0.65;
                         transform: scale(1);
+                        margin: 10px;
                     }
                 }
             }

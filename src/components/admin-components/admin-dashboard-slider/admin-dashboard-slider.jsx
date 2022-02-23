@@ -77,6 +77,11 @@ const AdminDashboardSlider = () => {
             title, 
             sliderImageUrl, 
         } = values;
+        const createUniqueId = () => {
+            return String.fromCharCode(Math.floor(Math.random() * 26) + 97)
+                + Math.random().toString(16).slice(2)
+                + Date.now().toString(16).slice(4);
+        };
         axios({
             method: "POST",
             url: `${API_URL}/admin/sliders/add`,
@@ -86,6 +91,7 @@ const AdminDashboardSlider = () => {
             },
             data: {
                 slider: {
+                    id: createUniqueId(),
                     title: title,
                     imageUrl: sliderImageUrl
                 }

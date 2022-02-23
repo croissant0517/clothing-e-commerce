@@ -64,8 +64,12 @@ const ProfileDetail = (props) => {
     }
 
     const handleUploadUserInfo = () => {
-        dispatch(updateUserInfoStart(userInfoToUpdate));
-        handleToggleChangeUserInfo()
+        if (userInfo.displayName !== userInfoToUpdate.displayName) {
+            dispatch(updateUserInfoStart(userInfoToUpdate));
+            handleToggleChangeUserInfo()
+        } else if (userInfo.displayName === userInfoToUpdate.displayName) {
+            handleToggleChangeUserInfo()
+        }
     }
 
     const handleLoadingUserHistoryOrder = useCallback(() => {
@@ -157,9 +161,12 @@ const ProfileDetail = (props) => {
                             <span>Order Detail</span>
                         </div>
                     </div>
-                    <div className="user-history-order-items" >
+                    <div 
+                        className="user-history-order-items" 
+                        style={ userHistoryOrderInfo.length > 6 ? { overflowY: "scroll" } : { overflowY: "null" }}
+                    >
                         {
-                            userHistoryOrderInfo.map((orderItem, index) => {
+                            userHistoryOrderInfo.map((orderItem) => {
                                 return (
                                     <UserHistoryOrderItem 
                                         key={orderItem.id}

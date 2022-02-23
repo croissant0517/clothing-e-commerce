@@ -9,6 +9,11 @@ export const addItem = (item) => ({
     payload: item
 });
 
+export const userSignInAddItemBack = (item) => ({
+    type: CartActionTypes.USER_SIGN_IN_ADD_ITEM_BACK,
+    payload: item
+});
+
 export const removeItem = (item) => ({
     type: CartActionTypes.REMOVE_ITEM,
     payload: item

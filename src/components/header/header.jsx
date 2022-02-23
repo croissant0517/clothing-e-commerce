@@ -1,14 +1,16 @@
 import React, {useState, useEffect} from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import CartIcon from "../cart-icon/cart-icon";
 import { IconContext } from "react-icons";
 import { CgProfile } from "react-icons/cg";
 
 import CartModal from "../cart-modal/cart-modal";
-import SignOutConfirmModal from "../sign-out-confirm-modal/sign-out-confirm-modal";
+
+import { signOutStart } from "../../redux/user/user.action";
 
 import { selectCartHidden } from "../../redux/cart/cart.selectors";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
+import { selectCartItems } from "../../redux/cart/cart.selectors";
 
 import { FaBars } from "react-icons/fa";
 import { IoClose } from "react-icons/io5"
@@ -19,11 +21,11 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
     const [barsIconClick, setBarsIconClick] = useState(false);
-    const [signOutClick, setSignOutClick] = useState(false);
     const [scrollTop, setScrollTop] = useState(true);
     const currentUser = useSelector(selectCurrentUser);
     const hidden = useSelector(selectCartHidden);
-    
+    const dispatch = useDispatch();
+    const cartItems = useSelector(selectCartItems);
 
     const handelBarsIconClick = () => {
         setBarsIconClick(!barsIconClick);
@@ -58,19 +60,28 @@ const Header = () => {
                 </Link>
                 {barsIconClick ? <IoClose className="header-bars-icon" onClick ={handelBarsIconClick} /> : <FaBars className="header-bars-icon" onClick ={handelBarsIconClick}/>}
                 <div className = "options" >
-                    <Link className = "option" to = "/" onClick={handelBarsExtendedBack}>
+                    <Link 
+                        className = "option" 
+                        to = "/" 
+                        onClick={handelBarsExtendedBack}
+                    >
                         HOME
                     </Link>
-                    <Link className = "option" to = "/shop" onClick={handelBarsExtendedBack}>
+                    <Link 
+                        className = "option" 
+                        to = "/shop" 
+                        onClick={handelBarsExtendedBack}
+                    >
                         SHOP
                     </Link>
                     { 
                         currentUser ? 
                         <div className = "option" onClick = {() => {
-                        setSignOutClick(true)
-                        // dispatch(signOutStart())
-                        handelBarsExtendedBack();
-                        } }>SIGN OUT</div>
+                            dispatch(signOutStart(cartItems))
+                            handelBarsExtendedBack();
+                        } }>
+                            SIGN OUT
+                        </div>
                         : 
                         <Link className = "option" to = "/signin" onClick={handelBarsExtendedBack}>SIGN IN</Link> 
                     }
@@ -86,7 +97,6 @@ const Header = () => {
                     </div>
                 </div> 
                 {hidden ? null : <CartModal />}
-                {signOutClick && <SignOutConfirmModal CloseModal={() => setSignOutClick(false)}/>}
             </div>
             <div className = { `${barsIconClick ? "extend-header-background" : ""}` } onClick={handelBarsExtendedBack}></div>
         </div>

@@ -34,6 +34,8 @@ const AdminSignIn = ({setCurrentAdmin}) => {
             message.error("Fail Sign in")
             if (error.response.data) {
                 setErrorMessage(error.response.data)
+            } else {
+                return
             }
         })
     };

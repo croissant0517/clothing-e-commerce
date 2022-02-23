@@ -9,8 +9,9 @@ import { Spinner } from './components/with-spinner/with-spinner';
 import ScrollToTop from './scrolltotop';
 import { selectCurrentUser, selectCheckUserSessionOnLoading } from './redux/user/user.selectors';
 import { checkUserSessionStart } from './redux/user/user.action'
-import { fetchCollectionsStart } from './redux/shop/shop.action'; 
+
 import ErrorBoundary from './components/errorboundary/errorboundary';
+import Notification from './components/notification/notification';
 
 const HomePage = lazy(() => import("./pages/homepage/homepage"));
 const ShopPage = lazy(() => import("./pages/shop/shop"));
@@ -54,7 +55,6 @@ const Shop = () => {
   useEffect(
     () => {
       dispatch(checkUserSessionStart())
-      dispatch(fetchCollectionsStart());
     }
   ,[dispatch])
 
@@ -62,6 +62,7 @@ const Shop = () => {
     <div>
       <div className="body-container" >
         <Header />
+        <Notification />
         <Switch>
           <Suspense fallback={<Spinner/>} >
             <ErrorBoundary>
