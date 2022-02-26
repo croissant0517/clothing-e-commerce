@@ -6,6 +6,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 6;
 
     .slide-active {
         position: absolute;
@@ -27,7 +28,7 @@
         position: absolute;
         display: flex;
         bottom: 0;
-        z-index: 11;
+        z-index: 7;
     }
 
     .slider-text-container {
@@ -37,7 +38,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        z-index: 10;
+        z-index: 6;
         background: linear-gradient(180deg, 
         rgba(0, 0, 0, 0.5) 0%, 
         rgba(0, 0, 0, 0.5) 35%, 
@@ -68,18 +69,30 @@
     }
 
     @media screen and (max-width: 1030px) {
-        height: 50vh;
+        height: 90vh;
+        z-index: 6;
 
-        .slider-image {
-            height: 50vh;
+        .slider-text-container {
+    
+            button {
+                width: 20vw;
+                background-color: aliceblue;
+                color: black;
+                box-shadow: none;
+    
+                &:hover {
+                    background-color: aliceblue;
+                    color: black;
+                }
+            }
         }
     }
 
-    @media screen and (max-width: 730px) {
-        height: 35vh;
+    // @media screen and (max-width: 730px) {
+    //     height: 35vh;
 
-        .slider-image {
-            height: 35vh;
-        }
-    }
+    //     .slider-image {
+    //         height: 35vh;
+    //     }
+    // }
 }

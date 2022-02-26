@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import CartIcon from "../cart-icon/cart-icon";
 import { IconContext } from "react-icons";
 import { CgProfile } from "react-icons/cg";
+import { AiOutlineSearch } from "react-icons/ai"
+import { FaBars } from "react-icons/fa";
+import { IoClose } from "react-icons/io5"
 
 import CartModal from "../cart-modal/cart-modal";
 
@@ -11,9 +14,6 @@ import { signOutStart } from "../../redux/user/user.action";
 import { selectCartHidden } from "../../redux/cart/cart.selectors";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 import { selectCartItems } from "../../redux/cart/cart.selectors";
-
-import { FaBars } from "react-icons/fa";
-import { IoClose } from "react-icons/io5"
 
 import "./header.scss"
 
@@ -64,6 +64,7 @@ const Header = () => {
                         className = "option" 
                         to = "/" 
                         onClick={handelBarsExtendedBack}
+                        style={{padding: "10px"}}
                     >
                         HOME
                     </Link>
@@ -71,29 +72,37 @@ const Header = () => {
                         className = "option" 
                         to = "/shop" 
                         onClick={handelBarsExtendedBack}
+                        style={{padding: "10px"}}
                     >
                         SHOP
                     </Link>
                     { 
                         currentUser ? 
-                        <div className = "option" onClick = {() => {
+                        <div className = "option" style={{padding: "10px"}} onClick = {() => {
                             dispatch(signOutStart(cartItems))
                             handelBarsExtendedBack();
                         } }>
                             SIGN OUT
                         </div>
                         : 
-                        <Link className = "option" to = "/signin" onClick={handelBarsExtendedBack}>SIGN IN</Link> 
+                        <Link className = "option" to = "/signin" style={{padding: "10px"}} onClick={handelBarsExtendedBack}>SIGN IN</Link> 
                     }
-                    <Link className = "option" to = "/profile" onClick={handelBarsExtendedBack}>
-                        <IconContext.Provider value={scrollTop ? { color: '#1c1d1f', size: '40px' } : { color: 'white', size: '40px' }}>
-                            <div className = "profile-icon" >
-                                <CgProfile />
-                            </div>
+                    <Link 
+                        className = "option"
+                        to = "/search" 
+                        onClick={handelBarsExtendedBack}
+                    >
+                        <IconContext.Provider value={{size: '30px'}}>
+                            <AiOutlineSearch/>
                         </IconContext.Provider>
                     </Link>
-                    <div className = "option" onClick={handelBarsExtendedBack}>
-                        <CartIcon ChangColor = { scrollTop ? true : false } />
+                    <Link className = "option" to = "/profile" onClick={handelBarsExtendedBack}>
+                        <IconContext.Provider value={{size: '30px'}}>
+                            <CgProfile />
+                        </IconContext.Provider>
+                    </Link>
+                    <div className = "option" onClick={handelBarsExtendedBack} style={{ marginRight: "20px" }}>
+                        <CartIcon value={{size: '40px'}}/>
                     </div>
                 </div> 
                 {hidden ? null : <CartModal />}

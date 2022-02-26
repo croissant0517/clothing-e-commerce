@@ -18,6 +18,7 @@ const ShopPage = lazy(() => import("./pages/shop/shop"));
 const SignInAndSignUpPage = lazy(() => import("./pages/sign-in-and-sign-up/sign-in-and-sign-up"));
 const CheckOutPage = lazy(() => import("./pages/checkout/checkout"));
 const ProfilePage = lazy(() => import("./pages/profile/profile"));
+const SearchPage = lazy(() => import("./pages/search/search"))
 const AdminPage = lazy(() => import("./pages/admin/admin"));
 
 export default function App() {
@@ -71,6 +72,7 @@ const Shop = () => {
               <Route path = "/signin" render={handleRedirectToHomePage} />
               <Route path = "/checkout" component = {CheckOutPage} />
               <Route path = "/profile" component={ProfilePage} />
+              <Route path = "/search" component={SearchPage} />
             </ErrorBoundary>
           </Suspense>
         </Switch>

@@ -12,7 +12,7 @@
     .logo-container {
         align-self: center;
         padding: 10px 15px;
-        font-size: clamp(1rem, 5vw, 2rem);
+        font-size: clamp(0.8rem, 5vw, 1.8rem);
         font-weight: bold;
         color: #1c1d1f;
     }
@@ -23,21 +23,17 @@
 
         .option {
             white-space: nowrap;
-            margin: 10px 20px;
+            margin: 0 10px;
+            padding: 5px;
             text-decoration: none;
             color: #1c1d1f;
-            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            font-size: clamp(0.8rem, 2.5vw, 1rem);
             cursor: pointer;
-
-            a {
-                font-size: clamp(1rem, 2.5vw, 1.2rem);
-                color: #1c1d1f;
-            }
-
-            .profile-icon {
-                display: flex;
-                align-self: center;
-                justify-content: center;
+            border-radius: 3px;
+            
+            &:hover {
+                color: #67696a;
+                background-color: #f7f7f8;
             }
         }
     }
@@ -57,8 +53,7 @@
             height: 0;
 
             .option {
-                margin: 10px 70vw 10px 15px;
-                padding: 0;
+                width: 100%;
             }
         }
 
@@ -69,28 +64,13 @@
 }
 
 .shadow-header {
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    background-color: #1c1d1f;
-
-    .logo-container {
-        color: white;
-    }
-
-    .options {
-
-        .option {
-            color: white;
-        }
-    }
-
-    .header-bars-icon {
-        color: white;
-    }
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .extend-header {
     height: auto;
     flex-wrap: wrap;
+    z-index: 20;
 
     .logo-container {
         padding: 25px 15px;
@@ -108,5 +88,5 @@
     height: 100%;
     background: rgba(0, 0, 0, 0.8);
     position: fixed;
-    z-index: 1;
+    z-index: 19;
 }

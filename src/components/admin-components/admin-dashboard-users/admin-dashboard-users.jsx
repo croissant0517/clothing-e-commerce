@@ -79,10 +79,15 @@ const AdminDashboardUsers = () => {
     })
 
     const handleGetUsers = () => {
+        const token = window.localStorage.getItem("token")
         setIsLoading(true);
         axios({
             method: "GET",
             url: `${API_URL}/admin/user`,
+            headers: { 
+                "Content-Type": "application/json",
+                "Authorization": token
+            },
         })
             .then(json => {
                 const users = json.data.map((data) => {
@@ -161,15 +166,21 @@ const AdminDashboardUsers = () => {
         },
     ];
 
-    useEffect(() => { 
+    useEffect(() => {
         let unmounted = false;
+        console.log("Fetch!!!");
         setIsLoading(true);
+        const token = window.localStorage.getItem("token")
         axios({
             method: "GET",
-            url: `${API_URL}/admin/user`
+            url: `${API_URL}/admin/user`,
+            headers: { 
+                "Content-Type": "application/json",
+                "Authorization": token
+            },
         })
             .then(json => {
-                const users = json.data.map((data) => {
+                const users = json.data.users.map((data) => {
                     return {
                         key: data.uid,
                         name: data.displayName,
@@ -183,7 +194,10 @@ const AdminDashboardUsers = () => {
                     setIsLoading(false);
                 }
             })
-            .catch((error) => message.error("Fail get users"));
+            .catch((error) => {
+                message.error("Fail get users")
+                console.log(error);
+            });
         return () => {
             unmounted = true;
         }

@@ -56,7 +56,10 @@ const AdminDashboardOrders = () => {
         axios({
             method: "GET",
             url: `${API_URL}/admin/orders`,
-            headers: { "Content-Type": "application/json" },
+            headers: { 
+                "Content-Type": "application/json",
+                "Authorization": token
+            },
         })
         .then((res) => {
             setOrdersData(res.data)
@@ -151,7 +154,10 @@ const AdminDashboardOrders = () => {
         axios({
             method: "GET",
             url: `${API_URL}/admin/orders`,
-            headers: { "Content-Type": "application/json" },
+            headers: { 
+                "Content-Type": "application/json",
+                "Authorization": token
+            },
         })
         .then((res) => {
             if (!unmounted) {
@@ -167,7 +173,7 @@ const AdminDashboardOrders = () => {
                 unmounted = true;
             }
         )
-    }, [])
+    }, [token])
 
 
     return (
