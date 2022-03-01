@@ -19,7 +19,7 @@ const SearchPage = (props) => {
         setSearchMessage("");
         setShowMoreButton(false);
         if(event.target.value) {
-            setSearchInputValue(event.target.value)
+            setSearchInputValue(event.target.value);
             setIsSearching(true);
             axios({
                 method: "GET",
@@ -28,26 +28,29 @@ const SearchPage = (props) => {
             })
             .then((res) => {
                 if (res.status === 200 && event.target.value) {
-                    setSearchItems(res.data.splitedArray)
+                    setSearchItems(res.data.splitedArray);
                     setSearchMessage(`Showing ${res.data.totalQuantity} product results`);
                     setIsSearching(false);
-                    setShowMoreButton(res.data.nextPage)
+                    setShowMoreButton(res.data.nextPage);
                 } else {
                     setIsSearching(false);
-                    setSearchItems([])
-                    setSearchMessage("Sorry, we couldn’t find any matching results for this search")
+                    setSearchItems([]);
+                    setSearchMessage("Sorry, we couldn’t find any matching results for this search");
+                    setShowMoreButton(false);
                 }
             })
             .catch((error) => {
                 setIsSearching(false);
-                setSearchItems([])
+                setSearchItems([]);
                 if(error.response) {
-                    setSearchMessage(error.response.data)
+                    setSearchMessage(error.response.data);
                 }
             })
         } else if (!event.target.value) {
-            setSearchInputValue("")
-            setSearchItems([])
+            setSearchInputValue("");
+            setSearchItems([]);
+            setSearchMessage("");
+            setShowMoreButton(false);
         }
     }
 
@@ -79,14 +82,6 @@ const SearchPage = (props) => {
             handleShowMoreData(currentLoadedPage)
         }
     }, [handleShowMoreData, currentLoadedPage])
-
-    // useEffect(() => {
-    //     if(searchItems){
-    //         setSearchMessage(`Showing ${searchItems.length} product results`);
-    //     } else {
-    //         setSearchMessage("Sorry, we couldn’t find any matching results for this search")
-    //     }
-    // }, [searchItems])
 
     return (
         <div className="search-container" >
