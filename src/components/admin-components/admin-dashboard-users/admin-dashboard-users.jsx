@@ -168,7 +168,6 @@ const AdminDashboardUsers = () => {
 
     useEffect(() => {
         let unmounted = false;
-        console.log("Fetch!!!");
         setIsLoading(true);
         const token = window.localStorage.getItem("token")
         axios({
