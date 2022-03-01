@@ -4,9 +4,9 @@
 
 這是一個使用 React 建立的電子商務前端專案，打造購物網站及管理後台。使用者分為一般消費者和店家管理員，消費者可在前台網站享受流暢的購物體驗、管理會員資料及查看訂單紀錄，而管理員則可以在後台針對前台內容進行管理。
 
-> [OVETFIT](https://overfit-vic.herokuapp.com/)
-> [管理後台](https://overfit-vic.herokuapp.com//admin/)：測試帳號 admin02 / 密碼: admin88
-[!VIDEO](https://gfycat.com/ifr/WaterloggedEmbellishedInvisiblerail)
+> [OVETFIT](https://overfit-vic.herokuapp.com)
+> [管理後台](https://overfit-vic.herokuapp.com/admin)：測試帳號 admin0103 / 密碼: admin55110103
+![](https://i.imgur.com/b8kc86L.gifv)
 ![](https://i.imgur.com/znJvjej.png)
 ![](https://i.imgur.com/7adGrfG.png)
 
