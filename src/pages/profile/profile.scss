@@ -4,9 +4,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 70px;
+    animation: fade 200ms ease;
 
     .sign-in-warning {
         text-align: center;
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }

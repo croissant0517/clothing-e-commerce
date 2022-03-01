@@ -13,6 +13,9 @@ a {
 }
 
 .body-container {
-  position: relative;
   min-height: 100vh;
+}
+
+.body-with-margin {
+  margin-top: 70px;
 }

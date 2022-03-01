@@ -6,15 +6,24 @@ import { useHistory } from "react-router-dom";
 
 import "./image-slider.scss";
 
-import { SliderData } from "../../SliderData";
+import { firestore } from "../../firebase/firebase.utils";
 
 const ImageSlider = () => {
-    const [currentImageDataIndex, setCurrentImageDataIndex] = useState(0);
+    const [ currentImageDataIndex, setCurrentImageDataIndex ] = useState(0);
+    const [ sliderData, setSliderData ] = useState([]);
     const history = useHistory();
 
     const handleChangeNextImage = () => {
-        setCurrentImageDataIndex(currentImageDataIndex ===  SliderData.length - 1 ? 0 : currentImageDataIndex + 1 )
+        setCurrentImageDataIndex(currentImageDataIndex ===  sliderData.length - 1 ? 0 : currentImageDataIndex + 1 )
     }
+
+    useEffect(() => {
+        firestore.collection("sliders").get().then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            setSliderData(doc.data().sliderData);
+          });
+        })
+      }, []);
 
     useEffect(() => {
         const autuChangeSlider = setInterval(handleChangeNextImage, 6000)
@@ -25,13 +34,13 @@ const ImageSlider = () => {
 
     return (
         <div className="slider">
-            {SliderData.map((slider, index) => 
+            {sliderData.map((slider, index) => 
                 <div key={slider.id} className={`${index === currentImageDataIndex ? "slide-active" : "slide"}`} >
                     <ImageSliderContainer slider={slider}/>
                 </div>
             )}
             <div className="slider-dots">
-                {SliderData.map((slider, index) => {
+                {sliderData.map((slider, index) => {
                     return (
                         <ImageSliderDot key = {slider.id} currentIdex={index === currentImageDataIndex} onClick={() => {
                             setCurrentImageDataIndex(index)

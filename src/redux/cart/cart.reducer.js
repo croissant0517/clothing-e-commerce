@@ -18,6 +18,11 @@ const cartReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 cartItems: addItemToCartQuantity(state.cartItems, action.payload)
             }
+        case CartActionTypes.ADD_ITEM_IN_CHECKOUT:
+            return {
+                ...state,
+                cartItems: addItemToCartQuantity(state.cartItems, action.payload)
+            }
         case CartActionTypes.USER_SIGN_IN_ADD_ITEM_BACK:
             return {
                 ...state,

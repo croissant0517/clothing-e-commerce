@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CartIcon from "../cart-icon/cart-icon";
 import { IconContext } from "react-icons";
@@ -19,9 +19,8 @@ import "./header.scss"
 
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ( {scrollTop} ) => {
     const [barsIconClick, setBarsIconClick] = useState(false);
-    const [scrollTop, setScrollTop] = useState(true);
     const currentUser = useSelector(selectCurrentUser);
     const hidden = useSelector(selectCartHidden);
     const dispatch = useDispatch();
@@ -36,21 +35,6 @@ const Header = () => {
             setBarsIconClick(!barsIconClick);
         }
     }
-
-    // 監聽滾動事件
-    useEffect(() => {
-        window.addEventListener("scroll", () => {
-            const isTop = window.scrollY > 0;
-            if (isTop) {
-                setScrollTop(false);
-            } else {
-                setScrollTop(true);
-            }
-        });
-        return () => {
-            window.removeEventListener('scroll',null);
-        };
-    }, []);
 
     return(
         <div>

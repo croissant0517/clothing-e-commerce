@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { clearItemFromCart, addItem, removeItem } from "../../redux/cart/cart.action";
+import { clearItemFromCart, addItemInCheckout, removeItem } from "../../redux/cart/cart.action";
 
 import {IoIosAdd, IoIosRemove} from "react-icons/io"
 
@@ -23,7 +23,7 @@ const CheckOutItem = (props) => {
             <span className = "checkout-item-content" >
                 <div className = "arrow" onClick = {() => dispatch(removeItem(props.item))} ><IoIosRemove/></div>
                 <span className = "value" >{quantity}</span>
-                <div className = "arrow" onClick = {() => dispatch(addItem(props.item))}><IoIosAdd/></div>
+                <div className = "arrow" onClick = {() => dispatch(addItemInCheckout(props.item))}><IoIosAdd/></div>
             </span>
             <span className = "checkout-item-content" >${price}</span>
             <div className = "checkout-item-remove-button" onClick = {handleClearItemFromCartOnClick} >&#10005;</div>

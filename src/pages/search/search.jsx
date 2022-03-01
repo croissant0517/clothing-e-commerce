@@ -29,6 +29,7 @@ const SearchPage = (props) => {
             .then((res) => {
                 if (res.status === 200 && event.target.value) {
                     setSearchItems(res.data.splitedArray)
+                    setSearchMessage(`Showing ${res.data.totalQuantity} product results`);
                     setIsSearching(false);
                     setShowMoreButton(res.data.nextPage)
                 } else {
@@ -79,11 +80,13 @@ const SearchPage = (props) => {
         }
     }, [handleShowMoreData, currentLoadedPage])
 
-    useEffect(() => {
-        if(searchItems){
-            setSearchMessage(`Showing ${searchItems.length} product results`);
-        }
-    }, [searchItems])
+    // useEffect(() => {
+    //     if(searchItems){
+    //         setSearchMessage(`Showing ${searchItems.length} product results`);
+    //     } else {
+    //         setSearchMessage("Sorry, we couldn’t find any matching results for this search")
+    //     }
+    // }, [searchItems])
 
     return (
         <div className="search-container" >

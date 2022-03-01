@@ -5,7 +5,7 @@ import "./footer.scss";
 
 const Footer = () => {
     return(
-        <>
+        <footer>
             <div className="footer-container" >
                 <div className="footer-link-wrapper" >
                     <div className="footer-description" >
@@ -42,7 +42,7 @@ const Footer = () => {
             <div className="copyright" >
                 <p>ⓒ {new Date().getFullYear()} All Rights Reserved</p>
             </div>
-        </>
+        </footer>
     );
 }
 
