@@ -6,7 +6,7 @@
 
 > [OVETFIT](https://overfit-vic.herokuapp.com/)
 > [管理後台](https://overfit-vic.herokuapp.com//admin/)：測試帳號 admin02 / 密碼: admin88
-<iframe src='https://gfycat.com/ifr/WaterloggedEmbellishedInvisiblerail' frameborder='0' scrolling='no' allowfullscreen width='640' height='371'></iframe>
+[!VIDEO](https://gfycat.com/ifr/WaterloggedEmbellishedInvisiblerail)
 ![](https://i.imgur.com/znJvjej.png)
 ![](https://i.imgur.com/7adGrfG.png)
 
