@@ -39,9 +39,11 @@ const ActivitySlider = () => {
         {
           activitySliderInfo.map((slider, index) => {
             return (
-                <p key={slider.id} className={`${index === currentSliderIndex ? "slide-active" : "slide"}`} >
+              <div key={slider.id} className={`${index === currentSliderIndex ? "slide-active" : "slide"}`} >
+                <p>
                   {slider.title}
                 </p>
+              </div>
             )
           })
         }

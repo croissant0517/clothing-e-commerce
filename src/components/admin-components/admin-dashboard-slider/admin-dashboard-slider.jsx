@@ -145,7 +145,7 @@ const AdminDashboardSlider = () => {
     };
 
     const deleteSlider = (slider) => {
-        const { title, imageUrl } = slider;
+        const { key, title, imageUrl } = slider;
         axios({
             method: "DELETE",
             url: `${API_URL}/admin/sliders/delete`,
@@ -155,6 +155,7 @@ const AdminDashboardSlider = () => {
             },
             data: {
                 slider: {
+                    id: key,
                     title,
                     imageUrl,
                 }

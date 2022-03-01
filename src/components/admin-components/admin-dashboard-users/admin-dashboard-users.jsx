@@ -90,7 +90,7 @@ const AdminDashboardUsers = () => {
             },
         })
             .then(json => {
-                const users = json.data.map((data) => {
+                const users = json.data.users.map((data) => {
                     return {
                         key: data.uid,
                         name: data.displayName,
@@ -101,9 +101,10 @@ const AdminDashboardUsers = () => {
                 })
                 setUsersData(users);
                 setIsLoading(false);
-                console.log(json.data);
             })
-            .catch((error) => message.error("Fail get users"));
+            .catch((error) => {
+                message.error("Fail get users")
+            });
     }
 
     const handleDelete = (uid) => {
@@ -168,7 +169,6 @@ const AdminDashboardUsers = () => {
 
     useEffect(() => {
         let unmounted = false;
-        console.log("Fetch!!!");
         setIsLoading(true);
         const token = window.localStorage.getItem("token")
         axios({

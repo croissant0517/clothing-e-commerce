@@ -37,7 +37,6 @@ const AddSliderModal = ({ visible, onCreate, onCancel }) => {
                     modifier: 'public',
                 }}
                 onValuesChange={(changedValues, allValues) => {
-                    console.log(changedValues);
                     setAddSliderImageUrl(allValues.sliderImageUrl);
                 }}
             >
