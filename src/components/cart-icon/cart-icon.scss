@@ -1,6 +1,6 @@
-.cart-icon {
-    width: 45px;
-    height: 45px;
+.cart-icon-container {
+    width: 40px;
+    height: 40px;
     position: relative;
     display: flex;
     align-items: center;
@@ -11,7 +11,9 @@
         position: absolute;
         font-size: 12px;
         font-weight: bolder;
-        bottom: 12px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -30%);
         color: white;
     }
 

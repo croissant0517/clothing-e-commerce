@@ -1,15 +1,14 @@
 .slider {
-    margin: 70px 0 0 0;
     position: relative; 
     width: 100%;
-    height: 60vh;
+    height: 85vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 6;
 
     .slide-active {
         position: absolute;
-        justify-items: flex-start;
         width: 100%;
         height: 100%;
         opacity: 1;
@@ -28,21 +27,71 @@
         position: absolute;
         display: flex;
         bottom: 0;
+        z-index: 7;
+    }
+
+    .slider-text-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 6;
+        background: linear-gradient(180deg, 
+        rgba(0, 0, 0, 0.5) 0%, 
+        rgba(0, 0, 0, 0.5) 35%, 
+        rgba(0, 0, 0, 0.1) 100% 
+        );
+
+        .slider-text-title {
+            color: aliceblue;
+            font-size: clamp(2rem, 5vw, 4rem);
+        }
+
+        .slider-text-description {
+            color: aliceblue;
+            font-size: clamp(0.8rem, 2.5vw, 1.3rem);
+        }
+
+        button {
+            width: 14vw;
+            background-color: aliceblue;
+            color: black;
+            box-shadow: none;
+
+            &:hover {
+                background-color: black;
+                color: aliceblue;
+            }
+        }
     }
 
     @media screen and (max-width: 1030px) {
-        height: 50vh;
+        height: 90vh;
+        z-index: 6;
 
-        .slider-image {
-            height: 50vh;
+        .slider-text-container {
+    
+            button {
+                width: 20vw;
+                background-color: aliceblue;
+                color: black;
+                box-shadow: none;
+    
+                &:hover {
+                    background-color: aliceblue;
+                    color: black;
+                }
+            }
         }
     }
 
-    @media screen and (max-width: 730px) {
-        height: 35vh;
+    // @media screen and (max-width: 730px) {
+    //     height: 35vh;
 
-        .slider-image {
-            height: 35vh;
-        }
-    }
+    //     .slider-image {
+    //         height: 35vh;
+    //     }
+    // }
 }

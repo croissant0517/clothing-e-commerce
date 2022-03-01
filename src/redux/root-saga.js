@@ -6,6 +6,8 @@ import { userSaga } from "./user/user.saga";
 
 import { cartSaga } from "./cart/cart.saga";
 
+import { notificationSaga } from "./notification/notification.saga";
+
 export default function* rootSaga() {
-    yield all([call(shopSaga), call(userSaga), call(cartSaga)])
+    yield all([call(shopSaga), call(userSaga), call(cartSaga), call(notificationSaga)])
 }

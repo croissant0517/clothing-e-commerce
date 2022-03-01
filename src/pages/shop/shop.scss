@@ -1,6 +1,5 @@
 .shop-page {
-    padding: 90px 0;
-    animation: fade 200ms ease-out;
+    animation: fade 200ms ease;
 
     @keyframes fade {
         from {
@@ -9,5 +8,5 @@
         to {
             opacity: 1;
         }
-        }
+    }
 }

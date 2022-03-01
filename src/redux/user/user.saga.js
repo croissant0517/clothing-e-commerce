@@ -2,7 +2,15 @@ import { takeLatest, put, all, call } from "redux-saga/effects";
 
 import { UserActionTypes } from "./user.action.type";
 
-import { auth, goolgeProvider, Facebookprovider, createUserProfileDocument, getCurrentUser, storage, firestore } from "../../firebase/firebase.utils";
+import { 
+    auth, 
+    goolgeProvider, 
+    Facebookprovider, 
+    createUserProfileDocument, 
+    getCurrentUser, 
+    storage, 
+    firestore 
+} from "../../firebase/firebase.utils";
 
 import {
     signInSuccess,
@@ -21,7 +29,7 @@ import {
     userResetPasswardFailure,
 } from "./user.action";
 
-import { addItem } from "../cart/cart.action";
+import { userSignInAddItemBack } from "../cart/cart.action";
 
 export function* signUp(signUpObject) {
     // 得到的是signUpObject這個action(一個object)
@@ -55,8 +63,9 @@ export function* signInWithEmail(signInWithEmailActionObject) {
         const userRef = yield call(createUserProfileDocument, data.user);
         const userSnapShot = yield userRef.get();
         yield put(signInSuccess({ id: userData.uid, displayName: userData.displayName, email: userData.email, photoURL: userData.photoURL, phoneNumber: userData.phoneNumber }));
+        // 用戶登入時將登出前的購物車商品恢復
         for(let i = 0; i < userSnapShot.data().cartItems.length; i++) {
-            yield put(addItem(userSnapShot.data().cartItems[i]));
+            yield put(userSignInAddItemBack(userSnapShot.data().cartItems[i]));
         }
     }catch(error) {
         yield put(signInFailure(error.code))
@@ -74,8 +83,9 @@ export function* signInWithGoogle() {
         const userRef = yield call(createUserProfileDocument, userData);
         const userSnapShot = yield userRef.get();
         yield put(signInSuccess({ id: userData.uid, displayName: userData.displayName, email: userData.email, photoURL: userData.photoURL, phoneNumber: userData.phoneNumber }))
+        // 用戶登入時將登出前的購物車商品恢復
         for(let i = 0; i < userSnapShot.data().cartItems.length; i++) {
-            yield put(addItem(userSnapShot.data().cartItems[i]));
+            yield put(userSignInAddItemBack(userSnapShot.data().cartItems[i]));
         }
     }catch(error) {
         yield put(signInFailure(error.code))
@@ -93,8 +103,9 @@ export function* signInWithFacebook() {
         const userRef = yield call(createUserProfileDocument, userData);
         const userSnapShot = yield userRef.get();
         yield put(signInSuccess({ id: userData.uid, displayName: userData.displayName, email: userData.email, photoURL: userData.photoURL, phoneNumber: userData.phoneNumber }))
+        // 用戶登入時將登出前的購物車商品恢復
         for(let i = 0; i < userSnapShot.data().cartItems.length; i++) {
-            yield put(addItem(userSnapShot.data().cartItems[i]));
+            yield put(userSignInAddItemBack(userSnapShot.data().cartItems[i]));
         }
     }catch(error) {
         yield put(signInFailure(error.code))

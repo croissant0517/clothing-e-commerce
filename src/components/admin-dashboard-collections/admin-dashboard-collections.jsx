@@ -99,7 +99,6 @@ const AdminDashboardCollections = () => {
     }
 
     const createCollection = (values) => {
-        console.log('Received values of form: ', values);
         const { 
             title, 
             collectionImageUrl, 
@@ -134,7 +133,6 @@ const AdminDashboardCollections = () => {
     const saveCollection = async (key) => {
         try {
             const row = await form.validateFields();
-            console.log(row);
             axios({
                 method: "PUT",
                 url: `${API_URL}/admin/collections/update`,
@@ -191,14 +189,17 @@ const AdminDashboardCollections = () => {
     };
 
     const createItem = (values, collectionKey) => {
-        console.log('Received values of form: ', values);
-        console.log(collectionKey);
         const uid = collectionKey;
         const {  
             name, 
             price, 
             itemImageUrl 
         } = values;
+        const createUniqueId = () => {
+            return String.fromCharCode(Math.floor(Math.random() * 26) + 97)
+                + Math.random().toString(16).slice(2)
+                + Date.now().toString(16).slice(4);
+        };
         axios({
             method: "POST",
             url: `${API_URL}/admin/collections/item/add`,
@@ -209,6 +210,7 @@ const AdminDashboardCollections = () => {
             data: {
                 uid: uid,
                 item: {
+                    id: createUniqueId(),
                     name: name,
                     price: price,
                     imageUrl: itemImageUrl,
@@ -216,7 +218,6 @@ const AdminDashboardCollections = () => {
             },
         })
         .then((res) => {
-            console.log(res);
             setAddItemModalVisible(false);
             handleGetCollections();
             message.success("Success create item")
@@ -231,10 +232,8 @@ const AdminDashboardCollections = () => {
     };
 
     const saveItem = async (item) => {
-        console.log(item);
         try {
             const row = await form.validateFields();
-            console.log(row);
             axios({
                 method: "PUT",
                 url: `${API_URL}/admin/collections/item/update`,
@@ -251,7 +250,6 @@ const AdminDashboardCollections = () => {
                 },
             })
             .then((res) => {
-                console.log(res);
                 setEditingKey('');
                 handleGetCollections();
                 message.success("Success save")
@@ -264,12 +262,11 @@ const AdminDashboardCollections = () => {
                 }
             })
         } catch (errInfo) {
-            console.log('Validate Failed:', errInfo);
+            message.error(errInfo);
         }
     };
 
     const deleteItem = (item) => {
-        console.log(item);
         axios({
             method: "DELETE",
             url: `${API_URL}/admin/collections/item/delete`,

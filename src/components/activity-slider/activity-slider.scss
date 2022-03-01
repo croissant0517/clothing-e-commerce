@@ -1,0 +1,30 @@
+.activity-slider-container {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    background-color: rgb(32, 32, 32);
+    height: 50px;
+    color: whitesmoke;
+    z-index: -1;
+
+    .slide-active {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+        animation: slide-in 1000ms ease;
+    }
+
+    .slide {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: 0.5s cubic-bezier(0.25,0.1,0.25,1);
+    }
+}
+
+@keyframes slide-in {
+    from{transform:translateY(120%)}
+    to{transform:translateY(0%)}
+}

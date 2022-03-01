@@ -1,10 +1,11 @@
 .footer-container {
+    // border-top: 0.1px solid #1c1d1f;
+    // border-bottom: 0.1px solid #1c1d1f;
     padding: 5rem calc((100vw - 1100px) / 2);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    color: white;
-    text-shadow: 0.1em 0.1em 0.2em black;
-    background: #1c1d1f;
+    color: #1c1d1f;
+    background: #fafafb;
 
     .footer-link-wrapper{
         display: grid;
@@ -44,7 +45,7 @@
             }
 
             .footer-link {
-                color: white;
+                color: #1c1d1f;
                 margin-bottom: 0.5rem;
                 font-size: 14px;
 
@@ -55,4 +56,12 @@
             }
         }
     }
+}
+
+.copyright {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    color: gray;
+    font-size: 1rem;
 }

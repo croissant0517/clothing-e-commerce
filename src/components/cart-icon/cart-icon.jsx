@@ -13,13 +13,13 @@ const CartIcon = (props) => {
   const dispatch = useDispatch();
 
   return (
-      <div className = "cart-icon" onClick = {() => dispatch(toggleCartHidden())} >
-        <IconContext.Provider value={props.ChangColor ? { color: '#1c1d1f', size: '45px' } : { color: 'white', size: '45px' }}>
+      <div className = "cart-icon-container" onClick = {() => dispatch(toggleCartHidden())}>
+        <IconContext.Provider value={props.value}>
           <div>
             <GiShoppingBag />
           </div>
         </IconContext.Provider>
-        <span className = { `${props.ChangColor ? "" : "shadow-item-count"} item-count` } >{itemCount}</span>    
+        <span className = "item-count" >{itemCount}</span>    
       </div>
   );    
 }

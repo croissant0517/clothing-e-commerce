@@ -1,4 +1,44 @@
 .collection-overview {
     display: flex;
     flex-direction: column;
+
+    .item-oreview-images-container {
+        display: flex;
+        width: 100%;
+        height: 400px;
+        margin-bottom: 5vw;
+
+        .item-oreview-images {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            margin: 10px;
+            cursor: pointer;
+
+            .item-oreview-image{
+                width: 100%;
+                height: 95%;
+                background-position: center;
+                background-size: cover;
+                border-radius: 8px;
+            }
+
+            .title {
+                width: 100%;
+                height: 5%;
+                text-align: center;
+                margin-top: 20px;
+            }
+        }
+
+
+    }
+
+    @media (max-width: 1000px) {
+        .item-oreview-images-container {
+            height: 100%;
+            flex-wrap: wrap;
+        }
+    }
 }
