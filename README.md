@@ -8,7 +8,6 @@
 
 > [管理後台](https://overfit-vic.herokuapp.com/admin)：測試帳號 admin0103 / 密碼: admin55110103
 
-
 ![](https://github.com/croissant0517/clothing-e-commerce/blob/master/readFiles/front%20page%20intro%201.gif)
 ![](https://github.com/croissant0517/clothing-e-commerce/blob/master/readFiles/front%20page%20intro%202.png)
 ![](https://github.com/croissant0517/clothing-e-commerce/blob/master/readFiles/front%20page%20intro%204.png)
@@ -113,13 +112,9 @@
 
 ### 管理後台
 
-- 會員、訂單及商品頁面相互連結，方便店家進行管理。
+- 會員、訂單、商品、輪播圖、活動捲軸文字皆可在後台進行管理。
 
-![](https://i.imgur.com/0yfTYF7.gif)
-
-- 使用搜尋、篩選功能輕鬆找到所需資料
-
-![](https://i.imgur.com/O7UFeWk.gif)
+![](https://github.com/croissant0517/clothing-e-commerce/blob/master/readFiles/admin-dashboard-feature-overview.gif)
 
 ## 功能地圖
 
@@ -137,15 +132,14 @@
 
 安裝此專案所需的第三方套件
 
-#### `yarn start`
+#### `npm start`
 
 在 [http://localhost:3000](http://localhost:3000) 上啟動此專案
 
-#### `yarn build`
+#### `npm build`
 
 在 `build` 資料夾中建立此專案的 production 版本
 
 ## 專案連結
 
-- [DAYEAYEAYEA 後端專案](https://github.com/dingdingdingliu/Dayeayeayea-backend)
-- [API 文件](https://api.coolizz.tw/api-docs/)
+- [OVERFIT 後端專案](https://github.com/dingdingdingliu/Dayeayeayea-backend)
