@@ -92,23 +92,23 @@
 
 - 將商品一鍵加入購物車，icon 會同步顯示購物車商品數量。
 
-![](https://i.imgur.com/yf4qRMV.gif)
+![](https://github.com/croissant0517/clothing-e-commerce/blob/master/readFiles/add-item-to-cart.gif)
 
 - 點選購物車Checkout按鈕即可前往結賬頁面，做最後數量調整。
 
-![](https://i.imgur.com/WG34LAi.gif)
+![](https://github.com/croissant0517/clothing-e-commerce/blob/master/readFiles/check-cart-go-checkout-page.gif)
 
 - 結帳時可自動帶入會員資訊。
 
-![](https://i.imgur.com/0dj0Ma2.gif)
+![](https://github.com/croissant0517/clothing-e-commerce/blob/master/readFiles/fill-in-shipping-info.gif)
 
 - 使用信用卡進行付款。
 
-![](https://i.imgur.com/j1RwrD5.gif)
+![](https://github.com/croissant0517/clothing-e-commerce/blob/master/readFiles/fill-in-credit-card-info.gif)
 
 - 顯示結帳確認畫面。
 
-![](https://i.imgur.com/j1RwrD5.gif)
+![](https://github.com/croissant0517/clothing-e-commerce/blob/master/readFiles/display-charge-info.png)
 
 ### 管理後台
 
