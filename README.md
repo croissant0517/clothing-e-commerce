@@ -11,7 +11,7 @@
 
 ![](https://github.com/croissant0517/clothing-e-commerce/blob/master/readFiles/front%20page%20intro%201.gif)
 ![](https://github.com/croissant0517/clothing-e-commerce/blob/master/readFiles/front%20page%20intro%202.png)
-![](https://github.com/croissant0517/clothing-e-commerce/blob/master/readFiles/front%20page%20intro%203.png)
+![](https://github.com/croissant0517/clothing-e-commerce/blob/master/readFiles/front%20page%20intro%204.png)
 
 ## 使用技術和第三方套件
 
