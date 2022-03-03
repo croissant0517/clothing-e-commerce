@@ -38,7 +38,7 @@ const PaymentStatus = () => {
               paymentMethodTypes: paymentIntent.payment_method_types[0],
             }
           }).then(() => {
-            console.log("Document successfully written!");
+            dispatch(clearCart());
           })
           .catch((error) => {
               console.error("Error writing document: ", error);
@@ -48,7 +48,7 @@ const PaymentStatus = () => {
           setOrderCompletTime(snapShot.data().orderCreatedTime);
         }
       })
-    }, [cartItems])
+    }, [cartItems, dispatch])
 
   const handleGetTime = () => {
     const mounthArray = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
@@ -95,7 +95,6 @@ const PaymentStatus = () => {
         switch (paymentIntent.status) {
           case 'succeeded':
             handleAddOrderToFirestore(paymentIntent);
-            dispatch(clearCart());
             setMessage('Success! Payment received.');
             setResultMessage("Your order has been placed. We'll send you an email with your order details.");
             break;
