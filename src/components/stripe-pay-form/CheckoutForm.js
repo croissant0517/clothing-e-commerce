@@ -32,6 +32,7 @@ const CheckoutForm = (props) => {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
+        // Deploy on firebase Hosting
         return_url: (process.env.NODE_ENV === "development") ? 
         "https://localhost:3000/checkout/complet"
         :
