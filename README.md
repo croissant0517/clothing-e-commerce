@@ -4,9 +4,9 @@
 
 這是一個使用 React 建立的電子商務前端專案，打造購物網站及管理後台。使用者分為一般消費者和店家管理員，消費者可在前台網站享受流暢的購物體驗、管理會員資料及查看訂單紀錄，而管理員則可以在後台針對前台內容進行管理。
 
-> [OVETFIT](https://overfit-vic.herokuapp.com)
+> [OVETFIT](https://clothing-e-commerce-db-f3d88.web.app/)
 
-> [管理後台](https://overfit-vic.herokuapp.com/admin)：測試帳號 admin0103 / 密碼: admin55110103
+> [管理後台](https://clothing-e-commerce-db-f3d88.web.app/admin)：測試帳號 admin0103 / 密碼: admin55110103
 
 ![](https://github.com/croissant0517/clothing-e-commerce/blob/master/readFiles/front%20page%20intro%201.gif)
 ![](https://github.com/croissant0517/clothing-e-commerce/blob/master/readFiles/front%20page%20intro%202.png)
@@ -25,7 +25,7 @@
 - [axios](https://axios-http.com/) - 處理HTTP請求
 - [firebase](https://firebase.google.com/) - 使用firebase Auth實作會員登入及註冊功能，並利用firestore作為資料庫
 - [Ant-Design](https://ant.design/index-cn) - 輔助打造後台管理頁面
-- Heroku - 部署網站
+- firebase hosting - 部署網站
 
 
 ## 功能介紹
