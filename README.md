@@ -120,11 +120,11 @@
 
 ### 前台：
 
-![](https://i.imgur.com/Jh9nlrA.jpg)
+![](https://github.com/croissant0517/clothing-e-commerce/blob/master/readFiles/shop-function-chart.jpg)
 
 ### 後台：
 
-![](https://i.imgur.com/h41DhVL.jpg)
+![](https://github.com/croissant0517/clothing-e-commerce/blob/master/readFiles/admin-function-chart.jpg)
 
 ## 如何執行
 
