@@ -142,4 +142,4 @@
 
 ## 專案連結
 
-- [OVERFIT 後端專案](https://github.com/dingdingdingliu/Dayeayeayea-backend)
+- [OVERFIT 後端專案](https://github.com/croissant0517/clothing-e-commerce-backend)
