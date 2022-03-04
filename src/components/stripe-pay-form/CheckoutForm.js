@@ -35,7 +35,7 @@ const CheckoutForm = (props) => {
         return_url: (process.env.NODE_ENV === "development") ? 
         "https://localhost:3000/checkout/complet"
         :
-        "https://overfit-vic.herokuapp.com/checkout/complet",
+        "https://clothing-e-commerce-db-f3d88.web.app/checkout/complet",
         receipt_email: props.email,
         shipping: props.shipping,
       },
